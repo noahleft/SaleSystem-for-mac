@@ -11,4 +11,15 @@ import Cocoa
 
 class FormViewController: NSViewController {
     
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("Form List")
+        
+    }
+    
+    
+    
 }

@@ -11,4 +11,13 @@ import Cocoa
 
 class ProductViewController: NSViewController {
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("Product List")
+        
+    }
+    
+    
 }

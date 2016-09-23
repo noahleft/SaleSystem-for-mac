@@ -11,4 +11,16 @@ import Cocoa
 
 class CompanyViewController: NSViewController {
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        dbManager.loadCompanyList()
+        
+    }
+    
+    
+    
+    
+    
 }
