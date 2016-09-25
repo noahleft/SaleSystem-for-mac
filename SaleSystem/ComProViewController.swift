@@ -12,17 +12,39 @@ import Cocoa
 class ComProViewController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var proTableView: NSTableView!
+    @IBOutlet weak var ComProSeg: NSSegmentedControl!
+    
+    @IBOutlet weak var comTableScrollView: NSScrollView!
+    @IBOutlet weak var proTableScrollView: NSScrollView!
     
     var companyList: [COMPANY] = []
+    var productList: [PRODUCT] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         companyList = dbManager.loadCompanyList()
+        productList = dbManager.loadProductList()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        proTableView.delegate = self
+        proTableView.dataSource = self
     }
+    
+    @IBAction func pressSegControl(_ sender: NSSegmentedControl) {
+        if sender.selectedSegment == 0 {
+            comTableScrollView.isHidden = false
+            proTableScrollView.isHidden = true
+        }
+        else {
+            comTableScrollView.isHidden = true
+            proTableScrollView.isHidden = false
+        }
+    }
+    
     
 }
 
@@ -30,7 +52,12 @@ class ComProViewController: NSViewController {
 extension ComProViewController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return companyList.count
+        if tableView == self.tableView {
+            return companyList.count
+        }
+        else {
+            return productList.count
+        }
     }
     
 }
@@ -43,14 +70,24 @@ extension ComProViewController: NSTableViewDelegate {
         var cellIdentifier: String = ""
         
         // 1
-        let item = companyList[row]
+        var textName : String = ""
+        var textId : String = ""
+        
+        if tableView == self.tableView {
+            textName = companyList[row].Name
+            textId = "\(companyList[row].Id)"
+        }
+        else {
+            textName = productList[row].Name
+            textId = "\(productList[row].Id)"
+        }
         
         // 2
         if tableColumn == tableView.tableColumns[0] {
-            text = "\(item.Id)"
+            text = textId
             cellIdentifier = "IdCellID"
         } else if tableColumn == tableView.tableColumns[1] {
-            text = item.Name
+            text = textName
             cellIdentifier = "NameCellID"
         }
         
