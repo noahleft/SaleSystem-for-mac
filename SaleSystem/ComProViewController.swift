@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class CompanyViewController: NSViewController {
+class ComProViewController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
     
@@ -27,7 +27,7 @@ class CompanyViewController: NSViewController {
 }
 
 
-extension CompanyViewController: NSTableViewDataSource {
+extension ComProViewController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return companyList.count
@@ -35,7 +35,7 @@ extension CompanyViewController: NSTableViewDataSource {
     
 }
 
-extension CompanyViewController: NSTableViewDelegate {
+extension ComProViewController: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
