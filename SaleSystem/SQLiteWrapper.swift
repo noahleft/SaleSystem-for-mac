@@ -19,7 +19,9 @@ class SQLiteWrapper {
         
     }
     
-    func loadCompanyList() {
+    func loadCompanyList() -> [COMPANY] {
+        var retArray: [COMPANY] = []
+
         do {
             if let rPath = path {
                 let db = try Connection(rPath)
@@ -27,19 +29,20 @@ class SQLiteWrapper {
                 let users = Table("company")
                 let id = Expression<Int64>("ID")
                 let name = Expression<String?>("NAME")
-                
+                                
                 for user in try db.prepare(users) {
                     print("id: \(user[id]), name: \(user[name])")
                     // id: 1, name: Optional("Alice")
+                    let com = COMPANY(aId: Int(user[id]), aName: String(describing: user[name]!))
+                    retArray.append(com)
                 }
                 // SELECT * FROM "users"
             }
-            
-            
         }
         catch {
             print("db load fail")
         }
+        return retArray
     }
     
     
