@@ -13,3 +13,12 @@ func companyFilter(selectedComId: Int, unitPriceList: [UNITPRICE]) -> [UNITPRICE
         p.ComId == selectedComId
     }
 }
+
+func selectUnitPrice(selectedProId: Int, unitPriceList: [UNITPRICE]) -> Float {
+    for item in unitPriceList {
+        if item.ProId == selectedProId {
+            return item.UnitPrice
+        }
+    }
+    return -1
+}

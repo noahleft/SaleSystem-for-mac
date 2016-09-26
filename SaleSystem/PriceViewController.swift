@@ -17,6 +17,7 @@ class PriceViewController: NSViewController {
     var companyList: [COMPANY] = []
     var productList: [PRODUCT] = []
     var unitpriceList: [UNITPRICE] = []
+    var reducedUnitPriceList: [UNITPRICE] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,18 +46,25 @@ class PriceViewController: NSViewController {
             print("select none")
             let selectedCompId : Int = -1
             print("\(selectedCompId)")
+            
+            reducedUnitPriceList = []
+            
         }
         else {
             print("select company:\(companyList[selectedIndex-1].Name)")
             let selectedCompId : Int = companyList[selectedIndex-1].Id
             print("\(selectedCompId)")
             
-            let reducedUnitPriceList : [UNITPRICE] = companyFilter(selectedComId: selectedCompId, unitPriceList: unitpriceList)
+            reducedUnitPriceList = companyFilter(selectedComId: selectedCompId, unitPriceList: unitpriceList)
             
             for item in reducedUnitPriceList {
                 print("item: \(item.Id),product:\(item.ProId) belongs to company id:\(item.ComId) with unit price: \(item.UnitPrice)")
             }
             
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
         
     }
@@ -83,9 +91,19 @@ extension PriceViewController: NSTableViewDelegate {
         // 1
         var textName : String = ""
         var textId : String = ""
+        var textPrice : String = ""
         
         textName = productList[row].Name
         textId = "\(productList[row].Id)"
+        let selectedUnitPrice : Float = selectUnitPrice(selectedProId: productList[row].Id, unitPriceList: reducedUnitPriceList)
+        
+        if selectedUnitPrice == -1 {
+            textPrice = ""
+        }
+        else {
+            textPrice = "\(selectedUnitPrice)"
+        }
+        
         
         // 2
         if tableColumn == tableView.tableColumns[0] {
@@ -94,6 +112,9 @@ extension PriceViewController: NSTableViewDelegate {
         } else if tableColumn == tableView.tableColumns[1] {
             text = textName
             cellIdentifier = "NameCellID"
+        } else if tableColumn == tableView.tableColumns[2] {
+            text = textPrice
+            cellIdentifier = "PriceCellID"
         }
         
         // 3
