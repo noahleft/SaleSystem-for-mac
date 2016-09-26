@@ -38,6 +38,28 @@ class PriceViewController: NSViewController {
         
     }
     
+    @IBAction func clickPopupButton(_ sender: NSPopUpButton) {
+        let selectedIndex : Int = sender.indexOfSelectedItem
+        
+        if selectedIndex == 0 {
+            print("select none")
+            let selectedCompId : Int = -1
+            print("\(selectedCompId)")
+        }
+        else {
+            print("select company:\(companyList[selectedIndex-1].Name)")
+            let selectedCompId : Int = companyList[selectedIndex-1].Id
+            print("\(selectedCompId)")
+            
+            let reducedUnitPriceList : [UNITPRICE] = companyFilter(selectedComId: selectedCompId, unitPriceList: unitpriceList)
+            
+            for item in reducedUnitPriceList {
+                print("item: \(item.Id),product:\(item.ProId) belongs to company id:\(item.ComId) with unit price: \(item.UnitPrice)")
+            }
+            
+        }
+        
+    }
     
 }
 
