@@ -1,2 +1,4 @@
 *.storyboard
-
+Carthage/
+SQLite.swift-xcode8/
+.DS_Store
