@@ -34,6 +34,20 @@ class PRODUCT {
     
 }
 
+class UNITPRICE {
+    var Id : Int
+    var ComId : Int
+    var ProId : Int
+    var UnitPrice : Float
+    
+    init(aId: Int,aComId: Int,aProId: Int,aUnitPrice: Float) {
+        Id = aId
+        ComId = aComId
+        ProId = aProId
+        UnitPrice = aUnitPrice
+    }
+}
+
 class FORM {
     var Id : Int
     var Name : String
