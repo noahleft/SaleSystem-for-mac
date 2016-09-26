@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class ProductViewController: NSViewController {
+class PriceViewController: NSViewController {
     
     
     override func viewDidLoad() {
