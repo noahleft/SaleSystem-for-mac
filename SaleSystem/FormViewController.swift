@@ -11,6 +11,8 @@ import Cocoa
 
 class FormViewController: NSViewController {
     
+    @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var popUpButton: NSPopUpButton!
     
     
     override func viewDidLoad() {
