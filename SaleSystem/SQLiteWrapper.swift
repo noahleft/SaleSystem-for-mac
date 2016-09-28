@@ -99,6 +99,32 @@ class SQLiteWrapper {
         return retArray
     }
     
+    func loadFormList() -> [FORM] {
+        var retArray: [FORM] = []
+        
+        do {
+            if let rPath = path {
+                let db = try Connection(rPath)
+                
+                let users = Table("form")
+                let id = Expression<Int64>("ID")
+                let name = Expression<String?>("NAME")
+                
+                for user in try db.prepare(users) {
+                    print("id: \(user[id]), name: \(user[name])")
+                    // id: 1, name: Optional("Alice")
+                    let com = FORM(aId: Int(user[id]), aName: String(describing: user[name]!))
+                    retArray.append(com)
+                }
+                // SELECT * FROM "users"
+            }
+        }
+        catch {
+            print("db load fail")
+        }
+        return retArray
+    }
+    
 }
 
 let dbManager: SQLiteWrapper = SQLiteWrapper()

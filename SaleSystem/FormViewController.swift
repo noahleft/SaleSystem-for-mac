@@ -14,11 +14,16 @@ class FormViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var popUpButton: NSPopUpButton!
     
+    var companyList: [COMPANY] = []
+    var productList: [PRODUCT] = []
+    var formList:    [FORM]    = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Form List")
+        companyList = dbManager.loadCompanyList()
+        productList = dbManager.loadProductList()
+        formList    = dbManager.loadFormList()
         
     }
     
