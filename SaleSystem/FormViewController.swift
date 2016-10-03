@@ -21,9 +21,9 @@ class FormViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        companyList = dbManager.loadCompanyList()
-        productList = dbManager.loadProductList()
-        formList    = dbManager.loadFormList()
+        companyList = dataManager.getCompanyList()
+        productList = dataManager.getProductList()
+        formList    = dataManager.getFormList()
         
     }
     

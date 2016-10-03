@@ -22,8 +22,8 @@ class PriceViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        companyList = dbManager.loadCompanyList()
-        productList = dbManager.loadProductList()
+        companyList = dataManager.getCompanyList()
+        productList = dataManager.getProductList()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -35,7 +35,7 @@ class PriceViewController: NSViewController {
         }
         popUpButton.addItems(withTitles: comStrList)
         
-        unitpriceList = dbManager.loadUnitPriceList()
+        unitpriceList = dataManager.getUnitPriceList()
         
     }
     

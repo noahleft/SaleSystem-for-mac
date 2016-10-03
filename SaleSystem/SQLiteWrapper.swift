@@ -127,4 +127,4 @@ class SQLiteWrapper {
     
 }
 
-let dbManager: SQLiteWrapper = SQLiteWrapper()
+
