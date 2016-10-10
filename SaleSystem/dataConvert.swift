@@ -22,3 +22,9 @@ func selectUnitPrice(selectedProId: Int, unitPriceList: [UNITPRICE]) -> Float {
     }
     return -1
 }
+
+func dateFormatterForDisplay(date: Date) -> String {
+    let dateFormatter : DateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "YYYY-MM-dd"
+    return dateFormatter.string(from: date)
+}
