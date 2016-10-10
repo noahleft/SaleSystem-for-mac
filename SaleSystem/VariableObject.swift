@@ -57,3 +57,32 @@ class FORM {
         Name = aName
     }
 }
+
+class RECORD {
+    var Id : Int
+    var CompId : Int
+    var ProdId : Int
+    var FormId : Int
+    var CreatedDate : Date
+    var DeliverDate : Date
+    var UnitPrice : Float
+    var Quantity : Int
+    
+    init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Float,aQuantity: Int) {
+        Id = aId
+        CompId = aCompId
+        ProdId = aProdId
+        FormId = aFormId
+        CreatedDate = aCreatedDate
+        DeliverDate = aDeliverDate
+        UnitPrice = aUnitPrice
+        Quantity = aQuantity
+    }
+    
+    
+    
+}
+
+
+
+
