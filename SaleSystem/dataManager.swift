@@ -56,6 +56,12 @@ class DATAMANAGER {
         }
     }
     
+    func getRecordList(formId : Int, compId : Int) -> [RECORD] {
+        return recordList.filter{ (p) -> Bool in
+            p.FormId == formId && p.CompId == compId
+        }
+    }
+    
 }
 
 var dataManager: DATAMANAGER = DATAMANAGER()
