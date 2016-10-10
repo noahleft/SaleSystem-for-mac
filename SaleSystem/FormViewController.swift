@@ -29,12 +29,22 @@ class FormViewController: NSViewController {
         tableView.dataSource = self
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if identifier == "showFormInfo" {
+            if tableView.selectedRow == -1 {
+                return false
+            }
+        }
+        
+        return true
+    }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showFormInfo" {
             let nextViewController = segue.destinationController as! FormInfoViewController
-            nextViewController.FormId = 1
+            nextViewController.formId = formList[tableView.selectedRow].Id
         }
         
     }
