@@ -15,13 +15,14 @@ class DATAMANAGER {
     let productList : [PRODUCT]
     let priceList   : [UNITPRICE]
     let formList    : [FORM]
+    let recordList  : [RECORD]
     
     init() {
         companyList = dbManager.loadCompanyList()
         productList = dbManager.loadProductList()
         priceList   = dbManager.loadUnitPriceList()
         formList    = dbManager.loadFormList()
-        
+        recordList  = dbManager.loadRecordList()
     }
     
     func getCompanyList() -> [COMPANY] {
@@ -47,6 +48,12 @@ class DATAMANAGER {
             }
         }
         return nil
+    }
+    
+    func getRecordList(formId : Int) -> [RECORD] {
+        return recordList.filter{ (p) -> Bool in
+            p.FormId == formId
+        }
     }
     
 }
