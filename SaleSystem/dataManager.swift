@@ -16,6 +16,8 @@ class DATAMANAGER {
     let priceList   : [UNITPRICE]
     let formList    : [FORM]
     let recordList  : [RECORD]
+    var companyDict : [Int:String] = [:]
+    var productDict : [Int:String] = [:]
     
     init() {
         companyList = dbManager.loadCompanyList()
@@ -23,14 +25,35 @@ class DATAMANAGER {
         priceList   = dbManager.loadUnitPriceList()
         formList    = dbManager.loadFormList()
         recordList  = dbManager.loadRecordList()
+        
+        for item in companyList {
+            companyDict[item.Id] = item.Name
+        }
+        for item in productList {
+            productDict[item.Id] = item.Name
+        }
     }
     
     func getCompanyList() -> [COMPANY] {
         return companyList
     }
     
+    func getCompanyName(id : Int) -> String {
+        if let retString = companyDict[id] {
+            return retString
+        }
+        return ""
+    }
+    
     func getProductList() -> [PRODUCT] {
         return productList
+    }
+    
+    func getProductName(id : Int) -> String {
+        if let retString = productDict[id] {
+            return retString
+        }
+        return ""
     }
     
     func getUnitPriceList() -> [UNITPRICE] {
