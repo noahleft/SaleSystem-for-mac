@@ -65,10 +65,10 @@ class RECORD {
     var FormId : Int
     var CreatedDate : Date
     var DeliverDate : Date
-    var UnitPrice : Float
+    var UnitPrice : Double
     var Quantity : Int
     
-    init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Float,aQuantity: Int) {
+    init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Double,aQuantity: Int) {
         Id = aId
         CompId = aCompId
         ProdId = aProdId
