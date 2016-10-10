@@ -125,6 +125,45 @@ class SQLiteWrapper {
         return retArray
     }
     
+    func loadRecordList() -> [RECORD] {
+        var retArray: [RECORD] = []
+        
+        do {
+            if let rPath = path {
+                let db = try Connection(rPath)
+                
+                let users = Table("record")
+                let id = Expression<Int64>("ID")
+                let comp = Expression<Int64>("COMP_ID")
+                let prod = Expression<Int64>("PROD_ID")
+                let form = Expression<Int64>("FORM_ID")
+                let createdDate = Expression<String>("CREATED_DATE")
+                let deliverDate = Expression<String>("DELIVER_DATE")
+                let unitPrice = Expression<Double>("UNIT_PRICE")
+                let quantity = Expression<Int64>("QUANTITY")
+                
+                let SQL_dateFormatter : DateFormatter = DateFormatter()
+                SQL_dateFormatter.dateFormat = "YYYY-MM-dd"
+                
+                for user in try db.prepare(users) {
+                    
+                    let Date_createdDate : Date = SQL_dateFormatter.date(from: user[createdDate])!
+                    let Date_deliverDate : Date = SQL_dateFormatter.date(from: user[deliverDate])!
+                    
+                    print("id: \(user[id]), comp: \(user[comp]), prod: \(user[prod]), form: \(user[form]), createdDate: \(Date_createdDate), deliverDate: \(Date_deliverDate), unit_price: \(user[unitPrice]), quantity: \(user[quantity])")
+                    let com = RECORD(aId: Int(user[id]), aCompId: Int(user[comp]), aProdId: Int(user[prod]), aFormId: Int(user[form]),
+                                     aCreatedDate: Date_createdDate, aDeliverDate: Date_deliverDate, aUnitPrice: Double(user[unitPrice]), aQuantity: Int(user[quantity]))
+                    retArray.append(com)
+                }
+                // SELECT * FROM "users"
+            }
+        }
+        catch {
+            print("db load fail")
+        }
+        return retArray
+    }
+    
 }
 
 
