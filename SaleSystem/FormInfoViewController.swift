@@ -11,12 +11,22 @@ import Cocoa
 
 class FormInfoViewController: NSViewController {
     
-    var FormId : Int = -1
+    var formId : Int = -1
+    
+    @IBOutlet weak var labelName: NSTextField!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("print form id : \(self.FormId)")
+        print("print form id : \(self.formId)")
+        
+        if let formItem = dataManager.getForm(formId: formId) {
+            labelName.stringValue = formItem.Name
+        }
+        
+        
     }
     
     
