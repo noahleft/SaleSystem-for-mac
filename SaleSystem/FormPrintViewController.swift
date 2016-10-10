@@ -20,7 +20,7 @@ class FormPrintViewController: NSViewController {
         let path : String = Bundle.main.resourcePath!
         let pathURL : URL = URL(fileURLWithPath: path)
         
-        let htmlString:String = generateHTML(companyName: "APPLE", formName: "FORM")
+        let htmlString:String = generateHTML(companyName: "APPLE", formName: "FORM", recordList: dataManager.getRecordList(formId: 1, compId: 1))
         webView.mainFrame.loadHTMLString(htmlString, baseURL: pathURL)
         
     }
