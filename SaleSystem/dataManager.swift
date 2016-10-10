@@ -40,6 +40,15 @@ class DATAMANAGER {
         return formList
     }
     
+    func getForm(formId : Int) -> FORM? {
+        for item in formList {
+            if item.Id == formId {
+                return item
+            }
+        }
+        return nil
+    }
+    
 }
 
 var dataManager: DATAMANAGER = DATAMANAGER()
