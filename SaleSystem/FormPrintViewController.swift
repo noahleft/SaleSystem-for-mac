@@ -17,13 +17,12 @@ class FormPrintViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var htmlString:String = generateHTML()
-        webView.mainFrame.loadHTMLString(htmlString, baseURL: nil)
+        let path : String = Bundle.main.resourcePath!
+        let pathURL : URL = URL(fileURLWithPath: path)
         
-    }
-    
-    func generateHTML() -> String {
-        return "<br /><h2>Hello World!</h2>"
+        let htmlString:String = generateHTML(companyName: "APPLE", formName: "FORM")
+        webView.mainFrame.loadHTMLString(htmlString, baseURL: pathURL)
+        
     }
     
 }
