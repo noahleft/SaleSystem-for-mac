@@ -63,7 +63,7 @@ extension FormInfoViewController: NSTableViewDelegate {
         textId = "\(formInfoList[row].Id)"
         textCom = "\(formInfoList[row].CompId)"
         textPro = "\(formInfoList[row].ProdId)"
-        textDeliver = "\(formInfoList[row].DeliverDate)"
+        textDeliver = dateFormatterForDisplay(date: formInfoList[row].DeliverDate)
         textUnitPrice = "\(formInfoList[row].UnitPrice)"
         textQuantity = "\(formInfoList[row].Quantity)"
         
