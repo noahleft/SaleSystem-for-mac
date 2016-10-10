@@ -59,6 +59,7 @@ extension FormInfoViewController: NSTableViewDelegate {
         var textDeliver: String = ""
         var textUnitPrice : String = ""
         var textQuantity: String = ""
+        var textSum: String = ""
         
         textId = "\(formInfoList[row].Id)"
         textCom = "\(formInfoList[row].CompId)"
@@ -66,6 +67,11 @@ extension FormInfoViewController: NSTableViewDelegate {
         textDeliver = dateFormatterForDisplay(date: formInfoList[row].DeliverDate)
         textUnitPrice = "\(formInfoList[row].UnitPrice)"
         textQuantity = "\(formInfoList[row].Quantity)"
+        let up = formInfoList[row].UnitPrice
+        let qu : Double = Double(formInfoList[row].Quantity)
+        let sum = up * qu
+        
+        textSum = "\(sum)"
         
         // 2
         if tableColumn == tableView.tableColumns[0] {
@@ -86,6 +92,9 @@ extension FormInfoViewController: NSTableViewDelegate {
         } else if tableColumn == tableView.tableColumns[5] {
             text = textQuantity
             cellIdentifier = "QuanCellID"
+        } else if tableColumn == tableView.tableColumns[6] {
+            text = textSum
+            cellIdentifier = "SumCellID"
         }
         
         // 3
