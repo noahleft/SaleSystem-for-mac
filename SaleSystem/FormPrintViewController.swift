@@ -13,16 +13,24 @@ import WebKit
 class FormPrintViewController: NSViewController {
     
     @IBOutlet weak var webView: WebView!
+    @IBOutlet weak var popUpButton: NSPopUpButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        popUpButton.removeAllItems()
+        
+        
+        
+        loadWeb()
+    }
+    
+    func loadWeb() {
         let path : String = Bundle.main.resourcePath!
         let pathURL : URL = URL(fileURLWithPath: path)
         
         let htmlString:String = generateHTML(companyName: "APPLE", formName: "FORM", recordList: dataManager.getRecordList(formId: 1, compId: 1))
         webView.mainFrame.loadHTMLString(htmlString, baseURL: pathURL)
-        
     }
     
 }

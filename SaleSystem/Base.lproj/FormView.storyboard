@@ -525,6 +525,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="popUpButton" destination="WYz-jE-2Hk" id="T27-sM-Mcv"/>
                         <outlet property="webView" destination="dAL-G5-WO8" id="r2N-HE-KcO"/>
                     </connections>
                 </viewController>
