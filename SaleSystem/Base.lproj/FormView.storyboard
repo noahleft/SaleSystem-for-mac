@@ -444,7 +444,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="vuL-tc-51X" kind="modal" id="vNM-Ob-0qu"/>
+                                    <segue destination="vuL-tc-51X" kind="modal" identifier="showFormPrint" id="vNM-Ob-0qu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -493,6 +493,9 @@
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="clickPopUpButton:" target="vuL-tc-51X" id="tuv-gR-O42"/>
+                                </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LU0-Yw-Qbv">
                                 <rect key="frame" x="18" y="250" width="174" height="30"/>

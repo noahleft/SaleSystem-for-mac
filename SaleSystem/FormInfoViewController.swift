@@ -34,6 +34,14 @@ class FormInfoViewController: NSViewController {
         
     }
     
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showFormPrint" {
+            let nextViewController = segue.destinationController as! FormPrintViewController
+            nextViewController.formId = formId
+        }
+        
+    }
     
 }
 
