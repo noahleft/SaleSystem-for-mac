@@ -528,6 +528,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="labelName" destination="LU0-Yw-Qbv" id="sYx-Y8-H8M"/>
                         <outlet property="popUpButton" destination="WYz-jE-2Hk" id="T27-sM-Mcv"/>
                         <outlet property="webView" destination="dAL-G5-WO8" id="r2N-HE-KcO"/>
                     </connections>

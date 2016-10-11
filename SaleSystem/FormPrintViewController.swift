@@ -15,11 +15,19 @@ class FormPrintViewController: NSViewController {
     var formId : Int = -1
     @IBOutlet weak var webView: WebView!
     @IBOutlet weak var popUpButton: NSPopUpButton!
+    @IBOutlet weak var labelName: NSTextField!
     
     var companyList : [COMPANY] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let formItem = dataManager.getForm(formId: formId) {
+            labelName.stringValue = "列印 " + formItem.Name
+        }
+        else {
+            labelName.stringValue = "null"
+        }
         
         companyList = dataManager.getCompanyList()
         
