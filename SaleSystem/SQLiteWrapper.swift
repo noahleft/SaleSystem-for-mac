@@ -11,12 +11,20 @@ import SQLite
 
 class SQLiteWrapper {
     
-    let path: String?
+    var path: String?
     
     init() {
-        path = Bundle.main.path(forResource: "sample", ofType: "db")
+        if let filePath = UserDefaults.standard.string(forKey: "database") {
+            print("\(filePath)")
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: filePath) {
+                path = filePath
+            }
+        }
+        else {
+            path = Bundle.main.path(forResource: "sample", ofType: "db")
+        }
         print(path)
-        
     }
     
     func loadCompanyList() -> [COMPANY] {

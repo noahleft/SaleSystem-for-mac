@@ -11,15 +11,30 @@ import Foundation
 class DATAMANAGER {
     
     let dbManager: SQLiteWrapper = SQLiteWrapper()
-    let companyList : [COMPANY]
-    let productList : [PRODUCT]
-    let priceList   : [UNITPRICE]
-    let formList    : [FORM]
-    let recordList  : [RECORD]
+    var companyList : [COMPANY] = []
+    var productList : [PRODUCT] = []
+    var priceList   : [UNITPRICE] = []
+    var formList    : [FORM] = []
+    var recordList  : [RECORD] = []
     var companyDict : [Int:String] = [:]
     var productDict : [Int:String] = [:]
     
     init() {
+        triggerInitialEvent()
+    }
+    
+    func cleanup() {
+        companyList = []
+        productList = []
+        priceList = []
+        formList = []
+        recordList = []
+        companyDict = [:]
+        productDict = [:]
+    }
+    
+    func triggerInitialEvent()  {
+        cleanup()
         companyList = dbManager.loadCompanyList()
         productList = dbManager.loadProductList()
         priceList   = dbManager.loadUnitPriceList()
@@ -33,6 +48,7 @@ class DATAMANAGER {
             productDict[item.Id] = item.Name
         }
     }
+    
     
     func getCompanyList() -> [COMPANY] {
         return companyList
