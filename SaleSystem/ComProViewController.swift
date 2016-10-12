@@ -17,6 +17,7 @@ class ComProViewController: NSViewController {
     
     @IBOutlet weak var comTableScrollView: NSScrollView!
     @IBOutlet weak var proTableScrollView: NSScrollView!
+    @IBOutlet weak var labelName: NSTextField!
     
     var companyList: [COMPANY] = []
     var productList: [PRODUCT] = []
@@ -32,16 +33,20 @@ class ComProViewController: NSViewController {
         
         proTableView.delegate = self
         proTableView.dataSource = self
+        
+        labelName.stringValue = "公司列表"
     }
     
     @IBAction func pressSegControl(_ sender: NSSegmentedControl) {
         if sender.selectedSegment == 0 {
             comTableScrollView.isHidden = false
             proTableScrollView.isHidden = true
+            labelName.stringValue = "公司列表"
         }
         else {
             comTableScrollView.isHidden = true
             proTableScrollView.isHidden = false
+            labelName.stringValue = "產品列表"
         }
     }
     
