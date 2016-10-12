@@ -13,6 +13,7 @@ class PriceViewController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var popUpButton: NSPopUpButton!
+    @IBOutlet weak var labelName: NSTextField!
     
     var companyList: [COMPANY] = []
     var productList: [PRODUCT] = []
@@ -37,6 +38,7 @@ class PriceViewController: NSViewController {
         
         unitpriceList = dataManager.getUnitPriceList()
         
+        labelName.stringValue = "單價列表"
     }
     
     @IBAction func clickPopupButton(_ sender: NSPopUpButton) {
