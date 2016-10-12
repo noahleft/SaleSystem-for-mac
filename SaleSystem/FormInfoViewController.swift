@@ -70,8 +70,8 @@ extension FormInfoViewController: NSTableViewDelegate {
         var textSum: String = ""
         
         textId = "\(formInfoList[row].Id)"
-        textCom = "\(formInfoList[row].CompId)"
-        textPro = "\(formInfoList[row].ProdId)"
+        textCom = "\(dataManager.getCompanyName(id: formInfoList[row].CompId))"
+        textPro = "\(dataManager.getProductName(id: formInfoList[row].ProdId))"
         textDeliver = dateFormatterForDisplay(date: formInfoList[row].DeliverDate)
         textUnitPrice = "\(formInfoList[row].UnitPrice)"
         textQuantity = "\(formInfoList[row].Quantity)"
