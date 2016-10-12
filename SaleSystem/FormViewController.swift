@@ -13,6 +13,7 @@ class FormViewController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var popUpButton: NSPopUpButton!
+    @IBOutlet weak var labelName: NSTextField!
     
     var companyList: [COMPANY] = []
     var productList: [PRODUCT] = []
@@ -27,6 +28,8 @@ class FormViewController: NSViewController {
         
         tableView.delegate   = self
         tableView.dataSource = self
+        
+        labelName.stringValue = "表單列表"
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
