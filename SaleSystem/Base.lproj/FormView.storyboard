@@ -152,12 +152,12 @@
                 </viewController>
                 <customObject id="q15-1L-DZe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="332" y="1370"/>
+            <point key="canvasLocation" x="196" y="1418"/>
         </scene>
-        <!--Form Info View Controller-->
+        <!--Form Info-->
         <scene sceneID="czo-Md-bVK">
             <objects>
-                <viewController id="VY5-f7-cjs" customClass="FormInfoViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Form Info" id="VY5-f7-cjs" customClass="FormInfoViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="mYc-gr-jqw">
                         <rect key="frame" x="0.0" y="0.0" width="669" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -471,10 +471,10 @@
             </objects>
             <point key="canvasLocation" x="196.5" y="1911"/>
         </scene>
-        <!--Form Print View Controller-->
+        <!--Print-->
         <scene sceneID="xoX-DI-Oor">
             <objects>
-                <viewController id="vuL-tc-51X" customClass="FormPrintViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Print" id="vuL-tc-51X" customClass="FormPrintViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="qg5-lh-Ded">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
