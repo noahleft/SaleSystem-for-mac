@@ -15,6 +15,7 @@ class PriceViewController: NSViewController {
     @IBOutlet weak var popUpButton: NSPopUpButton!
     @IBOutlet weak var labelName: NSTextField!
     
+    
     var companyList: [COMPANY] = []
     var productList: [PRODUCT] = []
     var unitpriceList: [UNITPRICE] = []
@@ -39,6 +40,7 @@ class PriceViewController: NSViewController {
         unitpriceList = dataManager.getUnitPriceList()
         
         labelName.stringValue = "單價列表"
+        tableView.tableColumns[2].isHidden = true
     }
     
     @IBAction func clickPopupButton(_ sender: NSPopUpButton) {
@@ -50,6 +52,9 @@ class PriceViewController: NSViewController {
             print("\(selectedCompId)")
             
             reducedUnitPriceList = []
+            
+            
+            tableView.tableColumns[2].isHidden = true
             
         }
         else {
@@ -63,6 +68,7 @@ class PriceViewController: NSViewController {
                 print("item: \(item.Id),product:\(item.ProId) belongs to company id:\(item.ComId) with unit price: \(item.UnitPrice)")
             }
             
+            tableView.tableColumns[2].isHidden = false
         }
         
         DispatchQueue.main.async {
