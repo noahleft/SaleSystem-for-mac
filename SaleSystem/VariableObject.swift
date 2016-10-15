@@ -12,7 +12,18 @@ import Foundation
 // this file is created for variable definition
 // the definition is also used for storage (SQLite)
 
-class COMPANY {
+class COMPANY : NSObject {
+    var Id : Int
+    dynamic var Name : String
+    
+    init(aId: Int,aName: String) {
+        Id = aId
+        Name = aName
+    }
+    
+}
+
+class PRODUCT : NSObject {
     var Id : Int
     var Name : String
     
@@ -23,18 +34,7 @@ class COMPANY {
     
 }
 
-class PRODUCT {
-    var Id : Int
-    var Name : String
-    
-    init(aId: Int,aName: String) {
-        Id = aId
-        Name = aName
-    }
-    
-}
-
-class UNITPRICE {
+class UNITPRICE : NSObject {
     var Id : Int
     var ComId : Int
     var ProId : Int
@@ -48,7 +48,7 @@ class UNITPRICE {
     }
 }
 
-class FORM {
+class FORM : NSObject {
     var Id : Int
     var Name : String
     
@@ -58,7 +58,7 @@ class FORM {
     }
 }
 
-class RECORD {
+class RECORD : NSObject {
     var Id : Int
     var CompId : Int
     var ProdId : Int
