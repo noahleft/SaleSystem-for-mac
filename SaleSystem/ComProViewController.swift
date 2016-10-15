@@ -32,15 +32,6 @@ class ComProViewController: NSViewController {
         companyList = dataManager.getCompanyList()
         productList = dataManager.getProductList()
         
-        self.addObserver(self, forKeyPath: "companyList", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
-        
-        
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        
-//        proTableView.delegate = self
-//        proTableView.dataSource = self
-        
         labelName.stringValue = "公司列表"
     }
     
@@ -96,78 +87,6 @@ class ComProViewController: NSViewController {
     }
     
     
-    
-    
 }
-
-
-//extension ComProViewController: NSTableViewDataSource {
-//    
-//    func numberOfRows(in tableView: NSTableView) -> Int {
-//        if tableView == self.tableView {
-//            return companyList.count
-//        }
-//        else {
-//            return productList.count
-//        }
-//    }
-//    
-//}
-//
-//extension ComProViewController: NSTableViewDelegate {
-//    
-//    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-//        
-//        var text:String = ""
-//        var cellIdentifier: String = ""
-//        
-//        // 1
-//        var textName : String = ""
-//        var textId : String = ""
-//        
-//        if tableView == self.tableView {
-//            textName = companyList[row].Name
-//            textId = "\(companyList[row].Id)"
-//        }
-//        else {
-//            textName = productList[row].Name
-//            textId = "\(productList[row].Id)"
-//        }
-//        
-//        // 2
-//        if tableColumn == tableView.tableColumns[0] {
-//            text = textId
-//            cellIdentifier = "IdCellID"
-//        } else if tableColumn == tableView.tableColumns[1] {
-//            text = textName
-//            cellIdentifier = "NameCellID"
-//        }
-//        
-//        // 3
-//        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
-//            cell.textField?.stringValue = text
-//            return cell
-//        }
-//        return nil
-//    }
-//    
-//    override func controlTextDidEndEditing(_ obj: Notification) {
-//        print("end of change")
-//    }
-//    
-//    override func controlTextDidChange(_ obj: Notification) {
-//        print("changing")
-//        let userInfo : [String:String] = obj.userInfo as! [String : String]
-//        let view = userInfo["NSFieldEditor"]
-//        print("\(view)")
-//    }
-//    
-//    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
-////        NSLog(@"control: textShouldEndEditing >%@<", [fieldEditor string] );
-//        print("\(control) : textShouldEndEditing \(fieldEditor)")
-//        return true
-//    }
-//    
-//}
 
 

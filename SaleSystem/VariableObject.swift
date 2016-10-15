@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 // variable object
 // this file is created for variable definition
@@ -14,13 +15,34 @@ import Foundation
 
 class COMPANY : NSObject {
     var Id : Int
-    dynamic var Name : String
+    var Name : String
+    dynamic var DisplayName : String
+    var valueChanged : Bool {
+        return Name != DisplayName
+    }
+    dynamic var TextColor : NSColor = NSColor.black
     
     init(aId: Int,aName: String) {
         Id = aId
         Name = aName
+        DisplayName = aName
+        super.init()
+        
+        addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if valueChanged {
+            TextColor = NSColor.red
+        }
+        else {
+            TextColor = NSColor.black
+        }
+    }
+    
+    deinit {
+        removeObserver(self, forKeyPath: "DisplayName")
+    }
 }
 
 class PRODUCT : NSObject {
