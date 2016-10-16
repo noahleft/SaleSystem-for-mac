@@ -27,8 +27,8 @@ class SQLiteWrapper {
         print(path)
     }
     
-    func loadCompanyList() -> [COMPANY] {
-        var retArray: [COMPANY] = []
+    func loadCompanyList() -> [SQL_COMPANY] {
+        var retArray: [SQL_COMPANY] = []
 
         do {
             if let rPath = path {
@@ -39,9 +39,9 @@ class SQLiteWrapper {
                 let name = Expression<String?>("NAME")
                                 
                 for user in try db.prepare(users) {
-                    print("id: \(user[id]), name: \(user[name])")
+//                    print("id: \(user[id]), name: \(user[name])")
                     // id: 1, name: Optional("Alice")
-                    let com = COMPANY(aId: Int(user[id]), aName: String(describing: user[name]!))
+                    let com = SQL_COMPANY(aId: Int(user[id]), aName: String(describing: user[name]!))
                     retArray.append(com)
                 }
                 // SELECT * FROM "users"
@@ -53,8 +53,8 @@ class SQLiteWrapper {
         return retArray
     }
     
-    func loadProductList() -> [PRODUCT] {
-        var retArray: [PRODUCT] = []
+    func loadProductList() -> [SQL_PRODUCT] {
+        var retArray: [SQL_PRODUCT] = []
         
         do {
             if let rPath = path {
@@ -65,9 +65,9 @@ class SQLiteWrapper {
                 let name = Expression<String?>("NAME")
                 
                 for user in try db.prepare(users) {
-                    print("id: \(user[id]), name: \(user[name])")
+//                    print("id: \(user[id]), name: \(user[name])")
                     // id: 1, name: Optional("Alice")
-                    let com = PRODUCT(aId: Int(user[id]), aName: String(describing: user[name]!))
+                    let com = SQL_PRODUCT(aId: Int(user[id]), aName: String(describing: user[name]!))
                     retArray.append(com)
                 }
                 // SELECT * FROM "users"
@@ -79,8 +79,8 @@ class SQLiteWrapper {
         return retArray
     }
     
-    func loadUnitPriceList() -> [UNITPRICE] {
-        var retArray: [UNITPRICE] = []
+    func loadUnitPriceList() -> [SQL_UNITPRICE] {
+        var retArray: [SQL_UNITPRICE] = []
         
         do {
             if let rPath = path {
@@ -93,9 +93,9 @@ class SQLiteWrapper {
                 let price = Expression<Double>("UNIT_PRICE")
                 
                 for user in try db.prepare(users) {
-                    print("id: \(user[id]), comp_id: \(user[comId]), prod_id: \(user[proId]), unit_price: \(user[price])")
+//                    print("id: \(user[id]), comp_id: \(user[comId]), prod_id: \(user[proId]), unit_price: \(user[price])")
                     // id: 1, name: Optional("Alice")
-                    let com = UNITPRICE(aId: Int(user[id]), aComId: Int(user[comId]), aProId: Int(user[proId]), aUnitPrice: Float(user[price]))
+                    let com = SQL_UNITPRICE(aId: Int(user[id]), aComId: Int(user[comId]), aProId: Int(user[proId]), aUnitPrice: Float(user[price]))
                     retArray.append(com)
                 }
                 // SELECT * FROM "users"
@@ -107,8 +107,8 @@ class SQLiteWrapper {
         return retArray
     }
     
-    func loadFormList() -> [FORM] {
-        var retArray: [FORM] = []
+    func loadFormList() -> [SQL_FORM] {
+        var retArray: [SQL_FORM] = []
         
         do {
             if let rPath = path {
@@ -119,9 +119,9 @@ class SQLiteWrapper {
                 let name = Expression<String?>("NAME")
                 
                 for user in try db.prepare(users) {
-                    print("id: \(user[id]), name: \(user[name])")
+//                    print("id: \(user[id]), name: \(user[name])")
                     // id: 1, name: Optional("Alice")
-                    let com = FORM(aId: Int(user[id]), aName: String(describing: user[name]!))
+                    let com = SQL_FORM(aId: Int(user[id]), aName: String(describing: user[name]!))
                     retArray.append(com)
                 }
                 // SELECT * FROM "users"
@@ -133,8 +133,8 @@ class SQLiteWrapper {
         return retArray
     }
     
-    func loadRecordList() -> [RECORD] {
-        var retArray: [RECORD] = []
+    func loadRecordList() -> [SQL_RECORD] {
+        var retArray: [SQL_RECORD] = []
         
         do {
             if let rPath = path {
@@ -158,8 +158,8 @@ class SQLiteWrapper {
                     let Date_createdDate : Date = SQL_dateFormatter.date(from: user[createdDate])!
                     let Date_deliverDate : Date = SQL_dateFormatter.date(from: user[deliverDate])!
                     
-                    print("id: \(user[id]), comp: \(user[comp]), prod: \(user[prod]), form: \(user[form]), createdDate: \(Date_createdDate), deliverDate: \(Date_deliverDate), unit_price: \(user[unitPrice]), quantity: \(user[quantity])")
-                    let com = RECORD(aId: Int(user[id]), aCompId: Int(user[comp]), aProdId: Int(user[prod]), aFormId: Int(user[form]),
+//                    print("id: \(user[id]), comp: \(user[comp]), prod: \(user[prod]), form: \(user[form]), createdDate: \(Date_createdDate), deliverDate: \(Date_deliverDate), unit_price: \(user[unitPrice]), quantity: \(user[quantity])")
+                    let com = SQL_RECORD(aId: Int(user[id]), aCompId: Int(user[comp]), aProdId: Int(user[prod]), aFormId: Int(user[form]),
                                      aCreatedDate: Date_createdDate, aDeliverDate: Date_deliverDate, aUnitPrice: Double(user[unitPrice]), aQuantity: Int(user[quantity]))
                     retArray.append(com)
                 }

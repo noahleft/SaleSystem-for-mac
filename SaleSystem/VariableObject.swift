@@ -11,7 +11,8 @@ import Cocoa
 
 // variable object
 // this file is created for variable definition
-// the definition is also used for storage (SQLite)
+// the definition is used for dataManager
+// the variable can init by SQL_VariableObject
 
 class COMPANY : NSObject {
     var Id : Int
@@ -21,6 +22,15 @@ class COMPANY : NSObject {
         return Name != DisplayName
     }
     dynamic var TextColor : NSColor = NSColor.black
+    
+    init(sqlCom: SQL_COMPANY) {
+        Id = sqlCom.Id
+        Name = sqlCom.Name
+        DisplayName = sqlCom.Name
+        super.init()
+        
+        addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+    }
     
     init(aId: Int,aName: String) {
         Id = aId
@@ -49,6 +59,11 @@ class PRODUCT : NSObject {
     var Id : Int
     var Name : String
     
+    init(sqlPro: SQL_PRODUCT) {
+        Id = sqlPro.Id
+        Name = sqlPro.Name
+    }
+    
     init(aId: Int,aName: String) {
         Id = aId
         Name = aName
@@ -62,6 +77,13 @@ class UNITPRICE : NSObject {
     var ProId : Int
     var UnitPrice : Float
     
+    init(sqlUnitPrice: SQL_UNITPRICE) {
+        Id = sqlUnitPrice.Id
+        ComId = sqlUnitPrice.ComId
+        ProId = sqlUnitPrice.ProId
+        UnitPrice = sqlUnitPrice.UnitPrice
+    }
+    
     init(aId: Int,aComId: Int,aProId: Int,aUnitPrice: Float) {
         Id = aId
         ComId = aComId
@@ -73,6 +95,11 @@ class UNITPRICE : NSObject {
 class FORM : NSObject {
     var Id : Int
     var Name : String
+    
+    init(sqlForm: SQL_FORM) {
+        Id = sqlForm.Id
+        Name = sqlForm.Name
+    }
     
     init(aId: Int,aName: String) {
         Id = aId
@@ -89,6 +116,17 @@ class RECORD : NSObject {
     var DeliverDate : Date
     var UnitPrice : Double
     var Quantity : Int
+    
+    init(sqlRecord: SQL_RECORD) {
+        Id = sqlRecord.Id
+        CompId = sqlRecord.CompId
+        ProdId = sqlRecord.ProdId
+        FormId = sqlRecord.FormId
+        CreatedDate = sqlRecord.CreatedDate
+        DeliverDate = sqlRecord.DeliverDate
+        UnitPrice = sqlRecord.UnitPrice
+        Quantity = sqlRecord.Quantity
+    }
     
     init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Double,aQuantity: Int) {
         Id = aId

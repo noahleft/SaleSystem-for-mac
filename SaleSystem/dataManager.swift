@@ -11,11 +11,11 @@ import Foundation
 class DATAMANAGER {
     
     let dbManager: SQLiteWrapper = SQLiteWrapper()
-    var companyList : [COMPANY] = []
-    var productList : [PRODUCT] = []
-    var priceList   : [UNITPRICE] = []
-    var formList    : [FORM] = []
-    var recordList  : [RECORD] = []
+    var companyList : [SQL_COMPANY] = []
+    var productList : [SQL_PRODUCT] = []
+    var priceList   : [SQL_UNITPRICE] = []
+    var formList    : [SQL_FORM] = []
+    var recordList  : [SQL_RECORD] = []
     var companyDict : [Int:String] = [:]
     var productDict : [Int:String] = [:]
     
@@ -51,7 +51,9 @@ class DATAMANAGER {
     
     
     func getCompanyList() -> [COMPANY] {
-        return companyList
+        return companyList.map{ (p) -> COMPANY in
+            return COMPANY(sqlCom: p)
+        }
     }
     
     func getCompanyName(id : Int) -> String {
@@ -61,8 +63,22 @@ class DATAMANAGER {
         return ""
     }
     
+    func setCompanyName(id : Int, name : String) -> Bool {
+        for item in companyList {
+            if item.Id == id {
+                item.Name = name
+                companyDict[id] = name
+                print("update id:\(id) with \(name)")
+                return true
+            }
+        }
+        return false
+    }
+    
     func getProductList() -> [PRODUCT] {
-        return productList
+        return productList.map{ (p) -> PRODUCT in
+            return PRODUCT(sqlPro: p)
+        }
     }
     
     func getProductName(id : Int) -> String {
@@ -73,33 +89,45 @@ class DATAMANAGER {
     }
     
     func getUnitPriceList() -> [UNITPRICE] {
-        return priceList
+        return priceList.map{ (p) -> UNITPRICE in
+            return UNITPRICE(sqlUnitPrice: p)
+        }
     }
     
     func getFormList() -> [FORM] {
-        return formList
+        return formList.map{ (p) -> FORM in
+            return FORM(sqlForm: p)
+        }
     }
     
     func getForm(formId : Int) -> FORM? {
         for item in formList {
             if item.Id == formId {
-                return item
+                return FORM(sqlForm: item)
             }
         }
         return nil
     }
     
     func getRecordList(formId : Int) -> [RECORD] {
-        return recordList.filter{ (p) -> Bool in
+        let reducedRecordList = recordList.filter{ (p) -> Bool in
             p.FormId == formId
+        }
+        return reducedRecordList.map{ (p) -> RECORD in
+            return RECORD(sqlRecord: p)
         }
     }
     
     func getRecordList(formId : Int, compId : Int) -> [RECORD] {
-        return recordList.filter{ (p) -> Bool in
+        let reducedRecordList = recordList.filter{ (p) -> Bool in
             p.FormId == formId && p.CompId == compId
         }
+        return reducedRecordList.map{ (p) -> RECORD in
+            return RECORD(sqlRecord: p)
+        }
     }
+    
+    
     
 }
 
