@@ -66,9 +66,11 @@ class DATAMANAGER {
     func setCompanyName(id : Int, name : String) -> Bool {
         for item in companyList {
             if item.Id == id {
-                item.Name = name
-                companyDict[id] = name
-                print("update id:\(id) with \(name)")
+                if item.Name != name {
+                    item.Name = name
+                    companyDict[id] = name
+                    print("update id:\(id) with \(name)")
+                }
                 return true
             }
         }
@@ -127,7 +129,20 @@ class DATAMANAGER {
         }
     }
     
+    func store() {
+        print("store company list")
+        dbManager.storeCompanyList(companyList: companyList)
+    }
     
+    func sync(data : AnyObject) {
+        switch data {
+        case is COMPANY:
+            setCompanyName(id: (data as! COMPANY).Id, name: (data as! COMPANY).DisplayName)
+        default:
+            print("something undefined in dataManager sync")
+        }
+    }
+
     
 }
 
