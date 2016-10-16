@@ -29,7 +29,7 @@ class COMPANY : NSObject {
         DisplayName = sqlCom.Name
         super.init()
         
-        addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        registerObserver()
     }
     
     init(aId: Int,aName: String) {
@@ -38,12 +38,18 @@ class COMPANY : NSObject {
         DisplayName = aName
         super.init()
         
+        registerObserver()
+    }
+    
+    func registerObserver() {
         addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if valueChanged {
             TextColor = NSColor.red
+            dataManager.sync(data: self)
+            print("sync  Name:\(Name)   DisplayName:\(DisplayName)")
         }
         else {
             TextColor = NSColor.black
