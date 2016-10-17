@@ -139,7 +139,6 @@
                     </view>
                     <connections>
                         <outlet property="comArrayController" destination="CRX-Dc-2Nf" id="qvb-Vc-Uji"/>
-                        <outlet property="comTableScrollView" destination="lYl-7z-oJs" id="xLp-vB-STz"/>
                         <outlet property="labelName" destination="rEV-se-gw3" id="MSM-ht-3JM"/>
                         <outlet property="tableView" destination="ajA-tH-aDO" id="4Jx-Ba-WUd"/>
                     </connections>

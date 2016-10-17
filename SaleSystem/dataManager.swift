@@ -64,22 +64,7 @@ class DATAMANAGER {
         }
         return ""
     }
-    
-    func setCompanyName(id : Int, name : String, valueChanged : Bool) -> Bool {
-        for item in companyList {
-            if item.Id == id {
-                if item.Name != name {
-                    item.Name = name
-                    item.ValueChanged = valueChanged
-                    companyDict[id] = name
-                    print("update id:\(id) with \(name)")
-                }
-                return true
-            }
-        }
-        return false
-    }
-    
+        
     func getProductList() -> [PRODUCT] {
         return productList.map{ (p) -> PRODUCT in
             return PRODUCT(sqlPro: p)
