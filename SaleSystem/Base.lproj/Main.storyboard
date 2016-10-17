@@ -665,10 +665,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Custom Tab View Controller-->
         <scene sceneID="f61-vR-ndh">
             <objects>
-                <tabViewController selectedTabViewItemIndex="2" id="qXl-EB-9Kq" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" id="qXl-EB-9Kq" customClass="CustomTabViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="Com/Pro" identifier="" id="2wk-nG-arW"/>
                         <tabViewItem label="Price" id="abg-OJ-Aw4"/>
