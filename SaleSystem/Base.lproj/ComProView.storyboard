@@ -89,7 +89,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="77N-Z3-x3i" name="value" keyPath="objectValue.Name" id="mWk-M3-5Cv"/>
+                                                                        <binding destination="77N-Z3-x3i" name="textColor" keyPath="objectValue.TextColor" id="A6A-9A-nDe"/>
+                                                                        <binding destination="77N-Z3-x3i" name="value" keyPath="objectValue.DisplayName" id="6zQ-32-zx6"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -195,8 +196,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="ICb-22-q9L" name="textColor" keyPath="objectValue.TextColor" id="uVs-BI-Uc3"/>
                                                                         <binding destination="ICb-22-q9L" name="value" keyPath="objectValue.DisplayName" id="OJk-oe-rou"/>
+                                                                        <binding destination="ICb-22-q9L" name="textColor" keyPath="objectValue.TextColor" id="uVs-BI-Uc3"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>

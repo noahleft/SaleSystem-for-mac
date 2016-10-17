@@ -26,6 +26,9 @@ class UpdateManager {
             case is SQL_COMPANY:
                 let com : SQL_COMPANY = item as! SQL_COMPANY
                 print("COM_ID:\(com.Id)  NAME:\(com.Name)")
+            case is SQL_PRODUCT:
+                let com : SQL_PRODUCT = item as! SQL_PRODUCT
+                print("COM_ID:\(com.Id)  NAME:\(com.Name)")
             default:
                 print("something else")
             }

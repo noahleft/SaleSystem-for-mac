@@ -197,7 +197,30 @@ class SQLiteWrapper {
         }
     }
     
-    
+    func storeProductList(productList: [SQL_PRODUCT]) {
+        do {
+            if let rPath = path {
+                let db = try Connection(rPath)
+                let users = Table("product")
+                let id = Expression<Int64>("ID")
+                let name = Expression<String>("NAME")
+                
+                for item in productList {
+                    print("try to update companyName:  \(item.Id)   \(item.Name)")
+                    let currnet = users.filter(id == Int64(item.Id))
+                    if try db.run(currnet.update(name <- "\(item.Name)")) > 0 {
+                        // UPDATE "users" SET "name" = 'alice' WHERE ("id" = 1)
+                        print("\(item.Name)")
+                    } else {
+                        print("id not found")
+                    }
+                }
+            }
+        }
+        catch {
+            print("db store fail")
+        }
+    }
     
 }
 

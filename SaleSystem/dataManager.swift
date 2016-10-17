@@ -140,6 +140,13 @@ class DATAMANAGER {
                 return p as! SQL_COMPANY
         }
         dbManager.storeCompanyList(companyList: reducedCompanyList)
+        print("store product list")
+        let reducedProductList = updateManager.updateQueue.filter{ (p) -> Bool in
+            p is SQL_PRODUCT
+            }.map{ (p) -> SQL_PRODUCT in
+                return p as! SQL_PRODUCT
+        }
+        dbManager.storeProductList(productList: reducedProductList)
         
         cleanup()
         triggerInitialEvent()

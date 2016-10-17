@@ -18,7 +18,8 @@ class COMPANY : NSObject {
     var Id : Int
     var Name : String
     dynamic var DisplayName : String
-    var valueChanged : Bool {
+    
+    var ValueChanged : Bool {
         return Name != DisplayName
     }
     dynamic var TextColor : NSColor = NSColor.black
@@ -46,7 +47,7 @@ class COMPANY : NSObject {
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if valueChanged {
+        if ValueChanged {
             TextColor = NSColor.red
         }
         else {
@@ -59,20 +60,54 @@ class COMPANY : NSObject {
     deinit {
         removeObserver(self, forKeyPath: "DisplayName")
     }
+    
 }
 
 class PRODUCT : NSObject {
     var Id : Int
     var Name : String
+    dynamic var DisplayName : String
+    
+    var ValueChanged : Bool {
+        return Name != DisplayName
+    }
+    dynamic var TextColor : NSColor = NSColor.black
     
     init(sqlPro: SQL_PRODUCT) {
         Id = sqlPro.Id
         Name = sqlPro.Name
+        DisplayName = sqlPro.Name
+        super.init()
+        
+        registerObserver()
     }
     
     init(aId: Int,aName: String) {
         Id = aId
         Name = aName
+        DisplayName = aName
+        super.init()
+        
+        registerObserver()
+    }
+    
+    func registerObserver() {
+        addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if ValueChanged {
+            TextColor = NSColor.red
+        }
+        else {
+            TextColor = NSColor.black
+        }
+        dataManager.addUpdate(update: SQL_PRODUCT(aId: Id, aName: DisplayName))
+        print("add update  Name:\(Name)   DisplayName:\(DisplayName)")
+    }
+    
+    deinit {
+        removeObserver(self, forKeyPath: "DisplayName")
     }
     
 }
