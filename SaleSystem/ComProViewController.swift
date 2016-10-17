@@ -29,10 +29,13 @@ class ComProViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        triggerInitialEvent()
+        labelName.stringValue = "公司列表"
+    }
+    
+    func triggerInitialEvent() {
         companyList = dataManager.getCompanyList()
         productList = dataManager.getProductList()
-        
-        labelName.stringValue = "公司列表"
     }
     
     @IBAction func pressSegControl(_ sender: NSSegmentedControl) {
@@ -80,12 +83,12 @@ class ComProViewController: NSViewController {
         productList.append(newObj)
     }
     
-    
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        print("companyList value changes")
+    func saveDocument(_ sender: AnyObject) {
+        print("catch at ComProVC.swift")
+        dataManager.updateManager.dumpUpdate()
+        dataManager.store()
+        triggerInitialEvent()
     }
-    
     
 }
 

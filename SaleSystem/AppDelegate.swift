@@ -56,13 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
         
-    }
-    
-    func saveDocument(_ sender: AnyObject) {
-        dataManager.store()
-    }
-    
-    
+    }   
     
     
 }
