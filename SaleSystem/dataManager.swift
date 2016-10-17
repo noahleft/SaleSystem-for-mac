@@ -11,6 +11,7 @@ import Foundation
 class DATAMANAGER {
     
     let dbManager: SQLiteWrapper = SQLiteWrapper()
+    let updateManager: UpdateManager = UpdateManager()
     var companyList : [SQL_COMPANY] = []
     var productList : [SQL_PRODUCT] = []
     var priceList   : [SQL_UNITPRICE] = []
@@ -31,6 +32,7 @@ class DATAMANAGER {
         recordList = []
         companyDict = [:]
         productDict = [:]
+        updateManager.cleanup()
     }
     
     func triggerInitialEvent()  {
@@ -63,11 +65,12 @@ class DATAMANAGER {
         return ""
     }
     
-    func setCompanyName(id : Int, name : String) -> Bool {
+    func setCompanyName(id : Int, name : String, valueChanged : Bool) -> Bool {
         for item in companyList {
             if item.Id == id {
                 if item.Name != name {
                     item.Name = name
+                    item.ValueChanged = valueChanged
                     companyDict[id] = name
                     print("update id:\(id) with \(name)")
                 }
@@ -131,18 +134,20 @@ class DATAMANAGER {
     
     func store() {
         print("store company list")
-        dbManager.storeCompanyList(companyList: companyList)
-    }
-    
-    func sync(data : AnyObject) {
-        switch data {
-        case is COMPANY:
-            setCompanyName(id: (data as! COMPANY).Id, name: (data as! COMPANY).DisplayName)
-        default:
-            print("something undefined in dataManager sync")
+        let reducedCompanyList = updateManager.updateQueue.filter{ (p) -> Bool in
+            p is SQL_COMPANY
+            }.map{ (p) -> SQL_COMPANY in
+                return p as! SQL_COMPANY
         }
+        dbManager.storeCompanyList(companyList: reducedCompanyList)
+        
+        cleanup()
+        triggerInitialEvent()
     }
 
+    func addUpdate(update : Any) {
+        updateManager.addUpdate(update: update)
+    }
     
 }
 

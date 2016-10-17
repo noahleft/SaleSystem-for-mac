@@ -48,12 +48,12 @@ class COMPANY : NSObject {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if valueChanged {
             TextColor = NSColor.red
-            dataManager.sync(data: self)
-            print("sync  Name:\(Name)   DisplayName:\(DisplayName)")
         }
         else {
             TextColor = NSColor.black
         }
+        dataManager.addUpdate(update: SQL_COMPANY(aId: Id, aName: DisplayName))
+        print("add update  Name:\(Name)   DisplayName:\(DisplayName)")
     }
     
     deinit {

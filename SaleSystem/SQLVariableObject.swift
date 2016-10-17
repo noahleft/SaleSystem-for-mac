@@ -16,6 +16,7 @@ import Cocoa
 class SQL_COMPANY {
     var Id : Int
     var Name : String
+    var ValueChanged : Bool = false
     
     init(aId: Int,aName: String) {
         Id = aId
