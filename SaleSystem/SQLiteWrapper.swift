@@ -187,7 +187,13 @@ class SQLiteWrapper {
                         // UPDATE "users" SET "name" = 'alice' WHERE ("id" = 1)
                         print("\(item.Name)")
                     } else {
-                        print("id not found")
+                        print("update fail -> try insertion")
+                        if try db.run(users.insert(name <- "\(item.Name)")) > 0 {
+                            // Insert "users" (name) values ('alice')
+                            print("insertion \(item.Name)")
+                        } else {
+                            print("insertion fail")
+                        }
                     }
                 }
             }
@@ -206,13 +212,21 @@ class SQLiteWrapper {
                 let name = Expression<String>("NAME")
                 
                 for item in productList {
-                    print("try to update companyName:  \(item.Id)   \(item.Name)")
+                    print("try to update productName:  \(item.Id)   \(item.Name)")
                     let currnet = users.filter(id == Int64(item.Id))
+                    
+                
                     if try db.run(currnet.update(name <- "\(item.Name)")) > 0 {
                         // UPDATE "users" SET "name" = 'alice' WHERE ("id" = 1)
                         print("\(item.Name)")
                     } else {
-                        print("id not found")
+                        print("update fail -> try insertion")
+                        if try db.run(users.insert(name <- "\(item.Name)")) > 0 {
+                            // Insert "users" (name) values ('alice')
+                            print("insertion \(item.Name)")
+                        } else {
+                            print("insertion fail")
+                        }
                     }
                 }
             }
