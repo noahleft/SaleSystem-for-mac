@@ -89,8 +89,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="77N-Z3-x3i" name="textColor" keyPath="objectValue.TextColor" id="A6A-9A-nDe"/>
                                                                         <binding destination="77N-Z3-x3i" name="value" keyPath="objectValue.DisplayName" id="6zQ-32-zx6"/>
+                                                                        <binding destination="77N-Z3-x3i" name="textColor" keyPath="objectValue.TextColor" id="A6A-9A-nDe"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -248,44 +248,14 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3u5-Nu-qAW">
-                                <rect key="frame" x="334" y="13" width="112" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Yye-Tn-4Fd"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="New" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Psw-9b-IpH">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="pressButtonNewPro:" target="oyl-tf-ai8" id="dwT-08-xzN"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bTS-S5-LSZ">
-                                <rect key="frame" x="334" y="13" width="112" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Ifp-MR-ghI"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="New" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UQT-jh-OyL">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="pressButtonNewCom:" target="oyl-tf-ai8" id="S2A-tH-wWs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="bTS-S5-LSZ" secondAttribute="trailing" constant="10" id="BIc-TG-fgO"/>
-                            <constraint firstAttribute="bottom" secondItem="bTS-S5-LSZ" secondAttribute="bottom" constant="20" id="ME8-wz-lVj"/>
                             <constraint firstItem="xk7-vW-vcj" firstAttribute="leading" secondItem="C2i-nw-l17" secondAttribute="leading" constant="30" id="PBe-DD-4ge"/>
                             <constraint firstItem="rjN-Dk-8yU" firstAttribute="leading" secondItem="C2i-nw-l17" secondAttribute="leading" id="PSb-il-yz2"/>
                             <constraint firstAttribute="trailing" secondItem="rjN-Dk-8yU" secondAttribute="trailing" id="Qmk-4b-dJZ"/>
                             <constraint firstAttribute="bottom" secondItem="rjN-Dk-8yU" secondAttribute="bottom" constant="50" id="Y7s-rM-2tM"/>
                             <constraint firstItem="xk7-vW-vcj" firstAttribute="top" secondItem="C2i-nw-l17" secondAttribute="top" constant="10" id="YeN-90-fpr"/>
                             <constraint firstAttribute="trailing" secondItem="7yy-tP-zTd" secondAttribute="trailing" constant="10" id="dvf-CP-i3b"/>
-                            <constraint firstAttribute="bottom" secondItem="3u5-Nu-qAW" secondAttribute="bottom" constant="20" id="fKB-PS-Fnr"/>
-                            <constraint firstAttribute="trailing" secondItem="3u5-Nu-qAW" secondAttribute="trailing" constant="10" id="gSw-WJ-VeG"/>
                             <constraint firstItem="rjN-Dk-8yU" firstAttribute="top" secondItem="C2i-nw-l17" secondAttribute="top" constant="40" id="k13-Gj-Wwg"/>
                             <constraint firstAttribute="bottom" secondItem="q3O-dR-jUw" secondAttribute="bottom" constant="50" id="nAy-uM-kCd"/>
                             <constraint firstItem="q3O-dR-jUw" firstAttribute="top" secondItem="C2i-nw-l17" secondAttribute="top" constant="40" id="o4Z-9K-CAP"/>
@@ -296,8 +266,6 @@
                     </view>
                     <connections>
                         <outlet property="ComProSeg" destination="7yy-tP-zTd" id="BLl-Z9-bjD"/>
-                        <outlet property="buttonNewCom" destination="bTS-S5-LSZ" id="pLO-qg-SAZ"/>
-                        <outlet property="buttonNewPro" destination="3u5-Nu-qAW" id="e6M-F9-TcK"/>
                         <outlet property="comArrayController" destination="yWx-hY-tbT" id="0VH-7x-tx5"/>
                         <outlet property="comProSeg" destination="7yy-tP-zTd" id="k3u-8g-ncD"/>
                         <outlet property="comTableScrollView" destination="rjN-Dk-8yU" id="NMX-lv-LnZ"/>

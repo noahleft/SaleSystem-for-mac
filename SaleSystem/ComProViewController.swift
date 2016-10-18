@@ -19,10 +19,8 @@ class ComProViewController: NSViewController {
     @IBOutlet weak var proTableScrollView: NSScrollView!
     @IBOutlet weak var labelName: NSTextField!
     
-    @IBOutlet weak var buttonNewCom: NSButton!
     @IBOutlet var comArrayController: NSArrayController!
     dynamic var companyList: [COMPANY] = []
-    @IBOutlet weak var buttonNewPro: NSButton!
     @IBOutlet var proArrayController: NSArrayController!
     dynamic var productList: [PRODUCT] = []
     
@@ -33,63 +31,88 @@ class ComProViewController: NSViewController {
         labelName.stringValue = "公司列表"
     }
     
+    func appendEmptyCompany() {
+        let emptyCompany : COMPANY
+        if let lastObj = companyList.last {
+            emptyCompany = COMPANY(aId: lastObj.Id+1, aName: "")
+        }
+        else {
+            emptyCompany = COMPANY(aId: 1, aName: "")
+        }
+        companyList.append(emptyCompany)
+        print("# of companyList: \(companyList.count)")
+        companyList[companyList.count-1].addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+    }
+    
+    func appendEmptyProduct() {
+        let emptyProduct : PRODUCT
+        if let lastObj = productList.last {
+            emptyProduct = PRODUCT(aId: lastObj.Id+1, aName: "")
+        }
+        else {
+            emptyProduct = PRODUCT(aId: 1, aName: "")
+        }
+        productList.append(emptyProduct)
+        print("# of productList: \(productList.count)")
+        productList[productList.count-1].addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        
+    }
+    
     func triggerInitialEvent() {
         companyList = dataManager.getCompanyList()
         productList = dataManager.getProductList()
+        
+        appendEmptyCompany()
+        appendEmptyProduct()
     }
     
     @IBAction func pressSegControl(_ sender: NSSegmentedControl) {
         if sender.selectedSegment == 0 {
             comTableScrollView.isHidden = false
-            buttonNewCom.isHidden = false
             proTableScrollView.isHidden = true
-            buttonNewPro.isHidden = true
             labelName.stringValue = "公司列表"
         }
         else {
             comTableScrollView.isHidden = true
-            buttonNewCom.isHidden = true
             proTableScrollView.isHidden = false
-            buttonNewPro.isHidden = false
             labelName.stringValue = "產品列表"
         }
-    }
-    
-    @IBAction func pressButtonNewCom(_ sender: AnyObject) {
-        var newObj : COMPANY
-        if let lastObj = companyList.last {
-            if lastObj.Name == "" {
-                return
-            }
-            newObj = COMPANY(aId: lastObj.Id+1, aName: "")
-        }
-        else {
-            newObj = COMPANY(aId: 1, aName: "")
-        }
-        companyList.append(newObj)
-    }
-    
-    @IBAction func pressButtonNewPro(_ sender: AnyObject) {
-        var newObj : PRODUCT
-        if let lastObj = productList.last {
-            if lastObj.Name == "" {
-                return
-            }
-            newObj = PRODUCT(aId: lastObj.Id+1, aName: "")
-        }
-        else {
-            newObj = PRODUCT(aId: 1, aName: "")
-        }
-        productList.append(newObj)
     }
     
     func saveDocument(_ sender: AnyObject) {
         print("catch at ComProVC.swift")
         dataManager.updateManager.dumpUpdate()
         dataManager.store()
+        removeObserverForLastComp()
+        removeObserverForLastProd()
         triggerInitialEvent()
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if object is COMPANY {
+            removeObserverForLastComp()
+            print("trigger append company")
+            appendEmptyCompany()
+        }
+        else if object is PRODUCT {
+            removeObserverForLastProd()
+            print("trigger append product")
+            appendEmptyProduct()
+        }
+    }
+    
+    func removeObserverForLastComp() {
+        companyList[companyList.count-1].removeObserver(self, forKeyPath: "DisplayName")
+    }
+    
+    func removeObserverForLastProd() {
+        productList[productList.count-1].removeObserver(self, forKeyPath: "DisplayName")
+    }
+    
+    deinit {
+        removeObserverForLastComp()
+        removeObserverForLastProd()
+    }
 }
 
 

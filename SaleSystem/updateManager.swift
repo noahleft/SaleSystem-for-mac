@@ -18,6 +18,16 @@ class UpdateManager {
     
     func addUpdate(update : Any) {
         updateQueue.append(update)
+        switch update {
+        case is SQL_COMPANY:
+            let com : SQL_COMPANY = update as! SQL_COMPANY
+            print("COM_ID:\(com.Id)  NAME:\(com.Name)")
+        case is SQL_PRODUCT:
+            let com : SQL_PRODUCT = update as! SQL_PRODUCT
+            print("PRO_ID:\(com.Id)  NAME:\(com.Name)")
+        default:
+            print("something else")
+        }
     }
     
     func dumpUpdate() {
