@@ -58,6 +58,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }   
     
+    func saveDocument(_ sender: AnyObject) {
+        dataManager.updateManager.dumpUpdate()
+        dataManager.store()
+    }
+
     
 }
 

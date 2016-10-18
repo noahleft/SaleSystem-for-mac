@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DATAMANAGER {
+class DATAMANAGER : NSObject {
     
     let dbManager: SQLiteWrapper = SQLiteWrapper()
     let updateManager: UpdateManager = UpdateManager()
@@ -19,8 +19,11 @@ class DATAMANAGER {
     var recordList  : [SQL_RECORD] = []
     var companyDict : [Int:String] = [:]
     var productDict : [Int:String] = [:]
+    var saveAction  : Int = 0
     
-    init() {
+    override init() {
+        super.init()
+        
         triggerInitialEvent()
     }
     
@@ -135,11 +138,16 @@ class DATAMANAGER {
         
         cleanup()
         triggerInitialEvent()
+        print("save Action inc. \(saveAction)")
+        willChangeValue(forKey: "saveAction")
+        saveAction += 1
+        didChangeValue(forKey: "saveAction")
     }
 
     func addUpdate(update : Any) {
         updateManager.addUpdate(update: update)
     }
+    
     
 }
 

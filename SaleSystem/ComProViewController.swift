@@ -29,6 +29,8 @@ class ComProViewController: NSViewController {
         
         triggerInitialEvent()
         labelName.stringValue = "公司列表"
+        
+        dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
     }
     
     func appendEmptyCompany() {
@@ -79,15 +81,6 @@ class ComProViewController: NSViewController {
         }
     }
     
-    func saveDocument(_ sender: AnyObject) {
-        print("catch at ComProVC.swift")
-        dataManager.updateManager.dumpUpdate()
-        dataManager.store()
-        removeObserverForLastComp()
-        removeObserverForLastProd()
-        triggerInitialEvent()
-    }
-    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object is COMPANY {
             removeObserverForLastComp()
@@ -99,6 +92,17 @@ class ComProViewController: NSViewController {
             print("trigger append product")
             appendEmptyProduct()
         }
+        else if object is DATAMANAGER {
+            print("trigger save action event OuO")
+            triggerSaveEvent()
+        }
+    }
+    
+    func triggerSaveEvent() {
+        print("catch at ComProVC.swift")
+        removeObserverForLastComp()
+        removeObserverForLastProd()
+        triggerInitialEvent()
     }
     
     func removeObserverForLastComp() {
@@ -112,6 +116,7 @@ class ComProViewController: NSViewController {
     deinit {
         removeObserverForLastComp()
         removeObserverForLastProd()
+        dataManager.removeObserver(self, forKeyPath: "saveAction")
     }
 }
 
