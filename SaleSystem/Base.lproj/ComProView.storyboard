@@ -196,8 +196,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="ICb-22-q9L" name="value" keyPath="objectValue.DisplayName" id="OJk-oe-rou"/>
                                                                         <binding destination="ICb-22-q9L" name="textColor" keyPath="objectValue.TextColor" id="uVs-BI-Uc3"/>
+                                                                        <binding destination="ICb-22-q9L" name="value" keyPath="objectValue.DisplayName" id="puF-s7-Qun"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
