@@ -118,14 +118,16 @@ class PRODUCT : NSObject {
             print("add update  Name:\(Name)   DisplayName:\(DisplayName)")
         }
         else if keyPath == "DisplayUnitPrice" {
-            if PriceChanged && (Float(DisplayUnitPrice) != nil) {
+            if PriceChanged && (Float(DisplayUnitPrice) != nil) {  // (1)value changes , (2) the value is float, (3) has default value
                 TextColor = NSColor.red
             }
-            else if !PriceChanged {
+            else if !PriceChanged { // value not change and no default value
                 TextColor = NSColor.black
+                return
             }
-            else if (Float(DisplayUnitPrice) == nil) {
+            else if (Float(DisplayUnitPrice) == nil) {  // (1)value changes , (2) the value is not float
                 TextColor = NSColor.brown
+                return
             }
             else {
                 TextColor = NSColor.black
