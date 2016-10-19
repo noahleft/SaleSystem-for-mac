@@ -67,13 +67,21 @@ class PRODUCT : NSObject {
     var Id : Int
     var Name : String
     dynamic var DisplayName : String
-    var UnitPrice   : Float  = -1
+    var UnitPrice   : UNITPRICE?
     dynamic var DisplayUnitPrice : String = ""
     
     var ValueChanged : Bool {
         return Name != DisplayName
     }
     dynamic var TextColor : NSColor = NSColor.black
+    var PriceChanged : Bool {
+        if (UnitPrice != nil) {
+            return DisplayUnitPrice != "\(UnitPrice!.UnitPrice)"
+        }
+        else {
+            return DisplayUnitPrice != ""
+        }
+    }
     
     init(sqlPro: SQL_PRODUCT) {
         Id = sqlPro.Id
@@ -95,21 +103,39 @@ class PRODUCT : NSObject {
     
     func registerObserver() {
         addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        addObserver(self, forKeyPath: "DisplayUnitPrice", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if ValueChanged {
-            TextColor = NSColor.red
+        if keyPath == "DisplayName" {
+            if ValueChanged {
+                TextColor = NSColor.red
+            }
+            else {
+                TextColor = NSColor.black
+            }
+            dataManager.addUpdate(update: SQL_PRODUCT(aId: Id, aName: DisplayName))
+            print("add update  Name:\(Name)   DisplayName:\(DisplayName)")
         }
-        else {
-            TextColor = NSColor.black
+        else if keyPath == "DisplayUnitPrice" {
+            if PriceChanged && (Float(DisplayUnitPrice) != nil) {
+                TextColor = NSColor.red
+            }
+            else if !PriceChanged {
+                TextColor = NSColor.black
+            }
+            else if (Float(DisplayUnitPrice) == nil) {
+                TextColor = NSColor.brown
+            }
+            else {
+                TextColor = NSColor.black
+            }
         }
-        dataManager.addUpdate(update: SQL_PRODUCT(aId: Id, aName: DisplayName))
-        print("add update  Name:\(Name)   DisplayName:\(DisplayName)")
     }
     
     deinit {
         removeObserver(self, forKeyPath: "DisplayName")
+        removeObserver(self, forKeyPath: "DisplayUnitPrice")
     }
     
 }

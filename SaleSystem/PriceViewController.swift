@@ -73,16 +73,16 @@ class PriceViewController: NSViewController {
         print("catch reduced unit price list changes")
         cleanProductUnitPrice()
         for item in reducedUnitPriceList {
-            setProductUnitPrice(pId: item.ProId, price: item.UnitPrice)
+            setProductUnitPrice(uprice: item)
         }
 
     }
     
-    func setProductUnitPrice(pId : Int, price : Float) {
+    func setProductUnitPrice(uprice : UNITPRICE) {
         for item in productList {
-            if item.Id == pId {
-                item.UnitPrice = price
-                item.DisplayUnitPrice = "\(price)"
+            if item.Id == uprice.ProId {
+                item.UnitPrice = uprice
+                item.DisplayUnitPrice = "\(uprice.UnitPrice)"
                 return
             }
         }
@@ -91,7 +91,7 @@ class PriceViewController: NSViewController {
     func cleanProductUnitPrice() {
         for item in productList {
             item.DisplayUnitPrice = ""
-            item.UnitPrice = -1
+            item.UnitPrice = nil
         }
     }
     

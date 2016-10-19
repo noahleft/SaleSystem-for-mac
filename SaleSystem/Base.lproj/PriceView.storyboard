@@ -154,6 +154,7 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
+                                                                        <binding destination="Ly1-0K-WSf" name="textColor" keyPath="objectValue.TextColor" id="yGt-G2-vy7"/>
                                                                         <binding destination="Ly1-0K-WSf" name="value" keyPath="objectValue.DisplayUnitPrice" id="ySF-TR-h0V"/>
                                                                     </connections>
                                                                 </textField>
