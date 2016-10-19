@@ -17,7 +17,7 @@ class PriceViewController: NSViewController {
     
     
     var companyList: [COMPANY] = []
-    var productList: [PRODUCT] = []
+    dynamic var productList: [PRODUCT] = []
     var unitpriceList: [UNITPRICE] = []
     var reducedUnitPriceList: [UNITPRICE] = []
     
@@ -27,8 +27,8 @@ class PriceViewController: NSViewController {
         companyList = dataManager.getCompanyList()
         productList = dataManager.getProductList()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         
         popUpButton.removeAllItems()
         popUpButton.addItem(withTitle: "Select")
@@ -41,6 +41,7 @@ class PriceViewController: NSViewController {
         
         labelName.stringValue = "單價列表"
         tableView.tableColumns[2].isHidden = true
+        addObserver(self, forKeyPath: "reducedUnitPriceList", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
     }
     
     @IBAction func clickPopupButton(_ sender: NSPopUpButton) {
@@ -52,8 +53,6 @@ class PriceViewController: NSViewController {
             print("\(selectedCompId)")
             
             reducedUnitPriceList = []
-            
-            
             tableView.tableColumns[2].isHidden = true
             
         }
@@ -71,67 +70,29 @@ class PriceViewController: NSViewController {
             tableView.tableColumns[2].isHidden = false
         }
         
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        print("catch reduced unit price list changes")
+        cleanProductUnitPrice()
+        for item in reducedUnitPriceList {
+            setProductUnitPrice(pId: item.ProId, price: item.UnitPrice)
         }
-        
+
     }
     
-}
-
-
-extension PriceViewController: NSTableViewDataSource {
-    
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return productList.count
+    func setProductUnitPrice(pId : Int, price : Float) {
+        for item in productList {
+            if item.Id == pId {
+                item.UnitPrice = price
+                item.DisplayUnitPrice = "\(price)"
+                return
+            }
+        }
     }
     
-    
-}
-
-extension PriceViewController: NSTableViewDelegate {
-    
-    
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var text:String = ""
-        var cellIdentifier: String = ""
-        
-        // 1
-        var textName : String = ""
-        var textId : String = ""
-        var textPrice : String = ""
-        
-        textName = productList[row].Name
-        textId = "\(productList[row].Id)"
-        let selectedUnitPrice : Float = selectUnitPrice(selectedProId: productList[row].Id, unitPriceList: reducedUnitPriceList)
-        
-        if selectedUnitPrice == -1 {
-            textPrice = ""
+    func cleanProductUnitPrice() {
+        for item in productList {
+            item.DisplayUnitPrice = ""
+            item.UnitPrice = -1
         }
-        else {
-            textPrice = "\(selectedUnitPrice)"
-        }
-        
-        
-        // 2
-        if tableColumn == tableView.tableColumns[0] {
-            text = textId
-            cellIdentifier = "IdCellID"
-        } else if tableColumn == tableView.tableColumns[1] {
-            text = textName
-            cellIdentifier = "NameCellID"
-        } else if tableColumn == tableView.tableColumns[2] {
-            text = textPrice
-            cellIdentifier = "PriceCellID"
-        }
-        
-        // 3
-        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
-            cell.textField?.stringValue = text
-            return cell
-        }
-        return nil
     }
-    
     
 }

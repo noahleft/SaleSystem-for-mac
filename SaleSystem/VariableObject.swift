@@ -67,6 +67,8 @@ class PRODUCT : NSObject {
     var Id : Int
     var Name : String
     dynamic var DisplayName : String
+    var UnitPrice   : Float  = -1
+    dynamic var DisplayUnitPrice : String = ""
     
     var ValueChanged : Bool {
         return Name != DisplayName

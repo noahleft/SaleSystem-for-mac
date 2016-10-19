@@ -81,6 +81,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="ukq-2M-Vku" name="value" keyPath="objectValue.Id" id="mdP-ds-kNh"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -114,6 +117,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="HAn-YP-y7H" name="value" keyPath="objectValue.Name" id="L5b-Wm-6Ag"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -147,6 +153,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="Ly1-0K-WSf" name="value" keyPath="objectValue.DisplayUnitPrice" id="ySF-TR-h0V"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -156,6 +165,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <binding destination="EwO-yF-i8F" name="content" keyPath="arrangedObjects" id="EiS-dp-8yP"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -191,6 +203,11 @@
                     </connections>
                 </viewController>
                 <customObject id="Mnr-pC-RCb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController objectClassName="SaleSystem.UNITPRICE" id="EwO-yF-i8F">
+                    <connections>
+                        <binding destination="ABW-s0-PbM" name="contentArray" keyPath="self.productList" id="hAN-uR-0UH"/>
+                    </connections>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="69" y="1459"/>
         </scene>
