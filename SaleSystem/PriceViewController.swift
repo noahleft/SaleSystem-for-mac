@@ -25,6 +25,13 @@ class PriceViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        labelName.stringValue = "單價列表"
+        
+        dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        triggerInitialEvent()
+    }
+    
+    func triggerInitialEvent() {
         companyList = dataManager.getCompanyList()
         productList = dataManager.getProductList()
         
@@ -37,7 +44,6 @@ class PriceViewController: NSViewController {
         
         unitpriceList = dataManager.getUnitPriceList()
         
-        labelName.stringValue = "單價列表"
         tableView.tableColumns[2].isHidden = true
         
         registerObserver()
@@ -108,22 +114,34 @@ class PriceViewController: NSViewController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         print("PriceVC catch observer notify")
-        if let product : PRODUCT = object as! PRODUCT? {
-            if let updatePrice = Float(product.DisplayUnitPrice){
-                if let price = product.UnitPrice {
-                    let update : SQL_UNITPRICE = SQL_UNITPRICE(aId: price.Id, aComId: price.ComId, aProId: price.ProId, aUnitPrice: updatePrice)
-                    dataManager.addUpdate(update: update)
+        if let objectValue = object {
+            if objectValue is PRODUCT {
+                let product = objectValue as! PRODUCT
+                if let updatePrice = Float(product.DisplayUnitPrice){
+                    if let price = product.UnitPrice {
+                        let update : SQL_UNITPRICE = SQL_UNITPRICE(aId: price.Id, aComId: price.ComId, aProId: price.ProId, aUnitPrice: updatePrice)
+                        dataManager.addUpdate(update: update)
+                    }
+                    else {
+                        let update : SQL_UNITPRICE = SQL_UNITPRICE(aId: -1, aComId: selectedCompId, aProId: product.Id, aUnitPrice: updatePrice)
+                        dataManager.addUpdate(update: update)
+                    }
                 }
-                else {
-                    let update : SQL_UNITPRICE = SQL_UNITPRICE(aId: -1, aComId: selectedCompId, aProId: product.Id, aUnitPrice: updatePrice)
-                    dataManager.addUpdate(update: update)
-                }
+            } else if objectValue is DATAMANAGER {
+                triggerSaveEvent()
             }
         }
     }
     
+    func triggerSaveEvent() {
+        print("trigger save action at PriceVC")
+        removeObserver()
+        triggerInitialEvent()
+    }
+    
     deinit {
         removeObserver()
+        dataManager.removeObserver(self, forKeyPath: "saveAction")
     }
     
 }
