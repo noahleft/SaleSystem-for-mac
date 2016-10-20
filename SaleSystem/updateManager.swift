@@ -25,6 +25,9 @@ class UpdateManager {
         case is SQL_PRODUCT:
             let com : SQL_PRODUCT = update as! SQL_PRODUCT
             print("PRO_ID:\(com.Id)  NAME:\(com.Name)")
+        case is SQL_UNITPRICE:
+            let com : SQL_UNITPRICE = update as! SQL_UNITPRICE
+            print("COM_ID:\(com.ComId)  PRO_ID:\(com.ProId)  PRICE:\(com.UnitPrice)")
         default:
             print("something else")
         }
@@ -39,6 +42,9 @@ class UpdateManager {
             case is SQL_PRODUCT:
                 let com : SQL_PRODUCT = item as! SQL_PRODUCT
                 print("COM_ID:\(com.Id)  NAME:\(com.Name)")
+            case is SQL_UNITPRICE:
+                let com : SQL_UNITPRICE = item as! SQL_UNITPRICE
+                print("COM_ID:\(com.ComId)  PRO_ID:\(com.ProId)  PRICE:\(com.UnitPrice)")
             default:
                 print("something else")
             }

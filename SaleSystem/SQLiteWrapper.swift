@@ -236,6 +236,41 @@ class SQLiteWrapper {
         }
     }
     
+    func storeUnitPriceList(priceList: [SQL_UNITPRICE]) {
+        do {
+            if let rPath = path {
+                let db = try Connection(rPath)
+                let users = Table("unitprice")
+                let id = Expression<Int64>("ID")
+                let comId = Expression<Int64>("COMP_ID")
+                let proId = Expression<Int64>("PROD_ID")
+                let price = Expression<Double>("UNIT_PRICE")
+                
+                for item in priceList {
+                    print("try to update price:  \(item.Id)  \(item.ComId) \(item.ProId)")
+                    let currnet = users.filter(id == Int64(item.Id))
+                    let up = Double(item.UnitPrice)
+                    
+                    if try db.run(currnet.update(price <- up)) > 0 {
+                        // UPDATE "users" SET "name" = 'alice' WHERE ("id" = 1)
+                        print("\(item.UnitPrice)")
+                    } else {
+                        print("update fail -> try insertion")
+                        if try db.run(users.insert(comId <- Int64(item.ComId), proId <- Int64(item.ProId), price <- up)) > 0 {
+                            // Insert "users" (name) values ('alice')
+                            print("insertion \(item.UnitPrice)")
+                        } else {
+                            print("insertion fail")
+                        }
+                    }
+                }
+            }
+        }
+        catch {
+            print("db store fail")
+        }
+    }
+    
 }
 
 

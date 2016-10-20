@@ -20,15 +20,13 @@ class PriceViewController: NSViewController {
     dynamic var productList: [PRODUCT] = []
     var unitpriceList: [UNITPRICE] = []
     var reducedUnitPriceList: [UNITPRICE] = []
+    var selectedCompId : Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         companyList = dataManager.getCompanyList()
         productList = dataManager.getProductList()
-        
-//        tableView.delegate = self
-//        tableView.dataSource = self
         
         popUpButton.removeAllItems()
         popUpButton.addItem(withTitle: "Select")
@@ -41,15 +39,16 @@ class PriceViewController: NSViewController {
         
         labelName.stringValue = "單價列表"
         tableView.tableColumns[2].isHidden = true
-        addObserver(self, forKeyPath: "reducedUnitPriceList", options: NSKeyValueObservingOptions(rawValue: 0), context: nil)
+        
+        registerObserver()
     }
     
     @IBAction func clickPopupButton(_ sender: NSPopUpButton) {
         let selectedIndex : Int = sender.indexOfSelectedItem
-        
+        removeObserver()
         if selectedIndex == 0 {
             print("select none")
-            let selectedCompId : Int = -1
+            selectedCompId = -1
             print("\(selectedCompId)")
             
             reducedUnitPriceList = []
@@ -58,7 +57,7 @@ class PriceViewController: NSViewController {
         }
         else {
             print("select company:\(companyList[selectedIndex-1].Name)")
-            let selectedCompId : Int = companyList[selectedIndex-1].Id
+            selectedCompId = companyList[selectedIndex-1].Id
             print("\(selectedCompId)")
             
             reducedUnitPriceList = companyFilter(selectedComId: selectedCompId, unitPriceList: unitpriceList)
@@ -75,7 +74,7 @@ class PriceViewController: NSViewController {
         for item in reducedUnitPriceList {
             setProductUnitPrice(uprice: item)
         }
-
+        registerObserver()
     }
     
     func setProductUnitPrice(uprice : UNITPRICE) {
@@ -93,6 +92,38 @@ class PriceViewController: NSViewController {
             item.DisplayUnitPrice = ""
             item.UnitPrice = nil
         }
+    }
+    
+    func registerObserver() {
+        for product in productList {
+            product.addObserver(self, forKeyPath: "DisplayUnitPrice", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        }
+    }
+    
+    func removeObserver() {
+        for product in productList {
+            product.removeObserver(self, forKeyPath: "DisplayUnitPrice")
+        }
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        print("PriceVC catch observer notify")
+        if let product : PRODUCT = object as! PRODUCT? {
+            if let updatePrice = Float(product.DisplayUnitPrice){
+                if let price = product.UnitPrice {
+                    let update : SQL_UNITPRICE = SQL_UNITPRICE(aId: price.Id, aComId: price.ComId, aProId: price.ProId, aUnitPrice: updatePrice)
+                    dataManager.addUpdate(update: update)
+                }
+                else {
+                    let update : SQL_UNITPRICE = SQL_UNITPRICE(aId: -1, aComId: selectedCompId, aProId: product.Id, aUnitPrice: updatePrice)
+                    dataManager.addUpdate(update: update)
+                }
+            }
+        }
+    }
+    
+    deinit {
+        removeObserver()
     }
     
 }

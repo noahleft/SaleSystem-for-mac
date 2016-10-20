@@ -128,6 +128,7 @@ class DATAMANAGER : NSObject {
                 return p as! SQL_COMPANY
         }
         dbManager.storeCompanyList(companyList: reducedCompanyList)
+        
         print("store product list")
         let reducedProductList = updateManager.updateQueue.filter{ (p) -> Bool in
             p is SQL_PRODUCT
@@ -135,6 +136,14 @@ class DATAMANAGER : NSObject {
                 return p as! SQL_PRODUCT
         }
         dbManager.storeProductList(productList: reducedProductList)
+        
+        print("store unit price list")
+        let reducedUnitPriceList = updateManager.updateQueue.filter{ (p) -> Bool in
+            p is SQL_UNITPRICE
+            }.map{ (p) -> SQL_UNITPRICE in
+                return p as! SQL_UNITPRICE
+        }
+        dbManager.storeUnitPriceList(priceList: reducedUnitPriceList)
         
         cleanup()
         triggerInitialEvent()
