@@ -32,6 +32,7 @@
                                 </popUpButtonCell>
                                 <connections>
                                     <action selector="clickPopupButton:" target="ABW-s0-PbM" id="9v5-N0-zbc"/>
+                                    <binding destination="ABW-s0-PbM" name="enabled" keyPath="self.noUnsaveChanges" id="nUy-HN-tdZ"/>
                                 </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EeZ-co-4JN">

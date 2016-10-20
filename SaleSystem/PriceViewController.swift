@@ -21,6 +21,7 @@ class PriceViewController: NSViewController {
     var unitpriceList: [UNITPRICE] = []
     var reducedUnitPriceList: [UNITPRICE] = []
     var selectedCompId : Int = -1
+    dynamic var noUnsaveChanges : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +117,7 @@ class PriceViewController: NSViewController {
         print("PriceVC catch observer notify")
         if let objectValue = object {
             if objectValue is PRODUCT {
+                noUnsaveChanges = false
                 let product = objectValue as! PRODUCT
                 if let updatePrice = Float(product.DisplayUnitPrice){
                     if let price = product.UnitPrice {
@@ -137,6 +139,7 @@ class PriceViewController: NSViewController {
         print("trigger save action at PriceVC")
         removeObserver()
         triggerInitialEvent()
+        noUnsaveChanges = true
     }
     
     deinit {
