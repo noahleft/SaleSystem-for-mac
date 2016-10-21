@@ -14,13 +14,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3O-dR-jUw">
-                                <rect key="frame" x="0.0" y="50" width="450" height="365"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="415"/>
                                 <clipView key="contentView" id="Y5x-5R-id3">
-                                    <rect key="frame" x="1" y="0.0" width="448" height="364"/>
+                                    <rect key="frame" x="1" y="0.0" width="448" height="414"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="40" rowSizeStyle="automatic" headerView="fOV-gD-DP1" viewBased="YES" id="4gJ-9W-epy">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="341"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="391"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -121,13 +121,13 @@
                                 </tableHeaderView>
                             </scrollView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjN-Dk-8yU">
-                                <rect key="frame" x="0.0" y="50" width="450" height="365"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="415"/>
                                 <clipView key="contentView" id="AfP-AB-PgT">
-                                    <rect key="frame" x="1" y="0.0" width="448" height="364"/>
+                                    <rect key="frame" x="1" y="0.0" width="448" height="414"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="T9w-L5-KuK" viewBased="YES" id="PmD-R2-w8D">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="341"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="391"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -196,8 +196,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="ICb-22-q9L" name="textColor" keyPath="objectValue.TextColor" id="uVs-BI-Uc3"/>
                                                                         <binding destination="ICb-22-q9L" name="value" keyPath="objectValue.DisplayName" id="puF-s7-Qun"/>
+                                                                        <binding destination="ICb-22-q9L" name="textColor" keyPath="objectValue.TextColor" id="uVs-BI-Uc3"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -253,11 +253,11 @@
                             <constraint firstItem="xk7-vW-vcj" firstAttribute="leading" secondItem="C2i-nw-l17" secondAttribute="leading" constant="30" id="PBe-DD-4ge"/>
                             <constraint firstItem="rjN-Dk-8yU" firstAttribute="leading" secondItem="C2i-nw-l17" secondAttribute="leading" id="PSb-il-yz2"/>
                             <constraint firstAttribute="trailing" secondItem="rjN-Dk-8yU" secondAttribute="trailing" id="Qmk-4b-dJZ"/>
-                            <constraint firstAttribute="bottom" secondItem="rjN-Dk-8yU" secondAttribute="bottom" constant="50" id="Y7s-rM-2tM"/>
+                            <constraint firstAttribute="bottom" secondItem="rjN-Dk-8yU" secondAttribute="bottom" id="Y7s-rM-2tM"/>
                             <constraint firstItem="xk7-vW-vcj" firstAttribute="top" secondItem="C2i-nw-l17" secondAttribute="top" constant="10" id="YeN-90-fpr"/>
                             <constraint firstAttribute="trailing" secondItem="7yy-tP-zTd" secondAttribute="trailing" constant="10" id="dvf-CP-i3b"/>
                             <constraint firstItem="rjN-Dk-8yU" firstAttribute="top" secondItem="C2i-nw-l17" secondAttribute="top" constant="40" id="k13-Gj-Wwg"/>
-                            <constraint firstAttribute="bottom" secondItem="q3O-dR-jUw" secondAttribute="bottom" constant="50" id="nAy-uM-kCd"/>
+                            <constraint firstAttribute="bottom" secondItem="q3O-dR-jUw" secondAttribute="bottom" id="nAy-uM-kCd"/>
                             <constraint firstItem="q3O-dR-jUw" firstAttribute="top" secondItem="C2i-nw-l17" secondAttribute="top" constant="40" id="o4Z-9K-CAP"/>
                             <constraint firstItem="q3O-dR-jUw" firstAttribute="leading" secondItem="C2i-nw-l17" secondAttribute="leading" id="qG1-f4-wpc"/>
                             <constraint firstItem="7yy-tP-zTd" firstAttribute="top" secondItem="C2i-nw-l17" secondAttribute="top" constant="10" id="rGZ-lp-8hj"/>
