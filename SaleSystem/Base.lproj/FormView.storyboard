@@ -61,6 +61,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="4Mn-Jz-EXG" name="value" keyPath="objectValue.Id" id="czj-7x-4DN"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -89,11 +92,14 @@
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qUl-um-rZj">
                                                                     <rect key="frame" x="0.0" y="23" width="150" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="N4H-7P-5XA">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="N4H-7P-5XA">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="JCp-xq-tb7" name="value" keyPath="objectValue.Name" id="ee0-oJ-WMx"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -103,6 +109,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <binding destination="50r-g4-lpu" name="content" keyPath="arrangedObjects" id="RHn-rx-whn"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -151,6 +160,11 @@
                     </connections>
                 </viewController>
                 <customObject id="q15-1L-DZe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController objectClassName="SaleSystem.FORM" automaticallyPreparesContent="YES" id="50r-g4-lpu">
+                    <connections>
+                        <binding destination="Bjz-tR-kjX" name="contentArray" keyPath="self.formList" id="h6Y-P4-qyY"/>
+                    </connections>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="196" y="1418"/>
         </scene>
