@@ -271,6 +271,36 @@ class SQLiteWrapper {
         }
     }
     
+    func storeFormList(formList : [SQL_FORM]) {
+        do {
+            if let rPath = path {
+                let db = try Connection(rPath)
+                let users = Table("form")
+                let id = Expression<Int64>("ID")
+                let name = Expression<String>("NAME")
+                
+                for item in formList {
+                    print("try to update formname:  \(item.Id)   \(item.Name)")
+                    let currnet = users.filter(id == Int64(item.Id))
+                    if try db.run(currnet.update(name <- "\(item.Name)")) > 0 {
+                        // UPDATE "users" SET "name" = 'alice' WHERE ("id" = 1)
+                        print("\(item.Name)")
+                    } else {
+                        print("update fail -> try insertion")
+                        if try db.run(users.insert(name <- "\(item.Name)")) > 0 {
+                            // Insert "users" (name) values ('alice')
+                            print("insertion \(item.Name)")
+                        } else {
+                            print("insertion fail")
+                        }
+                    }
+                }
+            }
+        }
+        catch {
+            print("db store fail")
+        }
+    }
 }
 
 

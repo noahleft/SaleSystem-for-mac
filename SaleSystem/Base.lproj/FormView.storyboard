@@ -98,7 +98,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="JCp-xq-tb7" name="value" keyPath="objectValue.Name" id="ee0-oJ-WMx"/>
+                                                                        <binding destination="JCp-xq-tb7" name="textColor" keyPath="objectValue.TextColor" id="3cy-2m-TgT"/>
+                                                                        <binding destination="JCp-xq-tb7" name="value" keyPath="objectValue.DisplayName" id="Gsp-za-VcD"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -139,6 +140,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
+                                    <binding destination="Bjz-tR-kjX" name="enabled" keyPath="self.noUnsaveChanges" id="PC9-kN-x7f"/>
                                     <segue destination="VY5-f7-cjs" kind="modal" identifier="showFormInfo" id="9Wt-NT-o86"/>
                                 </connections>
                             </button>

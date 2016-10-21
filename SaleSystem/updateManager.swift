@@ -28,6 +28,9 @@ class UpdateManager {
         case is SQL_UNITPRICE:
             let com : SQL_UNITPRICE = update as! SQL_UNITPRICE
             print("COM_ID:\(com.ComId)  PRO_ID:\(com.ProId)  PRICE:\(com.UnitPrice)")
+        case is SQL_FORM:
+            let com : SQL_FORM = update as! SQL_FORM
+            print("FORM_ID:\(com.Id) NAME:\(com.Name)")
         default:
             print("something else")
         }
@@ -45,6 +48,9 @@ class UpdateManager {
             case is SQL_UNITPRICE:
                 let com : SQL_UNITPRICE = item as! SQL_UNITPRICE
                 print("COM_ID:\(com.ComId)  PRO_ID:\(com.ProId)  PRICE:\(com.UnitPrice)")
+            case is SQL_FORM:
+                let com : SQL_FORM = item as! SQL_FORM
+                print("FORM_ID:\(com.Id) NAME:\(com.Name)")
             default:
                 print("something else")
             }
