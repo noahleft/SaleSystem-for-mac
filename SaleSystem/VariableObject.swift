@@ -194,6 +194,11 @@ class RECORD : NSObject {
     var DeliverDate : Date
     var UnitPrice : Double
     var Quantity : Int
+    dynamic var DisplayCompIndex : Int
+    dynamic var DisplayProdIndex : Int
+    dynamic var DisplayDeliverDate : String
+    dynamic var DisplayUnitPrice : String
+    dynamic var DisplayQuantity : String
     
     init(sqlRecord: SQL_RECORD) {
         Id = sqlRecord.Id
@@ -204,6 +209,12 @@ class RECORD : NSObject {
         DeliverDate = sqlRecord.DeliverDate
         UnitPrice = sqlRecord.UnitPrice
         Quantity = sqlRecord.Quantity
+        
+        DisplayCompIndex = dataManager.getCompanyIdx(id: sqlRecord.CompId)
+        DisplayProdIndex = dataManager.getProductIdx(id: sqlRecord.ProdId)
+        DisplayDeliverDate = dateFormatterForDisplay(date: sqlRecord.DeliverDate)
+        DisplayUnitPrice = String(sqlRecord.UnitPrice)
+        DisplayQuantity = String(sqlRecord.Quantity)
     }
     
     init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Double,aQuantity: Int) {
@@ -215,6 +226,12 @@ class RECORD : NSObject {
         DeliverDate = aDeliverDate
         UnitPrice = aUnitPrice
         Quantity = aQuantity
+        
+        DisplayCompIndex = dataManager.getCompanyIdx(id: aCompId)
+        DisplayProdIndex = dataManager.getProductIdx(id: aProdId)
+        DisplayDeliverDate = dateFormatterForDisplay(date: aDeliverDate)
+        DisplayUnitPrice = String(aUnitPrice)
+        DisplayQuantity = String(aQuantity)
     }
     
     

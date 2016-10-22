@@ -17,8 +17,8 @@ class DATAMANAGER : NSObject {
     var priceList   : [SQL_UNITPRICE] = []
     var formList    : [SQL_FORM] = []
     var recordList  : [SQL_RECORD] = []
-    var companyDict : [Int:String] = [:]
-    var productDict : [Int:String] = [:]
+    var companyDict : [Int:Int] = [:]
+    var productDict : [Int:Int] = [:]
     var saveAction  : Int = 0
     
     override init() {
@@ -46,11 +46,11 @@ class DATAMANAGER : NSObject {
         formList    = dbManager.loadFormList()
         recordList  = dbManager.loadRecordList()
         
-        for item in companyList {
-            companyDict[item.Id] = item.Name
+        for (index,item) in companyList.enumerated() {
+            companyDict[item.Id] = index
         }
-        for item in productList {
-            productDict[item.Id] = item.Name
+        for (index,item) in productList.enumerated() {
+            productDict[item.Id] = index
         }
     }
     
@@ -61,22 +61,36 @@ class DATAMANAGER : NSObject {
         }
     }
     
-    func getCompanyName(id : Int) -> String {
-        if let retString = companyDict[id] {
-            return retString
+    func getCompanyIdx(id : Int) -> Int {
+        if let idx = companyDict[id] {
+            return idx
         }
-        return ""
+        return -1
     }
-        
+    
+//    func getCompanyName(id : Int) -> String {
+//        if let idx = companyDict[id] {
+//            return companyList[idx].Name
+//        }
+//        return ""
+//    }
+    
     func getProductList() -> [PRODUCT] {
         return productList.map{ (p) -> PRODUCT in
             return PRODUCT(sqlPro: p)
         }
     }
     
+    func getProductIdx(id : Int) -> Int {
+        if let idx = productDict[id] {
+            return idx
+        }
+        return -1
+    }
+    
     func getProductName(id : Int) -> String {
-        if let retString = productDict[id] {
-            return retString
+        if let idx = productDict[id] {
+            return productList[idx].Name
         }
         return ""
     }

@@ -40,7 +40,7 @@
                                             <tableViewGridLines key="gridStyleMask" vertical="YES" dashed="YES"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="IdCellID" width="50" minWidth="40" maxWidth="100" id="8nO-yL-iVt">
+                                                <tableColumn identifier="IdCellID" editable="NO" width="50" minWidth="40" maxWidth="100" id="8nO-yL-iVt">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="ID">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -76,8 +76,8 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <connections>
                                                         <binding destination="hJ2-YZ-ekM" name="content" keyPath="arrangedObjects" id="IR9-zd-PLF"/>
-                                                        <binding destination="BUE-eG-2Ke" name="selectedIndex" keyPath="arrangedObjects.CompId" previousBinding="zCH-q5-BQY" id="6AM-un-XbG"/>
                                                         <binding destination="hJ2-YZ-ekM" name="contentValues" keyPath="arrangedObjects.DisplayName" previousBinding="IR9-zd-PLF" id="zCH-q5-BQY"/>
+                                                        <binding destination="BUE-eG-2Ke" name="selectedIndex" keyPath="arrangedObjects.DisplayCompIndex" previousBinding="zCH-q5-BQY" id="Q35-5T-qye"/>
                                                     </connections>
                                                 </tableColumn>
                                                 <tableColumn identifier="ProdCellID" width="200" minWidth="100" maxWidth="400" id="VWK-vm-YeL">
@@ -101,7 +101,7 @@
                                                     <connections>
                                                         <binding destination="GMh-IZ-KyZ" name="content" keyPath="arrangedObjects" id="RDF-Br-Qt1"/>
                                                         <binding destination="GMh-IZ-KyZ" name="contentValues" keyPath="arrangedObjects.DisplayName" previousBinding="RDF-Br-Qt1" id="FaW-2o-C3M"/>
-                                                        <binding destination="BUE-eG-2Ke" name="selectedIndex" keyPath="arrangedObjects.ProdId" previousBinding="FaW-2o-C3M" id="C9A-pm-Fx1"/>
+                                                        <binding destination="BUE-eG-2Ke" name="selectedIndex" keyPath="arrangedObjects.DisplayProdIndex" previousBinding="FaW-2o-C3M" id="Jn2-p1-2Bm"/>
                                                     </connections>
                                                 </tableColumn>
                                                 <tableColumn identifier="DeliCellID" width="100" minWidth="40" maxWidth="200" id="mI0-t6-npz">
@@ -116,6 +116,9 @@
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <connections>
+                                                        <binding destination="BUE-eG-2Ke" name="value" keyPath="arrangedObjects.DisplayDeliverDate" id="XCp-Le-VOQ"/>
+                                                    </connections>
                                                 </tableColumn>
                                                 <tableColumn identifier="UnitCellID" width="100" minWidth="40" maxWidth="200" id="oJI-de-5sc">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Unit Price">
@@ -129,6 +132,9 @@
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <connections>
+                                                        <binding destination="BUE-eG-2Ke" name="value" keyPath="arrangedObjects.DisplayUnitPrice" id="y7P-wp-mS4"/>
+                                                    </connections>
                                                 </tableColumn>
                                                 <tableColumn identifier="QuanCellID" width="99" minWidth="80" maxWidth="200" id="PnP-Cc-yrE">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Quantity">
@@ -142,6 +148,9 @@
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <connections>
+                                                        <binding destination="BUE-eG-2Ke" name="value" keyPath="arrangedObjects.DisplayQuantity" id="ZE6-WW-wrx"/>
+                                                    </connections>
                                                 </tableColumn>
                                                 <tableColumn identifier="SumCellID" width="100" minWidth="80" maxWidth="200" hidden="YES" id="xAt-vG-fSC">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Sum">
@@ -203,7 +212,7 @@
                         <outlet property="companyArray" destination="hJ2-YZ-ekM" id="VxS-9j-vte"/>
                         <outlet property="formInfoArray" destination="BUE-eG-2Ke" id="D1Q-ht-ahR"/>
                         <outlet property="labelName" destination="8AL-jI-ikD" id="YV5-2g-hHk"/>
-                        <outlet property="productArray" destination="GMh-IZ-KyZ" id="Q21-88-RnP"/>
+                        <outlet property="productArray" destination="GMh-IZ-KyZ" id="NhV-5s-A8q"/>
                         <outlet property="tableView" destination="AKM-jN-clt" id="k0B-yc-HCF"/>
                     </connections>
                 </viewController>
@@ -246,7 +255,7 @@
                                     <menu key="menu" id="ak3-Li-QED">
                                         <items>
                                             <menuItem title="Item 1" state="on" id="L4z-GF-Ay6"/>
-                                            <menuItem title="Item 2" id="uB9-s4-d0U"/>
+                                            <menuItem title="Item 2" enabled="NO" id="uB9-s4-d0U"/>
                                             <menuItem title="Item 3" id="Cyj-zg-8Rf"/>
                                         </items>
                                     </menu>
