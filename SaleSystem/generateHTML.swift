@@ -29,7 +29,8 @@ func generateHTML(companyName: String,formName: String, recordList: [RECORD]) ->
     HTMLstring.append("</tr>\n")
     
     var sum : Double = 0
-    for item in recordList {
+    for item in recordList.sorted(by: { (s1: RECORD,s2: RECORD) -> Bool in
+    return s1.DeliverDate < s2.DeliverDate}) {
         var rowString: String = "<tr>\n"
         rowString.append("<td class=\"dateTime\">"+dateFormatterForDisplay(date: item.DeliverDate)+"</td>")
         rowString.append("<td class=\"productName\">"+dataManager.getProductName(id: item.ProdId)+"</td>")
