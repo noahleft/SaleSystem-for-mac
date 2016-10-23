@@ -22,13 +22,13 @@
                                 </textFieldCell>
                             </textField>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3K-jH-BQA">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="260"/>
+                                <rect key="frame" x="5" y="10" width="440" height="250"/>
                                 <clipView key="contentView" id="1c5-pb-hzu">
-                                    <rect key="frame" x="1" y="0.0" width="448" height="259"/>
+                                    <rect key="frame" x="1" y="0.0" width="438" height="249"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="40" rowSizeStyle="automatic" headerView="5uf-dH-zCw" viewBased="YES" id="RZm-bO-2Cf">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="236"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="438" height="226"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -124,7 +124,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="5uf-dH-zCw">
-                                    <rect key="frame" x="0.0" y="0.0" width="448" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="438" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -145,17 +145,18 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="k3K-jH-BQA" secondAttribute="bottom" id="3el-i6-yCe"/>
+                            <constraint firstAttribute="bottom" secondItem="k3K-jH-BQA" secondAttribute="bottom" constant="10" id="3el-i6-yCe"/>
                             <constraint firstAttribute="trailing" secondItem="UQm-Rc-Fr2" secondAttribute="trailing" constant="20" id="Axc-Gm-bho"/>
                             <constraint firstItem="eB0-gQ-V0Z" firstAttribute="top" secondItem="Mn7-9u-qyv" secondAttribute="top" constant="10" id="Heg-Dw-y7p"/>
-                            <constraint firstItem="k3K-jH-BQA" firstAttribute="leading" secondItem="Mn7-9u-qyv" secondAttribute="leading" id="KCv-7a-mLA"/>
+                            <constraint firstItem="k3K-jH-BQA" firstAttribute="leading" secondItem="Mn7-9u-qyv" secondAttribute="leading" constant="5" id="KCv-7a-mLA"/>
                             <constraint firstItem="UQm-Rc-Fr2" firstAttribute="top" secondItem="Mn7-9u-qyv" secondAttribute="top" constant="8" id="M9M-fj-p1h"/>
-                            <constraint firstAttribute="trailing" secondItem="k3K-jH-BQA" secondAttribute="trailing" id="p92-Rf-n1h"/>
+                            <constraint firstAttribute="trailing" secondItem="k3K-jH-BQA" secondAttribute="trailing" constant="5" id="p92-Rf-n1h"/>
                             <constraint firstItem="eB0-gQ-V0Z" firstAttribute="leading" secondItem="Mn7-9u-qyv" secondAttribute="leading" constant="30" id="r0V-tu-9CR"/>
                             <constraint firstItem="k3K-jH-BQA" firstAttribute="top" secondItem="Mn7-9u-qyv" secondAttribute="top" constant="40" id="soC-tv-g9R"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="formArrayController" destination="50r-g4-lpu" id="rik-Nm-QUh"/>
                         <outlet property="labelName" destination="eB0-gQ-V0Z" id="V7q-tJ-2sb"/>
                         <outlet property="tableView" destination="RZm-bO-2Cf" id="yGj-UR-Yz9"/>
                     </connections>

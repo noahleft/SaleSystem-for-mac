@@ -13,6 +13,7 @@ class FormViewController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var labelName: NSTextField!
+    @IBOutlet var formArrayController: NSArrayController!
     
     dynamic var formList:    [FORM]    = []
     dynamic var noUnsaveChanges : Bool = true
@@ -35,16 +36,14 @@ class FormViewController: NSViewController {
     }
     
     func appendEmptyForm() {
-        for _ in 1...5 {
-            let emptyForm : FORM
-            if let lastObj = formList.last {
-                emptyForm = FORM(aId: lastObj.Id+1, aName: "")
-            }
-            else {
-                emptyForm = FORM(aId: 1, aName: "")
-            }
-            formList.append(emptyForm)
+        let emptyForm : FORM
+        if let lastObj = formList.last {
+            emptyForm = FORM(aId: lastObj.Id+1, aName: "")
         }
+        else {
+            emptyForm = FORM(aId: 1, aName: "")
+        }
+        formArrayController.addObject(emptyForm)
         print("# of formList: \(formList.count)")
     }
     
