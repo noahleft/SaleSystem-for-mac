@@ -34,31 +34,27 @@ class ComProViewController: NSViewController {
     }
     
     func appendEmptyCompany() {
-        for _ in 1...5 {
-            let emptyCompany : COMPANY
-            if let lastObj = companyList.last {
-                emptyCompany = COMPANY(aId: lastObj.Id+1, aName: "")
-            }
-            else {
-                emptyCompany = COMPANY(aId: 1, aName: "")
-            }
-            companyList.append(emptyCompany)
+        let emptyCompany : COMPANY
+        if let lastObj = companyList.last {
+            emptyCompany = COMPANY(aId: lastObj.Id+1, aName: "")
         }
+        else {
+            emptyCompany = COMPANY(aId: 1, aName: "")
+        }
+        comArrayController.addObject(emptyCompany)
         print("# of companyList: \(companyList.count)")
         companyList[companyList.count-1].addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
     }
     
     func appendEmptyProduct() {
-        for _ in 1...5 {
-            let emptyProduct : PRODUCT
-            if let lastObj = productList.last {
-                emptyProduct = PRODUCT(aId: lastObj.Id+1, aName: "")
-            }
-            else {
-                emptyProduct = PRODUCT(aId: 1, aName: "")
-            }
-            productList.append(emptyProduct)
+        let emptyProduct : PRODUCT
+        if let lastObj = productList.last {
+            emptyProduct = PRODUCT(aId: lastObj.Id+1, aName: "")
         }
+        else {
+            emptyProduct = PRODUCT(aId: 1, aName: "")
+        }
+        proArrayController.addObject(emptyProduct)
         print("# of productList: \(productList.count)")
         productList[productList.count-1].addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
         
