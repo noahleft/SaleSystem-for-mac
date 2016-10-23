@@ -10,11 +10,11 @@
             <objects>
                 <viewController id="ABW-s0-PbM" customClass="PriceViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="OPi-TB-lT6">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="484"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="04z-dG-Pro">
-                                <rect key="frame" x="338" y="263" width="105" height="29"/>
+                                <rect key="frame" x="338" y="447" width="105" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="OFr-8b-VPh"/>
                                     <constraint firstAttribute="height" constant="24" id="gM1-ST-eCy"/>
@@ -36,21 +36,21 @@
                                 </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EeZ-co-4JN">
-                                <rect key="frame" x="28" y="273" width="38" height="17"/>
+                                <rect key="frame" x="28" y="444" width="67" height="30"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Show" id="asF-XX-90V">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="system" size="25"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWI-0s-sww">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="260"/>
+                                <rect key="frame" x="5" y="10" width="440" height="434"/>
                                 <clipView key="contentView" id="o5l-nI-SnX">
-                                    <rect key="frame" x="1" y="0.0" width="448" height="259"/>
+                                    <rect key="frame" x="1" y="0.0" width="438" height="433"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="tFW-5g-V8N" viewBased="YES" id="e87-2t-TLx">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="236"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="438" height="410"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -155,8 +155,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="Ly1-0K-WSf" name="textColor" keyPath="objectValue.TextColor" id="yGt-G2-vy7"/>
                                                                         <binding destination="Ly1-0K-WSf" name="value" keyPath="objectValue.DisplayUnitPrice" id="ySF-TR-h0V"/>
+                                                                        <binding destination="Ly1-0K-WSf" name="textColor" keyPath="objectValue.TextColor" id="yGt-G2-vy7"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -182,7 +182,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="tFW-5g-V8N">
-                                    <rect key="frame" x="0.0" y="0.0" width="448" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="438" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -190,9 +190,9 @@
                         <constraints>
                             <constraint firstItem="dWI-0s-sww" firstAttribute="top" secondItem="OPi-TB-lT6" secondAttribute="top" constant="40" id="0H7-ob-MNo"/>
                             <constraint firstItem="EeZ-co-4JN" firstAttribute="top" secondItem="OPi-TB-lT6" secondAttribute="top" constant="10" id="86g-eS-Gsb"/>
-                            <constraint firstAttribute="bottom" secondItem="dWI-0s-sww" secondAttribute="bottom" id="8QV-tU-f6v"/>
-                            <constraint firstAttribute="trailing" secondItem="dWI-0s-sww" secondAttribute="trailing" id="Ahg-tk-bsf"/>
-                            <constraint firstItem="dWI-0s-sww" firstAttribute="leading" secondItem="OPi-TB-lT6" secondAttribute="leading" id="J5N-uw-L6l"/>
+                            <constraint firstAttribute="bottom" secondItem="dWI-0s-sww" secondAttribute="bottom" constant="10" id="8QV-tU-f6v"/>
+                            <constraint firstAttribute="trailing" secondItem="dWI-0s-sww" secondAttribute="trailing" constant="5" id="Ahg-tk-bsf"/>
+                            <constraint firstItem="dWI-0s-sww" firstAttribute="leading" secondItem="OPi-TB-lT6" secondAttribute="leading" constant="5" id="J5N-uw-L6l"/>
                             <constraint firstItem="04z-dG-Pro" firstAttribute="top" secondItem="OPi-TB-lT6" secondAttribute="top" constant="10" id="TVk-vq-3YZ"/>
                             <constraint firstItem="EeZ-co-4JN" firstAttribute="leading" secondItem="OPi-TB-lT6" secondAttribute="leading" constant="30" id="VH6-ew-JqC"/>
                             <constraint firstAttribute="trailing" secondItem="04z-dG-Pro" secondAttribute="trailing" constant="10" id="YsZ-LQ-2CN"/>
@@ -211,7 +211,7 @@
                     </connections>
                 </arrayController>
             </objects>
-            <point key="canvasLocation" x="69" y="1459"/>
+            <point key="canvasLocation" x="69" y="1551"/>
         </scene>
     </scenes>
 </document>
