@@ -200,6 +200,12 @@ class RECORD : NSObject {
     dynamic var DisplayUnitPrice : String
     dynamic var DisplayQuantity : String
     
+    dynamic var TextColorComp  : NSColor = NSColor.black
+    dynamic var TextColorProd  : NSColor = NSColor.black
+    dynamic var TextColorDate  : NSColor = NSColor.black
+    dynamic var TextColorPrice : NSColor = NSColor.black
+    dynamic var TextColorQuan  : NSColor = NSColor.black
+    
     init(sqlRecord: SQL_RECORD) {
         Id = sqlRecord.Id
         CompId = sqlRecord.CompId
@@ -215,6 +221,9 @@ class RECORD : NSObject {
         DisplayDeliverDate = dateFormatterForDisplay(date: sqlRecord.DeliverDate)
         DisplayUnitPrice = String(sqlRecord.UnitPrice)
         DisplayQuantity = String(sqlRecord.Quantity)
+        
+        super.init()
+        registerObservers()
     }
     
     init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Double,aQuantity: Int) {
@@ -232,12 +241,56 @@ class RECORD : NSObject {
         DisplayDeliverDate = dateFormatterForDisplay(date: aDeliverDate)
         DisplayUnitPrice = String(aUnitPrice)
         DisplayQuantity = String(aQuantity)
+        
+        super.init()
+        registerObservers()
     }
     
+    func registerObservers() {
+        addObserver(self, forKeyPath: "DisplayCompIndex", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextCompIndex)
+        addObserver(self, forKeyPath: "DisplayProdIndex", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextProdIndex)
+        addObserver(self, forKeyPath: "DisplayDeliverDate", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextDeliverDate)
+        addObserver(self, forKeyPath: "DisplayUnitPrice", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextUnitPrice)
+        addObserver(self, forKeyPath: "DisplayQuantity", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextQuantity)
+    }
     
+    func removeObservers() {
+        removeObserver(self, forKeyPath: "DisplayCompIndex")
+        removeObserver(self, forKeyPath: "DisplayProdIndex")
+        removeObserver(self, forKeyPath: "DisplayDeliverDate")
+        removeObserver(self, forKeyPath: "DisplayUnitPrice")
+        removeObserver(self, forKeyPath: "DisplayQuantity")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if context == &contextCompIndex {
+            TextColorComp = NSColor.red
+        }
+        else if context == &contextProdIndex {
+            TextColorProd = NSColor.red
+        }
+        else if context == &contextDeliverDate {
+            TextColorDate = NSColor.red
+        }
+        else if context == &contextUnitPrice {
+            TextColorPrice = NSColor.red
+        }
+        else if context == &contextQuantity {
+            TextColorQuan = NSColor.red
+        }
+    }
+    
+    deinit {
+        removeObservers()
+    }
     
 }
 
+private var contextCompIndex = 0
+private var contextProdIndex = 0
+private var contextDeliverDate = 0
+private var contextUnitPrice = 0
+private var contextQuantity = 0
 
 
 
