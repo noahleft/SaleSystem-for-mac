@@ -1,4 +1,17 @@
-*.storyboard
 Carthage/
 SQLite.swift-xcode8/
 .DS_Store
+*.plist
+SaleSystemTests/
+SaleSystemUITests/
+.localized
+# Build directory
+build/
+# XCode user specific files
+xcuserdata/
+*.xcworkspace/
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.pbxuser
+output
