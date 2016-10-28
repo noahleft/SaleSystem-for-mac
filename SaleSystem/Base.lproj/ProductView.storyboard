@@ -122,9 +122,9 @@
                                 </tableHeaderView>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xk7-vW-vcj">
-                                <rect key="frame" x="28" y="415" width="67" height="30"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Show" id="cGN-gR-wXK">
-                                    <font key="font" metaFont="system" size="25"/>
+                                <rect key="frame" x="28" y="418" width="106" height="27"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="產品列表" id="cGN-gR-wXK">
+                                    <font key="font" size="25" name=".PingFangTC-Regular"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -136,15 +136,15 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0ci-Ly-5Py">
-                                            <rect key="frame" x="18" y="51" width="104" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Company Name:" id="wsD-nY-761">
+                                            <rect key="frame" x="18" y="51" width="95" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Product Name:" id="wsD-nY-761">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vgt-Fk-Tuf">
-                                            <rect key="frame" x="140" y="49" width="110" height="22"/>
+                                            <rect key="frame" x="131" y="49" width="110" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="110" id="rUm-Ox-06l"/>
                                                 <constraint firstAttribute="height" constant="22" id="v9w-Yb-9Dx"/>
@@ -163,7 +163,7 @@
                                             </buttonCell>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6qn-8p-3DW">
-                                            <rect key="frame" x="101" y="81" width="21" height="17"/>
+                                            <rect key="frame" x="92" y="81" width="21" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="ID:" id="4DZ-K5-iHW">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -171,7 +171,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UJk-Xo-T9X">
-                                            <rect key="frame" x="138" y="80" width="44" height="20"/>
+                                            <rect key="frame" x="129" y="80" width="44" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="pbM-z6-YcL"/>
                                                 <constraint firstAttribute="width" constant="40" id="uci-YE-xiA"/>

@@ -17,7 +17,6 @@ class ComProViewController: NSViewController {
     
     @IBOutlet weak var comTableScrollView: NSScrollView!
     @IBOutlet weak var proTableScrollView: NSScrollView!
-    @IBOutlet weak var labelName: NSTextField!
     
     @IBOutlet var comArrayController: NSArrayController!
     dynamic var companyList: [COMPANY] = []
@@ -28,7 +27,6 @@ class ComProViewController: NSViewController {
         super.viewDidLoad()
         
         triggerInitialEvent()
-        labelName.stringValue = "公司列表"
         
         dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
     }
@@ -66,19 +64,6 @@ class ComProViewController: NSViewController {
         
         appendEmptyCompany()
         appendEmptyProduct()
-    }
-    
-    @IBAction func pressSegControl(_ sender: NSSegmentedControl) {
-        if sender.selectedSegment == 0 {
-            comTableScrollView.isHidden = false
-            proTableScrollView.isHidden = true
-            labelName.stringValue = "公司列表"
-        }
-        else {
-            comTableScrollView.isHidden = true
-            proTableScrollView.isHidden = false
-            labelName.stringValue = "產品列表"
-        }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
