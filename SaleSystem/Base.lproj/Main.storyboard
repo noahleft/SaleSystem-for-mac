@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
@@ -668,9 +668,10 @@
         <!--Custom Tab View Controller-->
         <scene sceneID="f61-vR-ndh">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" id="qXl-EB-9Kq" customClass="CustomTabViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="1" id="qXl-EB-9Kq" customClass="CustomTabViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="Com/Pro" identifier="" id="2wk-nG-arW"/>
+                        <tabViewItem label="Company" identifier="" id="2wk-nG-arW"/>
+                        <tabViewItem label="Product" id="2Hm-ny-0AH"/>
                         <tabViewItem label="Price" id="abg-OJ-Aw4"/>
                         <tabViewItem label="Form" id="YvL-fT-aQW"/>
                     </tabViewItems>
@@ -682,6 +683,7 @@
                     </tabView>
                     <connections>
                         <segue destination="QRb-KR-kjV" kind="relationship" relationship="tabItems" id="VeJ-oE-8pw"/>
+                        <segue destination="MLR-7Q-oN8" kind="relationship" relationship="tabItems" id="nec-Sc-Xpp"/>
                         <segue destination="bml-gZ-NCx" kind="relationship" relationship="tabItems" id="K1Y-1H-UmD"/>
                         <segue destination="ag2-a4-6rq" kind="relationship" relationship="tabItems" id="G7Z-Sw-0Co"/>
                     </connections>
@@ -690,13 +692,21 @@
             </objects>
             <point key="canvasLocation" x="75" y="677"/>
         </scene>
-        <!--ComProView-->
+        <!--CompanyView-->
         <scene sceneID="VbN-lG-pEb">
             <objects>
-                <controllerPlaceholder storyboardName="ComProView" id="QRb-KR-kjV" sceneMemberID="viewController"/>
+                <controllerPlaceholder storyboardName="CompanyView" id="QRb-KR-kjV" sceneMemberID="viewController"/>
                 <customObject id="bxd-aG-NEV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52" y="1037"/>
+            <point key="canvasLocation" x="-250" y="1037"/>
+        </scene>
+        <!--ProductView-->
+        <scene sceneID="rCR-np-jE7">
+            <objects>
+                <controllerPlaceholder storyboardName="ProductView" id="MLR-7Q-oN8" sceneMemberID="viewController"/>
+                <customObject id="8uk-mE-Xoo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71" y="1037"/>
         </scene>
         <!--PriceView-->
         <scene sceneID="Sb0-VS-jBV">
