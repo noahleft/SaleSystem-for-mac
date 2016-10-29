@@ -12,7 +12,6 @@ import Cocoa
 class FormViewController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
-    @IBOutlet weak var labelName: NSTextField!
     @IBOutlet var formArrayController: NSArrayController!
     
     dynamic var formList:    [FORM]    = []
@@ -22,7 +21,6 @@ class FormViewController: NSViewController {
         super.viewDidLoad()
         
         triggerInitialEvent()
-        labelName.stringValue = "表單列表"
         
         registerObserver()
         dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
@@ -78,9 +76,14 @@ class FormViewController: NSViewController {
                 else {
                     form.TextColor = NSColor.black
                 }
-                dataManager.addUpdate(update: SQL_FORM(aId: form.Id, aName: form.DisplayName))
-                print("add update FORM: name \(form.DisplayName) @ id:\(form.Id)")
                 
+                if form.DisplayName != "" {
+                    dataManager.addUpdate(update: SQL_FORM(aId: form.Id, aName: form.DisplayName))
+                    print("add update FORM: name \(form.DisplayName) @ id:\(form.Id)")
+                }
+                else {
+                    form.DisplayName = form.Name
+                }
                 noUnsaveChanges = false
             }
             else if object is DATAMANAGER {
