@@ -6,10 +6,10 @@
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--Com Pro View Controller-->
+        <!--Product View Controller-->
         <scene sceneID="oUU-8E-vvg">
             <objects>
-                <viewController id="oyl-tf-ai8" customClass="ComProViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oyl-tf-ai8" customClass="ProductViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="C2i-nw-l17">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="455"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -104,6 +104,7 @@
                                             </tableColumns>
                                             <connections>
                                                 <binding destination="dJS-Yh-Y49" name="content" keyPath="arrangedObjects" id="k6R-44-MQd"/>
+                                                <binding destination="dJS-Yh-Y49" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="k6R-44-MQd" id="a1q-FY-TJE"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -130,13 +131,13 @@
                                 </textFieldCell>
                             </textField>
                             <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="UNz-v9-SKv">
-                                <rect key="frame" x="5" y="10" width="440" height="120"/>
+                                <rect key="frame" x="5" y="40" width="440" height="90"/>
                                 <view key="contentView" id="KlI-OJ-t2o">
-                                    <rect key="frame" x="1" y="1" width="438" height="118"/>
+                                    <rect key="frame" x="1" y="1" width="438" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0ci-Ly-5Py">
-                                            <rect key="frame" x="18" y="51" width="95" height="17"/>
+                                            <rect key="frame" x="18" y="21" width="95" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Product Name:" id="wsD-nY-761">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -144,9 +145,9 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vgt-Fk-Tuf">
-                                            <rect key="frame" x="131" y="49" width="110" height="22"/>
+                                            <rect key="frame" x="131" y="19" width="200" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="110" id="rUm-Ox-06l"/>
+                                                <constraint firstAttribute="width" constant="200" id="rUm-Ox-06l"/>
                                                 <constraint firstAttribute="height" constant="22" id="v9w-Yb-9Dx"/>
                                             </constraints>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ofx-vs-fJv">
@@ -154,16 +155,12 @@
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <binding destination="dJS-Yh-Y49" name="value" keyPath="selection.DisplayName" id="Gh5-AQ-ANl"/>
+                                            </connections>
                                         </textField>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Dn-yl-aMY">
-                                            <rect key="frame" x="339" y="13" width="85" height="32"/>
-                                            <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d1M-F8-gAw">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6qn-8p-3DW">
-                                            <rect key="frame" x="92" y="81" width="21" height="17"/>
+                                            <rect key="frame" x="92" y="51" width="21" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="ID:" id="4DZ-K5-iHW">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -171,7 +168,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UJk-Xo-T9X">
-                                            <rect key="frame" x="129" y="80" width="44" height="20"/>
+                                            <rect key="frame" x="129" y="50" width="44" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="pbM-z6-YcL"/>
                                                 <constraint firstAttribute="width" constant="40" id="uci-YE-xiA"/>
@@ -181,14 +178,15 @@
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <binding destination="dJS-Yh-Y49" name="value" keyPath="selection.Id" id="P2z-g8-ScH"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="vgt-Fk-Tuf" firstAttribute="leading" secondItem="0ci-Ly-5Py" secondAttribute="trailing" constant="20" id="7sE-iA-kDH"/>
-                                        <constraint firstAttribute="trailing" secondItem="0Dn-yl-aMY" secondAttribute="trailing" constant="20" id="AMm-K6-VLd"/>
                                         <constraint firstItem="UJk-Xo-T9X" firstAttribute="centerY" secondItem="6qn-8p-3DW" secondAttribute="centerY" id="EAV-l3-Qeb"/>
                                         <constraint firstItem="6qn-8p-3DW" firstAttribute="top" secondItem="KlI-OJ-t2o" secondAttribute="top" constant="20" id="GOe-fy-urn"/>
-                                        <constraint firstAttribute="bottom" secondItem="0Dn-yl-aMY" secondAttribute="bottom" constant="20" id="Mc1-95-trQ"/>
                                         <constraint firstItem="6qn-8p-3DW" firstAttribute="trailing" secondItem="0ci-Ly-5Py" secondAttribute="trailing" id="Q7Z-26-XXv"/>
                                         <constraint firstItem="vgt-Fk-Tuf" firstAttribute="centerY" secondItem="0ci-Ly-5Py" secondAttribute="centerY" id="Tpm-g0-GMs"/>
                                         <constraint firstItem="UJk-Xo-T9X" firstAttribute="leading" secondItem="6qn-8p-3DW" secondAttribute="trailing" constant="20" id="YtZ-6n-InR"/>
@@ -197,11 +195,23 @@
                                     </constraints>
                                 </view>
                             </box>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Dn-yl-aMY">
+                                <rect key="frame" x="351" y="2" width="85" height="32"/>
+                                <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d1M-F8-gAw">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="saveEvent:" target="oyl-tf-ai8" id="ATs-uy-X0a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="UNz-v9-SKv" firstAttribute="leading" secondItem="C2i-nw-l17" secondAttribute="leading" constant="5" id="5QU-iW-v1z"/>
+                            <constraint firstAttribute="trailing" secondItem="0Dn-yl-aMY" secondAttribute="trailing" constant="20" id="Kyd-sh-WLJ"/>
                             <constraint firstItem="xk7-vW-vcj" firstAttribute="leading" secondItem="C2i-nw-l17" secondAttribute="leading" constant="30" id="PBe-DD-4ge"/>
-                            <constraint firstAttribute="bottom" secondItem="UNz-v9-SKv" secondAttribute="bottom" constant="10" id="Pc1-D0-bu1"/>
+                            <constraint firstAttribute="bottom" secondItem="UNz-v9-SKv" secondAttribute="bottom" constant="40" id="Pc1-D0-bu1"/>
+                            <constraint firstAttribute="bottom" secondItem="0Dn-yl-aMY" secondAttribute="bottom" constant="9" id="Quo-AN-c5F"/>
                             <constraint firstItem="xk7-vW-vcj" firstAttribute="top" secondItem="C2i-nw-l17" secondAttribute="top" constant="10" id="YeN-90-fpr"/>
                             <constraint firstAttribute="trailing" secondItem="UNz-v9-SKv" secondAttribute="trailing" constant="5" id="l1R-2q-mFg"/>
                             <constraint firstAttribute="bottom" secondItem="q3O-dR-jUw" secondAttribute="bottom" constant="150" id="nAy-uM-kCd"/>
@@ -212,19 +222,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="comArrayController" destination="yWx-hY-tbT" id="0VH-7x-tx5"/>
-                        <outlet property="labelName" destination="xk7-vW-vcj" id="PaN-DL-cIi"/>
-                        <outlet property="proArrayController" destination="dJS-Yh-Y49" id="Kno-vf-z1n"/>
-                        <outlet property="proTableScrollView" destination="q3O-dR-jUw" id="hgI-8D-lfa"/>
-                        <outlet property="proTableView" destination="4gJ-9W-epy" id="BS0-AU-T23"/>
+                        <outlet property="arrayController" destination="dJS-Yh-Y49" id="n0N-t6-Gcz"/>
                     </connections>
                 </viewController>
                 <customObject id="Znx-Q9-eJt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController objectClassName="SaleSystem.COMPANY" automaticallyPreparesContent="YES" id="yWx-hY-tbT">
-                    <connections>
-                        <binding destination="oyl-tf-ai8" name="contentArray" keyPath="self.companyList" id="m7H-qq-Bmf"/>
-                    </connections>
-                </arrayController>
                 <arrayController objectClassName="SaleSystem.PRODUCT" automaticallyPreparesContent="YES" id="dJS-Yh-Y49">
                     <connections>
                         <binding destination="oyl-tf-ai8" name="contentArray" keyPath="self.productList" id="1sj-bW-Fa3"/>

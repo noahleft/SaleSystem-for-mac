@@ -9,17 +9,9 @@
 import Foundation
 import Cocoa
 
-class ComProViewController: NSViewController {
+class ProductViewController: NSViewController {
     
-    @IBOutlet weak var tableView: NSTableView!
-    @IBOutlet weak var proTableView: NSTableView!
-    
-    @IBOutlet weak var comTableScrollView: NSScrollView!
-    @IBOutlet weak var proTableScrollView: NSScrollView!
-    
-    @IBOutlet var comArrayController: NSArrayController!
-    dynamic var companyList: [COMPANY] = []
-    @IBOutlet var proArrayController: NSArrayController!
+    @IBOutlet var arrayController: NSArrayController!
     dynamic var productList: [PRODUCT] = []
     
     override func viewDidLoad() {
@@ -30,19 +22,6 @@ class ComProViewController: NSViewController {
         dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
     }
     
-    func appendEmptyCompany() {
-        let emptyCompany : COMPANY
-        if let lastObj = companyList.last {
-            emptyCompany = COMPANY(aId: lastObj.Id+1, aName: "")
-        }
-        else {
-            emptyCompany = COMPANY(aId: 1, aName: "")
-        }
-        comArrayController.addObject(emptyCompany)
-        print("# of companyList: \(companyList.count)")
-        companyList[companyList.count-1].addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
-    }
-    
     func appendEmptyProduct() {
         let emptyProduct : PRODUCT
         if let lastObj = productList.last {
@@ -51,27 +30,19 @@ class ComProViewController: NSViewController {
         else {
             emptyProduct = PRODUCT(aId: 1, aName: "")
         }
-        proArrayController.addObject(emptyProduct)
+        arrayController.addObject(emptyProduct)
         print("# of productList: \(productList.count)")
         productList[productList.count-1].addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
         
     }
     
     func triggerInitialEvent() {
-        companyList = dataManager.getCompanyList()
         productList = dataManager.getProductList()
-        
-        appendEmptyCompany()
         appendEmptyProduct()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if object is COMPANY {
-            removeObserverForLastComp()
-            print("trigger append company")
-            appendEmptyCompany()
-        }
-        else if object is PRODUCT {
+        if object is PRODUCT {
             removeObserverForLastProd()
             print("trigger append product")
             appendEmptyProduct()
@@ -84,13 +55,8 @@ class ComProViewController: NSViewController {
     
     func triggerSaveEvent() {
         print("catch at ComProVC.swift")
-        removeObserverForLastComp()
         removeObserverForLastProd()
         triggerInitialEvent()
-    }
-    
-    func removeObserverForLastComp() {
-        companyList[companyList.count-1].removeObserver(self, forKeyPath: "DisplayName")
     }
     
     func removeObserverForLastProd() {
@@ -98,11 +64,18 @@ class ComProViewController: NSViewController {
     }
     
     deinit {
-        removeObserverForLastComp()
         removeObserverForLastProd()
         dataManager.removeObserver(self, forKeyPath: "saveAction")
     }
+    
+    @IBAction func saveEvent(_ sender: AnyObject) {
+        dataManager.store()
+    }
+    
 }
+
+
+
 
 class CompanyViewController: NSViewController {
     
@@ -165,7 +138,5 @@ class CompanyViewController: NSViewController {
     @IBAction func saveEvent(_ sender: AnyObject) {
         dataManager.store()
     }
-    
-    
     
 }
