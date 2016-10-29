@@ -120,8 +120,14 @@ class PRODUCT : NSObject {
             else {
                 TextColor = NSColor.black
             }
-            dataManager.addUpdate(update: SQL_PRODUCT(aId: Id, aName: DisplayName))
-            print("add update  Name:\(Name)   DisplayName:\(DisplayName)")
+            
+            if DisplayName != "" {
+                dataManager.addUpdate(update: SQL_PRODUCT(aId: Id, aName: DisplayName))
+                print("add update  Name:\(Name)   DisplayName:\(DisplayName)")
+            }
+            else {
+                DisplayName = Name
+            }
         }
         else if keyPath == "DisplayUnitPrice" {
             if PriceChanged && (Float(DisplayUnitPrice) != nil) {  // (1)value changes , (2) the value is float, (3) has default value
