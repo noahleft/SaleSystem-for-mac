@@ -35,8 +35,6 @@
 		2ED4594E1DABEEFE00AB1F37 /* FormPrintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED4594D1DABEEFE00AB1F37 /* FormPrintViewController.swift */; };
 		2ED459571DABF86600AB1F37 /* generateHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED459561DABF86600AB1F37 /* generateHTML.swift */; };
 		2ED459591DABFE7000AB1F37 /* Site.css in Resources */ = {isa = PBXBuildFile; fileRef = 2ED459581DABFE7000AB1F37 /* Site.css */; };
-		2EE6F8AA1DB114F500A5D51F /* CompView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE6F8A91DB114F500A5D51F /* CompView.storyboard */; };
-		2EE6F8B31DB1154300A5D51F /* CompViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE6F8B21DB1154300A5D51F /* CompViewController.swift */; };
 		2EF48A371DC3A9CD003D1D4F /* ProductView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF48A351DC3A9CD003D1D4F /* ProductView.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -116,8 +114,6 @@
 		2ED4594D1DABEEFE00AB1F37 /* FormPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormPrintViewController.swift; sourceTree = "<group>"; };
 		2ED459561DABF86600AB1F37 /* generateHTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generateHTML.swift; sourceTree = "<group>"; };
 		2ED459581DABFE7000AB1F37 /* Site.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Site.css; sourceTree = "<group>"; };
-		2EE6F8A91DB114F500A5D51F /* CompView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CompView.storyboard; sourceTree = "<group>"; };
-		2EE6F8B21DB1154300A5D51F /* CompViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompViewController.swift; sourceTree = "<group>"; };
 		2EF48A361DC3A9CD003D1D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProductView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,10 +186,9 @@
 				2E616EA81D7BED4E00FB02E6 /* Main.storyboard */,
 				2E4526361D9C24AB000AA615 /* CompanyView.storyboard */,
 				2EF48A351DC3A9CD003D1D4F /* ProductView.storyboard */,
+				2E12C5881DB7BD4A00738E13 /* PriceView.storyboard */,
 				2E45263D1DA262BF000AA615 /* FormView.storyboard */,
 				2E6859591DBB5B7600CB4EDA /* FormInfo.storyboard */,
-				2E12C5881DB7BD4A00738E13 /* PriceView.storyboard */,
-				2EE6F8A91DB114F500A5D51F /* CompView.storyboard */,
 				2E616EAB1D7BED4E00FB02E6 /* Info.plist */,
 			);
 			path = SaleSystem;
@@ -237,7 +232,6 @@
 			children = (
 				2E8538641DB489270056C494 /* CustomTabViewController.swift */,
 				2E616ED11D7BF3F500FB02E6 /* ComProViewController.swift */,
-				2EE6F8B21DB1154300A5D51F /* CompViewController.swift */,
 				2E616ED31D7BF40300FB02E6 /* PriceViewController.swift */,
 				2E616ED51D7BF40D00FB02E6 /* FormViewController.swift */,
 				2E45264F1DA3F5C0000AA615 /* FormInfoViewController.swift */,
@@ -367,7 +361,6 @@
 				2E45263F1DA262BF000AA615 /* FormView.storyboard in Resources */,
 				2E68595B1DBB5B7600CB4EDA /* FormInfo.storyboard in Resources */,
 				2EF48A371DC3A9CD003D1D4F /* ProductView.storyboard in Resources */,
-				2EE6F8AA1DB114F500A5D51F /* CompView.storyboard in Resources */,
 				2E616EA71D7BED4E00FB02E6 /* Assets.xcassets in Resources */,
 				2E616EAA1D7BED4E00FB02E6 /* Main.storyboard in Resources */,
 				2E4526381D9C24AB000AA615 /* CompanyView.storyboard in Resources */,
@@ -405,7 +398,6 @@
 				2E4526501DA3F5C0000AA615 /* FormInfoViewController.swift in Sources */,
 				2E616EE11D7BF9B100FB02E6 /* SQLiteWrapper.swift in Sources */,
 				2EB14EB31D9963E000C06F3A /* dataConvert.swift in Sources */,
-				2EE6F8B31DB1154300A5D51F /* CompViewController.swift in Sources */,
 				2ED4594E1DABEEFE00AB1F37 /* FormPrintViewController.swift in Sources */,
 				2E85386D1DB4D75D0056C494 /* updateManager.swift in Sources */,
 				2E616EA31D7BED4E00FB02E6 /* AppDelegate.swift in Sources */,
