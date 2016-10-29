@@ -53,8 +53,14 @@ class COMPANY : NSObject {
         else {
             TextColor = NSColor.black
         }
-        dataManager.addUpdate(update: SQL_COMPANY(aId: Id, aName: DisplayName))
-        print("add update  Name:\(Name)   DisplayName:\(DisplayName)")
+        
+        if DisplayName != "" {
+            dataManager.addUpdate(update: SQL_COMPANY(aId: Id, aName: DisplayName))
+            print("add update  Name:\(Name)   DisplayName:\(DisplayName)")
+        }
+        else {
+            DisplayName = Name
+        }
     }
     
     deinit {
