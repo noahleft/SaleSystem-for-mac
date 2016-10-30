@@ -1,0 +1,39 @@
+
+/* Class = "NSTableColumn"; headerCell.title = "ID"; ObjectID = "0pe-To-as9"; */
+"0pe-To-as9.headerCell.title" = "ID";
+
+/* Class = "NSButtonCell"; title = "Update"; ObjectID = "2CK-VG-MwP"; */
+"2CK-VG-MwP.title" = "更新";
+
+/* Class = "NSButtonCell"; title = "Open"; ObjectID = "3LE-kk-JaN"; */
+"3LE-kk-JaN.title" = "開啟";
+
+/* Class = "NSTextFieldCell"; title = "Form Name:"; ObjectID = "5eQ-rS-aGO"; */
+"5eQ-rS-aGO.title" = "表單名稱:";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "9JU-bQ-wJ1"; */
+"9JU-bQ-wJ1.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "表單列表"; ObjectID = "GKS-4h-6lG"; */
+"GKS-4h-6lG.title" = "表單列表";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "N4H-7P-5XA"; */
+"N4H-7P-5XA.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Vhh-dK-LsP"; */
+"Vhh-dK-LsP.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "nTI-dv-2PL"; */
+"nTI-dv-2PL.headerCell.title" = "名稱";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "oL9-31-lbq"; */
+"oL9-31-lbq.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "qCd-Uz-kG7"; */
+"qCd-Uz-kG7.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "ID:"; ObjectID = "uEB-Wh-63C"; */
+"uEB-Wh-63C.title" = "ID:";
+
+/* Class = "NSTextFieldCell"; title = "1"; ObjectID = "uno-f9-66l"; */
+"uno-f9-66l.title" = "1";

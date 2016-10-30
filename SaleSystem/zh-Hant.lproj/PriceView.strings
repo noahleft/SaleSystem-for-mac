@@ -1,0 +1,42 @@
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "01z-9e-ZES"; */
+"01z-9e-ZES.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "0Sk-mk-xJc"; */
+"0Sk-mk-xJc.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Price"; ObjectID = "25z-jh-U7b"; */
+"25z-jh-U7b.headerCell.title" = "單價";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "6P1-4u-0GP"; */
+"6P1-4u-0GP.title" = "Table View Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "ID"; ObjectID = "BA3-fl-Rg5"; */
+"BA3-fl-Rg5.headerCell.title" = "ID";
+
+/* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "Gtr-ju-xYC"; */
+"Gtr-ju-xYC.headerCell.title" = "產品";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "HjU-pc-jz8"; */
+"HjU-pc-jz8.title" = "Item 2";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "UtY-qW-8y4"; */
+"UtY-qW-8y4.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Update"; ObjectID = "aYN-Gh-mNd"; */
+"aYN-Gh-mNd.title" = "更新";
+
+/* Class = "NSTextFieldCell"; title = "Show"; ObjectID = "asF-XX-90V"; */
+"asF-XX-90V.title" = "單價列表";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "bRK-Js-xas"; */
+"bRK-Js-xas.title" = "Item 3";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "l4H-Oj-Byv"; */
+"l4H-Oj-Byv.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "qGa-lp-qMu"; */
+"qGa-lp-qMu.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "vCt-hQ-Pdm"; */
+"vCt-hQ-Pdm.title" = "Item 1";

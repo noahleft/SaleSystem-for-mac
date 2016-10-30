@@ -1,0 +1,120 @@
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "02j-1J-k2K"; */
+"02j-1J-k2K.title" = "Label";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "04E-4f-BgZ"; */
+"04E-4f-BgZ.title" = "Item 2";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "0MO-Ug-nxh"; */
+"0MO-Ug-nxh.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "9vc-JG-Ias"; */
+"9vc-JG-Ias.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Export"; ObjectID = "Cri-Dl-sKH"; */
+"Cri-Dl-sKH.title" = "輸出";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "Cyj-zg-8Rf"; */
+"Cyj-zg-8Rf.title" = "Item 3";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "Fyg-3k-sXg"; */
+"Fyg-3k-sXg.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "GVA-c9-3bA"; */
+"GVA-c9-3bA.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "HKE-dU-Ve7"; */
+"HKE-dU-Ve7.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Hqt-pj-4DY"; */
+"Hqt-pj-4DY.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "IVw-39-2aI"; */
+"IVw-39-2aI.title" = "Item 1";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "L4z-GF-Ay6"; */
+"L4z-GF-Ay6.title" = "Item 1";
+
+/* Class = "NSTextFieldCell"; title = "ID"; ObjectID = "Mej-8B-Mrs"; */
+"Mej-8B-Mrs.title" = "ID";
+
+/* Class = "NSTableColumn"; headerCell.title = "Comp"; ObjectID = "Ph3-i4-I3l"; */
+"Ph3-i4-I3l.headerCell.title" = "公司";
+
+/* Class = "NSTextFieldCell"; title = "Unit Price"; ObjectID = "S6T-L2-6Wu"; */
+"S6T-L2-6Wu.title" = "單價";
+
+/* Class = "NSTableColumn"; headerCell.title = "ID"; ObjectID = "T7i-8X-ccx"; */
+"T7i-8X-ccx.headerCell.title" = "ID";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "Tfs-36-b6S"; */
+"Tfs-36-b6S.title" = "Table View Cell";
+
+/* Class = "NSViewController"; title = "Form Info"; ObjectID = "VY5-f7-cjs"; */
+"VY5-f7-cjs.title" = "Form Info";
+
+/* Class = "NSTableColumn"; headerCell.title = "Quantity"; ObjectID = "X13-Ea-He3"; */
+"X13-Ea-He3.headerCell.title" = "數量";
+
+/* Class = "NSTableColumn"; headerCell.title = "Unit Price"; ObjectID = "bSr-Iy-ZGg"; */
+"bSr-Iy-ZGg.headerCell.title" = "單價";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "cgA-J7-c90"; */
+"cgA-J7-c90.title" = "Item 3";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "cpM-6m-ZrU"; */
+"cpM-6m-ZrU.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "iOF-wV-cRe"; */
+"iOF-wV-cRe.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Quantity"; ObjectID = "lTY-Yb-DT5"; */
+"lTY-Yb-DT5.title" = "數量";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "mjF-1A-rpd"; */
+"mjF-1A-rpd.title" = "Label";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "oB7-gS-b9k"; */
+"oB7-gS-b9k.title" = "Item 2";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "oHL-Vv-lbH"; */
+"oHL-Vv-lbH.title" = "Table View Cell";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "psi-jw-DWV"; */
+"psi-jw-DWV.title" = "Item 3";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "qCq-7Z-OG9"; */
+"qCq-7Z-OG9.title" = "Table View Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Deliver Date"; ObjectID = "rng-5T-qri"; */
+"rng-5T-qri.headerCell.title" = "送貨日期";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "srf-4m-kyG"; */
+"srf-4m-kyG.title" = "Label";
+
+/* Class = "NSTextFieldCell"; title = "Product"; ObjectID = "t7k-ox-2nu"; */
+"t7k-ox-2nu.title" = "產品";
+
+/* Class = "NSTableColumn"; headerCell.title = "Prod"; ObjectID = "u4C-gL-EdV"; */
+"u4C-gL-EdV.headerCell.title" = "產品";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "uB9-s4-d0U"; */
+"uB9-s4-d0U.title" = "Item 2";
+
+/* Class = "NSTextFieldCell"; title = "DB_Price"; ObjectID = "v1h-8j-R9c"; */
+"v1h-8j-R9c.title" = "DB_Price";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "vYB-Wh-2Bu"; */
+"vYB-Wh-2Bu.title" = "Table View Cell";
+
+/* Class = "NSViewController"; title = "Print"; ObjectID = "vuL-tc-51X"; */
+"vuL-tc-51X.title" = "Print";
+
+/* Class = "NSMenuItem"; title = "Item 1"; ObjectID = "w7U-EP-GLB"; */
+"w7U-EP-GLB.title" = "Item 1";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "wh3-4I-sHY"; */
+"wh3-4I-sHY.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Company"; ObjectID = "xGz-EM-aza"; */
+"xGz-EM-aza.title" = "公司";

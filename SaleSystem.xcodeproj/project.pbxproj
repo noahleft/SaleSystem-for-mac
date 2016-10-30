@@ -110,6 +110,12 @@
 		2E96FF911DC105FB00CD3DD3 /* SQLite.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SQLite.framework.dSYM; path = SaleSystem/Carthage/Build/Mac/SQLite.framework.dSYM; sourceTree = "<group>"; };
 		2EA18C5E1DAE3D4A006629BB /* SaleSystem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaleSystem.entitlements; sourceTree = "<group>"; };
 		2EA18C5F1DAE412E006629BB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		2EAED8991DC609C400F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		2EAED89A1DC609C400F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/CompanyView.strings"; sourceTree = "<group>"; };
+		2EAED89B1DC609C400F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ProductView.strings"; sourceTree = "<group>"; };
+		2EAED89C1DC609C500F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/PriceView.strings"; sourceTree = "<group>"; };
+		2EAED89D1DC609C500F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FormView.strings"; sourceTree = "<group>"; };
+		2EAED89E1DC609C500F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FormInfo.strings"; sourceTree = "<group>"; };
 		2EB14EB21D9963E000C06F3A /* dataConvert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataConvert.swift; sourceTree = "<group>"; };
 		2ED4594D1DABEEFE00AB1F37 /* FormPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormPrintViewController.swift; sourceTree = "<group>"; };
 		2ED459561DABF86600AB1F37 /* generateHTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generateHTML.swift; sourceTree = "<group>"; };
@@ -442,6 +448,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E12C5891DB7BD4A00738E13 /* Base */,
+				2EAED89C1DC609C500F9C86B /* zh-Hant */,
 			);
 			name = PriceView.storyboard;
 			sourceTree = "<group>";
@@ -450,6 +457,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E4526371D9C24AB000AA615 /* Base */,
+				2EAED89A1DC609C400F9C86B /* zh-Hant */,
 			);
 			name = CompanyView.storyboard;
 			sourceTree = "<group>";
@@ -458,6 +466,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E45263E1DA262BF000AA615 /* Base */,
+				2EAED89D1DC609C500F9C86B /* zh-Hant */,
 			);
 			name = FormView.storyboard;
 			sourceTree = "<group>";
@@ -466,6 +475,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E616EA91D7BED4E00FB02E6 /* Base */,
+				2EAED8991DC609C400F9C86B /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -474,6 +484,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E68595A1DBB5B7600CB4EDA /* Base */,
+				2EAED89E1DC609C500F9C86B /* zh-Hant */,
 			);
 			name = FormInfo.storyboard;
 			sourceTree = "<group>";
@@ -482,6 +493,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2EF48A361DC3A9CD003D1D4F /* Base */,
+				2EAED89B1DC609C400F9C86B /* zh-Hant */,
 			);
 			name = ProductView.storyboard;
 			sourceTree = "<group>";
@@ -493,6 +505,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -542,6 +555,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

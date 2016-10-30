@@ -1,0 +1,36 @@
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "47c-kj-W2Y"; */
+"47c-kj-W2Y.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "ID:"; ObjectID = "4DZ-K5-iHW"; */
+"4DZ-K5-iHW.title" = "ID:";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "6f5-w8-VEo"; */
+"6f5-w8-VEo.title" = "Table View Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "ID"; ObjectID = "H2e-Ko-19U"; */
+"H2e-Ko-19U.headerCell.title" = "ID";
+
+/* Class = "NSTextFieldCell"; title = "1"; ObjectID = "N8E-aY-3ZC"; */
+"N8E-aY-3ZC.title" = "1";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "UNz-v9-SKv"; */
+"UNz-v9-SKv.title" = "Box";
+
+/* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "UqT-aF-JxP"; */
+"UqT-aF-JxP.headerCell.title" = "名稱";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Xd1-hP-HDu"; */
+"Xd1-hP-HDu.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "公司列表"; ObjectID = "cGN-gR-wXK"; */
+"cGN-gR-wXK.title" = "公司列表";
+
+/* Class = "NSButtonCell"; title = "Update"; ObjectID = "d1M-F8-gAw"; */
+"d1M-F8-gAw.title" = "更新";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "nzq-hW-3oU"; */
+"nzq-hW-3oU.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Company Name:"; ObjectID = "wsD-nY-761"; */
+"wsD-nY-761.title" = "公司名稱:";
