@@ -152,6 +152,8 @@ class SQLiteWrapper {
                 
                 let SQL_dateFormatter : DateFormatter = DateFormatter()
                 SQL_dateFormatter.dateFormat = "YYYY-MM-dd"
+                SQL_dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                SQL_dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
                 
                 for user in try db.prepare(users) {
                     
