@@ -68,17 +68,18 @@ class DATAMANAGER : NSObject {
         return -1
     }
     
-//    func getCompanyName(id : Int) -> String {
-//        if let idx = companyDict[id] {
-//            return companyList[idx].Name
-//        }
-//        return ""
-//    }
+    func getCompanyNameFromListOrder(index : Int) -> String {
+        return companyList[index].Name
+    }
     
     func getProductList() -> [PRODUCT] {
         return productList.map{ (p) -> PRODUCT in
             return PRODUCT(sqlPro: p)
         }
+    }
+    
+    func getProductNameFromListOrder(index : Int) -> String {
+        return productList[index].Name
     }
     
     func getProductIdx(id : Int) -> Int {
@@ -132,6 +133,13 @@ class DATAMANAGER : NSObject {
         return reducedRecordList.map{ (p) -> RECORD in
             return RECORD(sqlRecord: p)
         }
+    }
+    
+    func getRecordListIdForNewData() -> Int {
+        if let lastObj = recordList.last {
+            return lastObj.Id+1
+        }
+        return 1
     }
     
     func store() {

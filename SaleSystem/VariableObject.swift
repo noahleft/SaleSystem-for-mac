@@ -208,15 +208,25 @@ class RECORD : NSObject {
     var Quantity : Int
     dynamic var DisplayCompIndex : Int
     dynamic var DisplayProdIndex : Int
-    dynamic var DisplayDeliverDate : String
+    dynamic var DisplayDeliverDate : Date
     dynamic var DisplayUnitPrice : String
     dynamic var DisplayQuantity : String
+    
+    dynamic var TableDisplayCompString : String = ""
+    dynamic var TableDisplayProdString : String = ""
+    dynamic var TableDisplayDeliverDateString : String = ""
+    dynamic var TableDisplayUnitPriceString : String = ""
+    dynamic var TableDisplayQuantityString : String = ""
     
     dynamic var TextColorComp  : NSColor = NSColor.black
     dynamic var TextColorProd  : NSColor = NSColor.black
     dynamic var TextColorDate  : NSColor = NSColor.black
     dynamic var TextColorPrice : NSColor = NSColor.black
     dynamic var TextColorQuan  : NSColor = NSColor.black
+    
+    var isComplete : Bool {
+        return TableDisplayCompString != "" && TableDisplayProdString != "" && TableDisplayDeliverDateString != "" && TableDisplayUnitPriceString != "" && TableDisplayQuantityString != ""
+    }
     
     init(sqlRecord: SQL_RECORD) {
         Id = sqlRecord.Id
@@ -230,12 +240,14 @@ class RECORD : NSObject {
         
         DisplayCompIndex = dataManager.getCompanyIdx(id: sqlRecord.CompId)
         DisplayProdIndex = dataManager.getProductIdx(id: sqlRecord.ProdId)
-        DisplayDeliverDate = dateFormatterForDisplay(date: sqlRecord.DeliverDate)
+        DisplayDeliverDate = sqlRecord.DeliverDate
         DisplayUnitPrice = String(sqlRecord.UnitPrice)
         DisplayQuantity = String(sqlRecord.Quantity)
         
         super.init()
         registerObservers()
+        
+        setupTableDisplay()
     }
     
     init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Double,aQuantity: Int) {
@@ -250,12 +262,21 @@ class RECORD : NSObject {
         
         DisplayCompIndex = dataManager.getCompanyIdx(id: aCompId)
         DisplayProdIndex = dataManager.getProductIdx(id: aProdId)
-        DisplayDeliverDate = dateFormatterForDisplay(date: aDeliverDate)
+        DisplayDeliverDate = aDeliverDate
         DisplayUnitPrice = String(aUnitPrice)
         DisplayQuantity = String(aQuantity)
         
         super.init()
         registerObservers()
+        
+    }
+    
+    func setupTableDisplay() {
+        TableDisplayCompString = dataManager.getCompanyNameFromListOrder(index: DisplayCompIndex)
+        TableDisplayProdString = dataManager.getProductNameFromListOrder(index: DisplayProdIndex)
+        TableDisplayDeliverDateString = dateFormatterForDisplay(date: DisplayDeliverDate)
+        TableDisplayUnitPriceString = String(DisplayUnitPrice)
+        TableDisplayQuantityString = String(DisplayQuantity)
     }
     
     func registerObservers() {
@@ -277,18 +298,23 @@ class RECORD : NSObject {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == &contextCompIndex {
             TextColorComp = NSColor.red
+            TableDisplayCompString = dataManager.getCompanyNameFromListOrder(index: DisplayCompIndex)
         }
         else if context == &contextProdIndex {
             TextColorProd = NSColor.red
+            TableDisplayProdString = dataManager.getProductNameFromListOrder(index: DisplayProdIndex)
         }
         else if context == &contextDeliverDate {
             TextColorDate = NSColor.red
+            TableDisplayDeliverDateString = dateFormatterForDisplay(date: DisplayDeliverDate)
         }
         else if context == &contextUnitPrice {
             TextColorPrice = NSColor.red
+            TableDisplayUnitPriceString = String(DisplayUnitPrice)
         }
         else if context == &contextQuantity {
             TextColorQuan = NSColor.red
+            TableDisplayQuantityString = String(DisplayQuantity)
         }
     }
     

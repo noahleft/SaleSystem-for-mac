@@ -22,6 +22,8 @@ class FormInfoViewController: NSViewController {
     @IBOutlet var companyArray: NSArrayController!
     @IBOutlet var productArray: NSArrayController!
     
+    dynamic var selectedRow : Int = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +34,16 @@ class FormInfoViewController: NSViewController {
             labelName.stringValue = formItem.Name
         }
         
+        triggerInitialEvent()
+        dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+    }
+    
+    func triggerInitialEvent() {
         formInfoList = dataManager.getRecordList(formId: formId)
         companyList = dataManager.getCompanyList()
         productList = dataManager.getProductList()
         
-//        tableView.dataSource = self
-//        tableView.delegate   = self
-        
+        appendEmptyRecord()
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -50,78 +55,61 @@ class FormInfoViewController: NSViewController {
         
     }
     
+    func appendEmptyRecord() {
+        var newId : Int = dataManager.getRecordListIdForNewData()
+        if let lastId = formInfoList.last?.Id {
+            if lastId+1 > newId {
+                newId = lastId + 1
+            }
+        }
+        let emptyRecord : RECORD = RECORD(aId: newId, aCompId: 0, aProdId: 0, aFormId: formId, aCreatedDate: Date(), aDeliverDate: Date(), aUnitPrice: 0, aQuantity: 0)
+        formInfoArray.addObject(emptyRecord)
+        
+        formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayCompString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayProdString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayDeliverDateString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayUnitPriceString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayQuantityString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if let objectItem = object {
+            if objectItem is RECORD {
+                if (objectItem as! RECORD).isComplete {
+                    removeObserverFromLast()
+                    appendEmptyRecord()
+                }
+            }
+            else if object is DATAMANAGER {
+                triggerSaveEvent()
+            }
+        }
+        
+    }
+    
+    func removeObserverFromLast() {
+        formInfoList.last?.removeObserver(self, forKeyPath: "TableDisplayCompString")
+        formInfoList.last?.removeObserver(self, forKeyPath: "TableDisplayProdString")
+        formInfoList.last?.removeObserver(self, forKeyPath: "TableDisplayDeliverDateString")
+        formInfoList.last?.removeObserver(self, forKeyPath: "TableDisplayUnitPriceString")
+        formInfoList.last?.removeObserver(self, forKeyPath: "TableDisplayQuantityString")
+    }
+    
+    deinit {
+        removeObserverFromLast()
+        dataManager.removeObserver(self, forKeyPath: "saveAction")
+
+    }
+    
+    func triggerSaveEvent() {
+        removeObserverFromLast()
+        triggerInitialEvent()
+    }
+    
+    @IBAction func saveEvent(_ sender: AnyObject) {
+        dataManager.store()
+    }
 }
-
-
-//extension FormInfoViewController: NSTableViewDataSource {
-//    
-//    func numberOfRows(in tableView: NSTableView) -> Int {
-//        return formInfoList.count
-//    }
-//    
-//}
-//
-//extension FormInfoViewController: NSTableViewDelegate {
-//    
-//    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-//        var text:String = ""
-//        var cellIdentifier: String = ""
-//        
-//        // 1
-//        var textId : String = ""
-//        var textCom: String = ""
-//        var textPro: String = ""
-//        var textDeliver: String = ""
-//        var textUnitPrice : String = ""
-//        var textQuantity: String = ""
-//        var textSum: String = ""
-//        
-//        textId = "\(formInfoList[row].Id)"
-//        textCom = "\(dataManager.getCompanyName(id: formInfoList[row].CompId))"
-//        textPro = "\(dataManager.getProductName(id: formInfoList[row].ProdId))"
-//        textDeliver = dateFormatterForDisplay(date: formInfoList[row].DeliverDate)
-//        textUnitPrice = "\(formInfoList[row].UnitPrice)"
-//        textQuantity = "\(formInfoList[row].Quantity)"
-//        let up = formInfoList[row].UnitPrice
-//        let qu : Double = Double(formInfoList[row].Quantity)
-//        let sum = up * qu
-//        
-//        textSum = "\(sum)"
-//        
-//        // 2
-//        if tableColumn == tableView.tableColumns[0] {
-//            text = textId
-//            cellIdentifier = "IdCellID"
-//        } else if tableColumn == tableView.tableColumns[1] {
-//            text = textCom
-//            cellIdentifier = "CompCellID"
-//        } else if tableColumn == tableView.tableColumns[2] {
-//            text = textPro
-//            cellIdentifier = "ProdCellID"
-//        } else if tableColumn == tableView.tableColumns[3] {
-//            text = textDeliver
-//            cellIdentifier = "DeliCellID"
-//        } else if tableColumn == tableView.tableColumns[4] {
-//            text = textUnitPrice
-//            cellIdentifier = "UnitCellID"
-//        } else if tableColumn == tableView.tableColumns[5] {
-//            text = textQuantity
-//            cellIdentifier = "QuanCellID"
-//        } else if tableColumn == tableView.tableColumns[6] {
-//            text = textSum
-//            cellIdentifier = "SumCellID"
-//        }
-//        
-//        // 3
-//        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
-//            cell.textField?.stringValue = text
-//            return cell
-//        }
-//        return nil
-//    }
-//    
-//    
-//    
-//}
 
 
