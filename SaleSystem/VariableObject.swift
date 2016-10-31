@@ -299,7 +299,7 @@ class RECORD : NSObject {
     }
     
     func loadUnitPrice() {
-        if DisplayCompIndex <= 0 || DisplayProdIndex <= 0 {
+        if DisplayCompIndex < 0 || DisplayProdIndex < 0 {
             DisplayUnitPriceAtDB = "Null"
             return
         }
