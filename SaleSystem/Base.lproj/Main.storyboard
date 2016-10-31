@@ -668,7 +668,7 @@
         <!--Custom Tab View Controller-->
         <scene sceneID="f61-vR-ndh">
             <objects>
-                <tabViewController selectedTabViewItemIndex="1" id="qXl-EB-9Kq" customClass="CustomTabViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" id="qXl-EB-9Kq" customClass="CustomTabViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="Company" identifier="" id="2wk-nG-arW"/>
                         <tabViewItem label="Product" id="2Hm-ny-0AH"/>

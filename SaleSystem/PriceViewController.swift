@@ -26,8 +26,6 @@ class PriceViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        labelName.stringValue = "單價列表"
-        
         dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
         triggerInitialEvent()
     }

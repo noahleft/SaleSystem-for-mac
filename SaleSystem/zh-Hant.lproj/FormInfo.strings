@@ -8,6 +8,9 @@
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "0MO-Ug-nxh"; */
 "0MO-Ug-nxh.title" = "Text Cell";
 
+/* Class = "NSButtonCell"; title = "Update"; ObjectID = "0b5-aM-Xcb"; */
+"0b5-aM-Xcb.title" = "更新";
+
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "9vc-JG-Ias"; */
 "9vc-JG-Ias.title" = "Text Cell";
 
