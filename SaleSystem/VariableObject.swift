@@ -212,6 +212,7 @@ class RECORD : NSObject {
     dynamic var DisplayUnitPrice : String
     dynamic var DisplayQuantity : String
     
+    dynamic var DisplayUnitPriceAtDB : String = ""
     dynamic var TableDisplayCompString : String = ""
     dynamic var TableDisplayProdString : String = ""
     dynamic var TableDisplayDeliverDateString : String = ""
@@ -277,6 +278,8 @@ class RECORD : NSObject {
         TableDisplayDeliverDateString = dateFormatterForDisplay(date: DisplayDeliverDate)
         TableDisplayUnitPriceString = String(DisplayUnitPrice)
         TableDisplayQuantityString = String(DisplayQuantity)
+        
+        loadUnitPrice()
     }
     
     func registerObservers() {
@@ -295,12 +298,34 @@ class RECORD : NSObject {
         removeObserver(self, forKeyPath: "DisplayQuantity")
     }
     
+    func loadUnitPrice() {
+        if DisplayCompIndex <= 0 || DisplayProdIndex <= 0 {
+            DisplayUnitPriceAtDB = "Null"
+            return
+        }
+        let compId = dataManager.getCompany(index: DisplayCompIndex).Id
+        let prodId = dataManager.getProduct(index: DisplayProdIndex).Id
+        if let unitPrice = dataManager.getUnitPrice(compId: compId, prodId: prodId) {
+            DisplayUnitPriceAtDB = String(unitPrice)
+        }
+        else {
+            DisplayUnitPriceAtDB = "Null"
+        }
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == &contextCompIndex {
-            TextColorComp = NSColor.red
+            loadUnitPrice()
+            if DisplayCompIndex == dataManager.getCompanyIdx(id: self.CompId) {
+                TextColorComp = NSColor.black
+            }
+            else {
+                TextColorComp = NSColor.red
+            }
             TableDisplayCompString = dataManager.getCompanyNameFromListOrder(index: DisplayCompIndex)
         }
         else if context == &contextProdIndex {
+            loadUnitPrice()
             TextColorProd = NSColor.red
             TableDisplayProdString = dataManager.getProductNameFromListOrder(index: DisplayProdIndex)
         }
@@ -315,6 +340,20 @@ class RECORD : NSObject {
         else if context == &contextQuantity {
             TextColorQuan = NSColor.red
             TableDisplayQuantityString = String(DisplayQuantity)
+        }
+        
+        if isComplete {
+            // sent record to data manager only if record is complete.
+            let aId = Id
+            let aCompId = dataManager.getCompany(index: DisplayCompIndex).Id
+            let aProdId = dataManager.getProduct(index: DisplayProdIndex).Id
+            let aFormId = FormId
+            let aCreatedDate = Date()
+            let aDeliverDate = DisplayDeliverDate
+            let aUnitPrice = Double(DisplayUnitPrice)!
+            let aQuantity = Int(DisplayQuantity)!
+            
+            dataManager.addUpdate(update: SQL_RECORD(aId: aId, aCompId: aCompId, aProdId: aProdId, aFormId: aFormId, aCreatedDate: aCreatedDate, aDeliverDate: aDeliverDate, aUnitPrice: aUnitPrice, aQuantity: aQuantity))
         }
     }
     
