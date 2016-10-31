@@ -31,6 +31,9 @@ class UpdateManager {
         case is SQL_FORM:
             let com : SQL_FORM = update as! SQL_FORM
             print("FORM_ID:\(com.Id) NAME:\(com.Name)")
+        case is SQL_RECORD:
+            let com : SQL_RECORD = update as! SQL_RECORD
+            print("RECORD_ID:\(com.Id) DeliverDate:\(com.DeliverDate) UnitPrice:\(com.UnitPrice) Quantity:\(com.Quantity)")
         default:
             print("something else")
         }
@@ -51,6 +54,10 @@ class UpdateManager {
             case is SQL_FORM:
                 let com : SQL_FORM = item as! SQL_FORM
                 print("FORM_ID:\(com.Id) NAME:\(com.Name)")
+            case is SQL_RECORD:
+                let com : SQL_RECORD = item as! SQL_RECORD
+                let tmpStr : String = dateFormatterForDisplay(date : com.DeliverDate)
+                print("RECORD_ID:\(com.Id) DeliverDate:\(tmpStr) UnitPrice:\(com.UnitPrice) Quantity:\(com.Quantity)")
             default:
                 print("something else")
             }

@@ -68,6 +68,10 @@ class DATAMANAGER : NSObject {
         return -1
     }
     
+    func getCompany(index : Int) -> SQL_COMPANY {
+        return companyList[index]
+    }
+    
     func getCompanyNameFromListOrder(index : Int) -> String {
         return companyList[index].Name
     }
@@ -76,6 +80,10 @@ class DATAMANAGER : NSObject {
         return productList.map{ (p) -> PRODUCT in
             return PRODUCT(sqlPro: p)
         }
+    }
+    
+    func getProduct(index : Int) -> SQL_PRODUCT {
+        return productList[index]
     }
     
     func getProductNameFromListOrder(index : Int) -> String {
@@ -100,6 +108,13 @@ class DATAMANAGER : NSObject {
         return priceList.map{ (p) -> UNITPRICE in
             return UNITPRICE(sqlUnitPrice: p)
         }
+    }
+    
+    func getUnitPrice(compId : Int, prodId : Int) -> Float? {
+        let up = priceList.filter{ (p) -> Bool in
+            p.ComId == compId && p.ProId == prodId
+        }
+        return up.first?.UnitPrice
     }
     
     func getFormList() -> [FORM] {
