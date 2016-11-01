@@ -133,8 +133,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="UsW-zG-I5R" name="textColor" keyPath="objectValue.TextColorComp" id="TQz-iJ-h9v"/>
                                                                         <binding destination="UsW-zG-I5R" name="value" keyPath="objectValue.TableDisplayCompString" id="NQy-TC-vxm"/>
+                                                                        <binding destination="UsW-zG-I5R" name="textColor" keyPath="objectValue.TextColorComp" id="TQz-iJ-h9v"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -170,8 +170,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="MNk-7t-aXY" name="textColor" keyPath="objectValue.TextColorProd" id="QSb-dD-Cxs"/>
                                                                         <binding destination="MNk-7t-aXY" name="value" keyPath="objectValue.TableDisplayProdString" id="1mx-3V-pNJ"/>
+                                                                        <binding destination="MNk-7t-aXY" name="textColor" keyPath="objectValue.TextColorProd" id="QSb-dD-Cxs"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -207,8 +207,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="Tmu-FA-j2Y" name="textColor" keyPath="objectValue.TextColorDate" id="Ebp-qh-Rwf"/>
                                                                         <binding destination="Tmu-FA-j2Y" name="value" keyPath="objectValue.TableDisplayDeliverDateString" id="gBg-bg-Cma"/>
+                                                                        <binding destination="Tmu-FA-j2Y" name="textColor" keyPath="objectValue.TextColorDate" id="Ebp-qh-Rwf"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -244,8 +244,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="Ucf-4Z-F7o" name="textColor" keyPath="objectValue.TextColorPrice" id="Q6F-iT-Xfb"/>
                                                                         <binding destination="Ucf-4Z-F7o" name="value" keyPath="objectValue.TableDisplayUnitPriceString" id="qY7-cn-ldV"/>
+                                                                        <binding destination="Ucf-4Z-F7o" name="textColor" keyPath="objectValue.TextColorPrice" id="Q6F-iT-Xfb"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -281,8 +281,8 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="kgx-PI-KVb" name="textColor" keyPath="objectValue.TextColorQuan" id="Ap7-42-V16"/>
                                                                         <binding destination="kgx-PI-KVb" name="value" keyPath="objectValue.TableDisplayQuantityString" id="e6y-sQ-Rm6"/>
+                                                                        <binding destination="kgx-PI-KVb" name="textColor" keyPath="objectValue.TextColorQuan" id="Ap7-42-V16"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -414,7 +414,7 @@
                                             </connections>
                                         </datePicker>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b3b-La-X0D">
-                                            <rect key="frame" x="105" y="20" width="80" height="25"/>
+                                            <rect key="frame" x="155" y="53" width="80" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="Lem-Nb-wMt"/>
                                                 <constraint firstAttribute="height" constant="25" id="UqB-ey-wG8"/>
@@ -456,12 +456,24 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uoH-hh-5Vx">
-                                            <rect key="frame" x="18" y="20" width="104" height="25"/>
+                                            <rect key="frame" x="18" y="53" width="154" height="25"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="Qyc-hL-0va"/>
+                                                <constraint firstAttribute="width" constant="150" id="Qyc-hL-0va"/>
                                                 <constraint firstAttribute="height" constant="25" id="sld-FK-s8a"/>
                                             </constraints>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Unit Price" id="S6T-L2-6Wu">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Actual Unit Price" id="S6T-L2-6Wu">
+                                                <font key="font" metaFont="system" size="15"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NH1-sQ-boD">
+                                            <rect key="frame" x="18" y="93" width="104" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="g0V-zx-PM5"/>
+                                                <constraint firstAttribute="width" constant="100" id="gJD-hR-xkg"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Unit Price" id="tZH-nr-uV1">
                                                 <font key="font" metaFont="system" size="15"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -479,19 +491,10 @@
                                                 <binding destination="BUE-eG-2Ke" name="value" keyPath="selection.Id" id="f8K-No-eZS"/>
                                             </connections>
                                         </textField>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Thh-kQ-yg8">
-                                            <rect key="frame" x="187" y="15" width="61" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PwC-vl-mDC">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-wa-oDZ">
-                                            <rect key="frame" x="103" y="95" width="73" height="23"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-wa-oDZ">
+                                            <rect key="frame" x="153" y="93" width="66" height="25"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="DB_Price" id="v1h-8j-R9c">
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="system" size="15"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -499,6 +502,14 @@
                                                 <binding destination="BUE-eG-2Ke" name="value" keyPath="selection.DisplayUnitPriceAtDB" id="hC1-kw-3nA"/>
                                             </connections>
                                         </textField>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Thh-kQ-yg8">
+                                            <rect key="frame" x="149" y="11" width="61" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PwC-vl-mDC">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="kCp-7t-Wi2" firstAttribute="top" secondItem="Qt2-nM-UMB" secondAttribute="top" constant="20" id="AX7-ne-0dp"/>
@@ -507,17 +518,22 @@
                                         <constraint firstItem="wcz-3E-whF" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="105" id="IWC-iA-cov"/>
                                         <constraint firstItem="9dH-eF-Ls6" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="455" id="JSN-l9-6p1"/>
                                         <constraint firstItem="E8I-zR-rdw" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="350" id="JyK-hK-1ir"/>
+                                        <constraint firstItem="Ghs-wa-oDZ" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="155" id="Knu-bF-Kt8"/>
                                         <constraint firstItem="kCp-7t-Wi2" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="20" id="OYY-MM-hdo"/>
                                         <constraint firstItem="TKl-zK-jS6" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="20" id="SBS-4R-kBM"/>
                                         <constraint firstItem="c5c-RJ-sdh" firstAttribute="centerY" secondItem="orp-Kp-Mgc" secondAttribute="centerY" id="YZ4-BG-ekC"/>
-                                        <constraint firstItem="b3b-La-X0D" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="105" id="bCd-PI-YFC"/>
-                                        <constraint firstAttribute="bottom" secondItem="b3b-La-X0D" secondAttribute="bottom" constant="20" id="cNU-dh-cJt"/>
+                                        <constraint firstItem="uoH-hh-5Vx" firstAttribute="top" secondItem="Ghs-wa-oDZ" secondAttribute="bottom" constant="15" id="aGF-6i-9In"/>
+                                        <constraint firstItem="b3b-La-X0D" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="155" id="bCd-PI-YFC"/>
+                                        <constraint firstItem="b3b-La-X0D" firstAttribute="centerY" secondItem="uoH-hh-5Vx" secondAttribute="centerY" id="btY-8A-klz"/>
+                                        <constraint firstItem="NH1-sQ-boD" firstAttribute="top" secondItem="TKl-zK-jS6" secondAttribute="bottom" constant="15" id="e2d-nh-I1h"/>
+                                        <constraint firstItem="Ghs-wa-oDZ" firstAttribute="bottom" secondItem="NH1-sQ-boD" secondAttribute="bottom" id="gBf-ex-BIM"/>
+                                        <constraint firstItem="Ghs-wa-oDZ" firstAttribute="centerY" secondItem="NH1-sQ-boD" secondAttribute="centerY" id="hyF-5Y-5i3"/>
                                         <constraint firstItem="kv8-ef-vHt" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="350" id="i0F-hF-XYr"/>
                                         <constraint firstItem="TKl-zK-jS6" firstAttribute="top" secondItem="orp-Kp-Mgc" secondAttribute="bottom" constant="10" id="jYd-aS-gzl"/>
                                         <constraint firstItem="orp-Kp-Mgc" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="20" id="jzG-pf-xQk"/>
+                                        <constraint firstItem="NH1-sQ-boD" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="20" id="qH7-Uc-HjC"/>
                                         <constraint firstItem="c5c-RJ-sdh" firstAttribute="leading" secondItem="Qt2-nM-UMB" secondAttribute="leading" constant="105" id="sdx-V3-gMI"/>
                                         <constraint firstItem="orp-Kp-Mgc" firstAttribute="top" secondItem="kCp-7t-Wi2" secondAttribute="bottom" constant="10" id="slM-nz-g2b"/>
-                                        <constraint firstAttribute="bottom" secondItem="uoH-hh-5Vx" secondAttribute="bottom" constant="20" id="tMz-DP-aEf"/>
                                         <constraint firstAttribute="bottom" secondItem="9dH-eF-Ls6" secondAttribute="bottom" constant="20" id="tQx-9f-Ne6"/>
                                         <constraint firstItem="E8I-zR-rdw" firstAttribute="top" secondItem="Qt2-nM-UMB" secondAttribute="top" constant="20" id="vXf-LO-8r4"/>
                                         <constraint firstItem="wcz-3E-whF" firstAttribute="centerY" secondItem="TKl-zK-jS6" secondAttribute="centerY" id="zRz-QZ-Ie2"/>

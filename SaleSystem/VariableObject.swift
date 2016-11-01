@@ -307,6 +307,9 @@ class RECORD : NSObject {
         let prodId = dataManager.getProduct(index: DisplayProdIndex).Id
         if let unitPrice = dataManager.getUnitPrice(compId: compId, prodId: prodId) {
             DisplayUnitPriceAtDB = String(unitPrice)
+            if isComplete == false {
+                DisplayUnitPrice = DisplayUnitPriceAtDB
+            }
         }
         else {
             DisplayUnitPriceAtDB = "Null"
