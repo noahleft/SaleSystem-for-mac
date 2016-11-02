@@ -225,8 +225,16 @@ class RECORD : NSObject {
     dynamic var TextColorPrice : NSColor = NSColor.black
     dynamic var TextColorQuan  : NSColor = NSColor.black
     
-    var isComplete : Bool {
-        return TableDisplayCompString != "" && TableDisplayProdString != "" && TableDisplayDeliverDateString != "" && TableDisplayUnitPriceString != "" && TableDisplayQuantityString != ""
+    func isComplete() -> Bool {
+        let notEmpty : Bool = TableDisplayCompString != "" && TableDisplayProdString != "" && TableDisplayDeliverDateString != "" && TableDisplayUnitPriceString != "" && TableDisplayQuantityString != ""
+        if notEmpty {
+            if let validUnitPrice = Float(TableDisplayUnitPriceString) {
+                if let validQuantity = Int(TableDisplayQuantityString) {
+                    return true
+                }
+            }
+        }
+        return false
     }
     
     init(sqlRecord: SQL_RECORD) {
@@ -307,7 +315,7 @@ class RECORD : NSObject {
         let prodId = dataManager.getProduct(index: DisplayProdIndex).Id
         if let unitPrice = dataManager.getUnitPrice(compId: compId, prodId: prodId) {
             DisplayUnitPriceAtDB = String(unitPrice)
-            if isComplete == false {
+            if isComplete() == false {
                 DisplayUnitPrice = DisplayUnitPriceAtDB
             }
         }
@@ -345,7 +353,7 @@ class RECORD : NSObject {
             TableDisplayQuantityString = String(DisplayQuantity)
         }
         
-        if isComplete {
+        if isComplete() {
             // sent record to data manager only if record is complete.
             let aId = Id
             let aCompId = dataManager.getCompany(index: DisplayCompIndex).Id

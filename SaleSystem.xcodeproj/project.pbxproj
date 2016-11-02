@@ -115,8 +115,8 @@
 		2EAED89B1DC609C400F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ProductView.strings"; sourceTree = "<group>"; };
 		2EAED89C1DC609C500F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/PriceView.strings"; sourceTree = "<group>"; };
 		2EAED89D1DC609C500F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FormView.strings"; sourceTree = "<group>"; };
-		2EAED8A01DC60E5E00F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FormInfo.strings"; sourceTree = "<group>"; };
 		2EB14EB21D9963E000C06F3A /* dataConvert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataConvert.swift; sourceTree = "<group>"; };
+		2EC2FC4F1DC8EB20003BDD2D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FormInfo.strings"; sourceTree = "<group>"; };
 		2ED4594D1DABEEFE00AB1F37 /* FormPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormPrintViewController.swift; sourceTree = "<group>"; };
 		2ED459561DABF86600AB1F37 /* generateHTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generateHTML.swift; sourceTree = "<group>"; };
 		2ED459581DABFE7000AB1F37 /* Site.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Site.css; sourceTree = "<group>"; };
@@ -484,7 +484,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E68595A1DBB5B7600CB4EDA /* Base */,
-				2EAED8A01DC60E5E00F9C86B /* zh-Hant */,
+				2EC2FC4F1DC8EB20003BDD2D /* zh-Hant */,
 			);
 			name = FormInfo.storyboard;
 			sourceTree = "<group>";
