@@ -182,11 +182,20 @@
                                                 <binding destination="dJS-Yh-Y49" name="value" keyPath="selection.Id" id="P2z-g8-ScH"/>
                                             </connections>
                                         </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aQl-aJ-Yaf">
+                                            <rect key="frame" x="349" y="3" width="85" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="osd-2E-E2d">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="aQl-aJ-Yaf" secondAttribute="bottom" constant="10" id="1eg-Ld-x1o"/>
                                         <constraint firstItem="vgt-Fk-Tuf" firstAttribute="leading" secondItem="0ci-Ly-5Py" secondAttribute="trailing" constant="20" id="7sE-iA-kDH"/>
                                         <constraint firstItem="UJk-Xo-T9X" firstAttribute="centerY" secondItem="6qn-8p-3DW" secondAttribute="centerY" id="EAV-l3-Qeb"/>
                                         <constraint firstItem="6qn-8p-3DW" firstAttribute="top" secondItem="KlI-OJ-t2o" secondAttribute="top" constant="20" id="GOe-fy-urn"/>
+                                        <constraint firstAttribute="trailing" secondItem="aQl-aJ-Yaf" secondAttribute="trailing" constant="10" id="Kej-eA-lgo"/>
                                         <constraint firstItem="6qn-8p-3DW" firstAttribute="trailing" secondItem="0ci-Ly-5Py" secondAttribute="trailing" id="Q7Z-26-XXv"/>
                                         <constraint firstItem="vgt-Fk-Tuf" firstAttribute="centerY" secondItem="0ci-Ly-5Py" secondAttribute="centerY" id="Tpm-g0-GMs"/>
                                         <constraint firstItem="UJk-Xo-T9X" firstAttribute="leading" secondItem="6qn-8p-3DW" secondAttribute="trailing" constant="20" id="YtZ-6n-InR"/>
@@ -196,8 +205,8 @@
                                 </view>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Dn-yl-aMY">
-                                <rect key="frame" x="351" y="2" width="85" height="32"/>
-                                <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d1M-F8-gAw">
+                                <rect key="frame" x="366" y="2" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d1M-F8-gAw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>

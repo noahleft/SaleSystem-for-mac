@@ -11,6 +11,9 @@
 /* Class = "NSButtonCell"; title = "Update"; ObjectID = "0b5-aM-Xcb"; */
 "0b5-aM-Xcb.title" = "更新";
 
+/* Class = "NSBox"; title = "Title"; ObjectID = "6Th-Yk-X6f"; */
+"6Th-Yk-X6f.title" = "Title";
+
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "9vc-JG-Ias"; */
 "9vc-JG-Ias.title" = "Text Cell";
 
@@ -44,8 +47,11 @@
 /* Class = "NSTableColumn"; headerCell.title = "Comp"; ObjectID = "Ph3-i4-I3l"; */
 "Ph3-i4-I3l.headerCell.title" = "公司";
 
-/* Class = "NSTextFieldCell"; title = "Unit Price"; ObjectID = "S6T-L2-6Wu"; */
-"S6T-L2-6Wu.title" = "單價";
+/* Class = "NSButtonCell"; title = "Set"; ObjectID = "PwC-vl-mDC"; */
+"PwC-vl-mDC.title" = "Set";
+
+/* Class = "NSTextFieldCell"; title = "Actual Unit Price"; ObjectID = "S6T-L2-6Wu"; */
+"S6T-L2-6Wu.title" = "出貨單價";
 
 /* Class = "NSTableColumn"; headerCell.title = "ID"; ObjectID = "T7i-8X-ccx"; */
 "T7i-8X-ccx.headerCell.title" = "ID";
@@ -74,8 +80,8 @@
 /* Class = "NSTextFieldCell"; title = "Quantity"; ObjectID = "lTY-Yb-DT5"; */
 "lTY-Yb-DT5.title" = "數量";
 
-/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "mjF-1A-rpd"; */
-"mjF-1A-rpd.title" = "Label";
+/* Class = "NSTextFieldCell"; title = "ID_Label"; ObjectID = "mjF-1A-rpd"; */
+"mjF-1A-rpd.title" = "ID_Label";
 
 /* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "oB7-gS-b9k"; */
 "oB7-gS-b9k.title" = "Item 2";
@@ -90,13 +96,16 @@
 "qCq-7Z-OG9.title" = "Table View Cell";
 
 /* Class = "NSTableColumn"; headerCell.title = "Deliver Date"; ObjectID = "rng-5T-qri"; */
-"rng-5T-qri.headerCell.title" = "送貨日期";
+"rng-5T-qri.headerCell.title" = "出貨日期";
 
 /* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "srf-4m-kyG"; */
 "srf-4m-kyG.title" = "Label";
 
 /* Class = "NSTextFieldCell"; title = "Product"; ObjectID = "t7k-ox-2nu"; */
 "t7k-ox-2nu.title" = "產品";
+
+/* Class = "NSTextFieldCell"; title = "Unit Price"; ObjectID = "tZH-nr-uV1"; */
+"tZH-nr-uV1.title" = "前次單價";
 
 /* Class = "NSTableColumn"; headerCell.title = "Prod"; ObjectID = "u4C-gL-EdV"; */
 "u4C-gL-EdV.headerCell.title" = "產品";
@@ -121,3 +130,6 @@
 
 /* Class = "NSTextFieldCell"; title = "Company"; ObjectID = "xGz-EM-aza"; */
 "xGz-EM-aza.title" = "公司";
+
+/* Class = "NSTextFieldCell"; title = "Deliver Date"; ObjectID = "xZO-cA-14B"; */
+"xZO-cA-14B.title" = "出貨日期";
