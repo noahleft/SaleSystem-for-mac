@@ -76,7 +76,7 @@ class FormInfoViewController: NSViewController {
         
         if let objectItem = object {
             if objectItem is RECORD {
-                if (objectItem as! RECORD).isComplete {
+                if (objectItem as! RECORD).isComplete() {
                     removeObserverFromLast()
                     appendEmptyRecord()
                 }
