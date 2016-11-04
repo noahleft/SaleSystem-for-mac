@@ -17,7 +17,7 @@ class FormPrintViewController: NSViewController {
     @IBOutlet weak var popUpButton: NSPopUpButton!
     @IBOutlet weak var labelName: NSTextField!
     
-    var companyList : [COMPANY] = []
+    var companyList : [SQL_COMPANY] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class FormPrintViewController: NSViewController {
             labelName.stringValue = "null"
         }
         
-        companyList = dataManager.getCompanyList()
+        companyList = dataManager.getCompanyListInForm(formId: formId)
         
         popUpButton.removeAllItems()
         for item in companyList {

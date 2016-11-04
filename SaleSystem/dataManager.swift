@@ -61,6 +61,18 @@ class DATAMANAGER : NSObject {
         }
     }
     
+    func getCompanyListInForm(formId : Int) -> [SQL_COMPANY] {
+        let records = recordList.filter{ (p) -> Bool in
+              p.FormId == formId
+            }.map{ (p) -> Int in
+            return getCompanyIdx(id: p.CompId)
+        }.sorted()
+        let reduced_comp : Set = Set(records)
+        return reduced_comp.map{ p -> SQL_COMPANY in
+            return companyList[p]
+        }
+    }
+    
     func getCompanyIdx(id : Int) -> Int {
         if let idx = companyDict[id] {
             return idx
