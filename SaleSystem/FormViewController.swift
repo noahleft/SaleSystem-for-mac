@@ -119,4 +119,14 @@ class FormViewController: NSViewController {
     
 }
 
+extension FormViewController : NSWindowDelegate {
+    
+    func windowShouldClose(_ sender: Any) -> Bool {
+        if dataManager.updateManager.noUnSaveChange {
+            return true
+        }
+        return false
+    }
+    
+}
 

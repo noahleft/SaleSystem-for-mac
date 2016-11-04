@@ -150,3 +150,17 @@ class PriceViewController: NSViewController {
     }
     
 }
+
+
+extension PriceViewController : NSWindowDelegate {
+    
+    func windowShouldClose(_ sender: Any) -> Bool {
+        if dataManager.updateManager.noUnSaveChange {
+            return true
+        }
+        return false
+    }
+    
+}
+
+
