@@ -225,11 +225,19 @@ class RECORD : NSObject {
     dynamic var TextColorPrice : NSColor = NSColor.black
     dynamic var TextColorQuan  : NSColor = NSColor.black
     
+    var isUnsyncData : Bool {
+        return CompId <= 0 || ProdId <= 0
+    }
+    
+    var enableUnitPriceUpdate : Bool {
+        return DisplayUnitPrice != DisplayUnitPriceAtDB && TableDisplayCompString != "" && TableDisplayProdString != ""
+    }
+    
     func isComplete() -> Bool {
         let notEmpty : Bool = TableDisplayCompString != "" && TableDisplayProdString != "" && TableDisplayDeliverDateString != "" && TableDisplayUnitPriceString != "" && TableDisplayQuantityString != ""
         if notEmpty {
-            if let validUnitPrice = Float(TableDisplayUnitPriceString) {
-                if let validQuantity = Int(TableDisplayQuantityString) {
+            if Float(TableDisplayUnitPriceString) != nil {
+                if Int(TableDisplayQuantityString) != nil {
                     return true
                 }
             }
@@ -315,7 +323,7 @@ class RECORD : NSObject {
         let prodId = dataManager.getProduct(index: DisplayProdIndex).Id
         if let unitPrice = dataManager.getUnitPrice(compId: compId, prodId: prodId) {
             DisplayUnitPriceAtDB = String(unitPrice)
-            if isComplete() == false {
+            if isUnsyncData {
                 DisplayUnitPrice = DisplayUnitPriceAtDB
             }
         }
