@@ -182,25 +182,16 @@
                                                 <binding destination="yWx-hY-tbT" name="value" keyPath="selection.Id" id="ZzU-xT-PwU"/>
                                             </connections>
                                         </textField>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BSO-rs-H7T">
-                                            <rect key="frame" x="349" y="3" width="85" height="32"/>
-                                            <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o2Y-Xd-eix">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="vgt-Fk-Tuf" firstAttribute="leading" secondItem="0ci-Ly-5Py" secondAttribute="trailing" constant="20" id="7sE-iA-kDH"/>
                                         <constraint firstItem="UJk-Xo-T9X" firstAttribute="centerY" secondItem="6qn-8p-3DW" secondAttribute="centerY" id="EAV-l3-Qeb"/>
                                         <constraint firstItem="6qn-8p-3DW" firstAttribute="top" secondItem="KlI-OJ-t2o" secondAttribute="top" constant="20" id="GOe-fy-urn"/>
-                                        <constraint firstAttribute="trailing" secondItem="BSO-rs-H7T" secondAttribute="trailing" constant="10" id="PEB-Ue-qJg"/>
                                         <constraint firstItem="6qn-8p-3DW" firstAttribute="trailing" secondItem="0ci-Ly-5Py" secondAttribute="trailing" id="Q7Z-26-XXv"/>
                                         <constraint firstItem="vgt-Fk-Tuf" firstAttribute="centerY" secondItem="0ci-Ly-5Py" secondAttribute="centerY" id="Tpm-g0-GMs"/>
                                         <constraint firstItem="UJk-Xo-T9X" firstAttribute="leading" secondItem="6qn-8p-3DW" secondAttribute="trailing" constant="20" id="YtZ-6n-InR"/>
                                         <constraint firstItem="0ci-Ly-5Py" firstAttribute="leading" secondItem="KlI-OJ-t2o" secondAttribute="leading" constant="20" id="cDE-pH-1aM"/>
                                         <constraint firstItem="0ci-Ly-5Py" firstAttribute="top" secondItem="KlI-OJ-t2o" secondAttribute="top" constant="50" id="lbH-Bi-fcY"/>
-                                        <constraint firstAttribute="bottom" secondItem="BSO-rs-H7T" secondAttribute="bottom" constant="10" id="wpm-2p-O95"/>
                                     </constraints>
                                 </view>
                             </box>

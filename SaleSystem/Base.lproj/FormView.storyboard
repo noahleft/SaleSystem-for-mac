@@ -197,22 +197,13 @@
                                                 <binding destination="50r-g4-lpu" name="value" keyPath="selection.Id" id="T7Z-04-srd"/>
                                             </connections>
                                         </textField>
-                                        <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAL-HD-pvi">
-                                            <rect key="frame" x="345" y="3" width="85" height="32"/>
-                                            <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yeV-4A-bBj">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="X24-sg-M5Q" firstAttribute="leading" secondItem="pKm-7L-9i4" secondAttribute="leading" constant="20" id="0bd-wJ-oWP"/>
                                         <constraint firstItem="nZl-mb-suK" firstAttribute="centerY" secondItem="X24-sg-M5Q" secondAttribute="centerY" id="A6N-wq-tLz"/>
-                                        <constraint firstAttribute="trailing" secondItem="nAL-HD-pvi" secondAttribute="trailing" constant="10" id="EZi-tU-PkC"/>
                                         <constraint firstItem="4Y3-vL-GIa" firstAttribute="trailing" secondItem="X24-sg-M5Q" secondAttribute="trailing" id="N0h-Lt-fTT"/>
                                         <constraint firstItem="nZl-mb-suK" firstAttribute="leading" secondItem="X24-sg-M5Q" secondAttribute="trailing" constant="20" id="SxN-ax-0eU"/>
                                         <constraint firstItem="jUP-RS-GfO" firstAttribute="leading" secondItem="4Y3-vL-GIa" secondAttribute="trailing" constant="20" id="Xdg-s8-07y"/>
-                                        <constraint firstAttribute="bottom" secondItem="nAL-HD-pvi" secondAttribute="bottom" constant="10" id="a1O-3i-Hbq"/>
                                         <constraint firstItem="X24-sg-M5Q" firstAttribute="top" secondItem="pKm-7L-9i4" secondAttribute="top" constant="50" id="jB8-ec-oxg"/>
                                         <constraint firstItem="4Y3-vL-GIa" firstAttribute="top" secondItem="pKm-7L-9i4" secondAttribute="top" constant="20" id="qgq-o2-L3d"/>
                                         <constraint firstItem="jUP-RS-GfO" firstAttribute="centerY" secondItem="4Y3-vL-GIa" secondAttribute="centerY" id="yTH-3c-a2w"/>
