@@ -303,6 +303,59 @@ class SQLiteWrapper {
             print("db store fail")
         }
     }
+    
+    func storeRecordList(recordList : [SQL_RECORD]) {
+        do {
+            if let rPath = path {
+                let db = try Connection(rPath)
+                
+                let users = Table("record")
+                let id = Expression<Int64>("ID")
+                let comp = Expression<Int64>("COMP_ID")
+                let prod = Expression<Int64>("PROD_ID")
+                let form = Expression<Int64>("FORM_ID")
+                let createdDate = Expression<String>("CREATED_DATE")
+                let deliverDate = Expression<String>("DELIVER_DATE")
+                let unitPrice = Expression<Double>("UNIT_PRICE")
+                let quantity = Expression<Int64>("QUANTITY")
+                
+                let SQL_dateFormatter : DateFormatter = DateFormatter()
+                SQL_dateFormatter.dateFormat = "YYYY-MM-dd"
+                SQL_dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                SQL_dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+                
+                for item in recordList {
+                    print("try to update record:  \(item.Id)  \(item.CompId) \(item.ProdId)")
+                    let currnet = users.filter(id == Int64(item.Id))
+                    let ci = Int64(item.CompId)
+                    let pi = Int64(item.ProdId)
+                    let fi = Int64(item.FormId)
+                    let cd = SQL_dateFormatter.string(from: item.CreatedDate)
+                    let dd = SQL_dateFormatter.string(from: item.DeliverDate)
+                    let up = Double(item.UnitPrice)
+                    let qu = Int64(item.Quantity)
+                    
+                    print("\(cd),\(dd)")
+                    
+                    if try db.run(currnet.update(comp <- ci ,prod <- pi , form <- fi, createdDate <- cd , deliverDate <- dd ,unitPrice <- up , quantity <- qu)) > 0 {
+                        // UPDATE "users" SET "name" = 'alice' WHERE ("id" = 1)
+                        print("\(item.UnitPrice)")
+                    } else {
+                        print("update fail -> try insertion")
+                        if try db.run(users.insert(comp <- ci ,prod <- pi , form <- fi, createdDate <- cd , deliverDate <- dd ,unitPrice <- up , quantity <- qu)) > 0 {
+                            // Insert "users" (name) values ('alice')
+                            print("insertion \(item.Id)")
+                        } else {
+                            print("insertion fail")
+                        }
+                    }
+                }
+            }
+        }
+        catch {
+            print("db store fail")
+        }
+    }
 }
 
 
