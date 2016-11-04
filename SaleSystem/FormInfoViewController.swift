@@ -16,7 +16,6 @@ class FormInfoViewController: NSViewController {
     dynamic var companyList : [COMPANY] = []
     dynamic var productList : [PRODUCT] = []
     @IBOutlet weak var labelName: NSTextField!
-    @IBOutlet weak var tableView: NSTableView!
     
     @IBOutlet var formInfoArray: NSArrayController!
     @IBOutlet var companyArray: NSArrayController!
@@ -105,6 +104,20 @@ class FormInfoViewController: NSViewController {
     func triggerSaveEvent() {
         removeObserverFromLast()
         triggerInitialEvent()
+    }
+    
+    @IBAction func pressUpdateUnitPriceButton(_ sender: AnyObject) {
+        let record = formInfoList[formInfoArray.selectionIndex]
+        let comp = companyList[record.DisplayCompIndex].Id
+        let prod = productList[record.DisplayProdIndex].Id
+        if let updatePrice = Float(record.DisplayUnitPrice) {
+            let update : SQL_UNITPRICE = SQL_UNITPRICE(aId: -2, aComId: comp, aProId: prod, aUnitPrice: updatePrice)
+            dataManager.shortcutUpdate(update: update)
+            
+            for item in formInfoList {
+                item.loadUnitPrice()
+            }
+        }
     }
     
     @IBAction func saveEvent(_ sender: AnyObject) {

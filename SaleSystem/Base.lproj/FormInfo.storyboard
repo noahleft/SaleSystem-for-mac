@@ -647,7 +647,6 @@
                         <outlet property="formInfoArray" destination="BUE-eG-2Ke" id="D1Q-ht-ahR"/>
                         <outlet property="labelName" destination="8AL-jI-ikD" id="YV5-2g-hHk"/>
                         <outlet property="productArray" destination="GMh-IZ-KyZ" id="NhV-5s-A8q"/>
-                        <outlet property="setUnitPriceButton" destination="Thh-kQ-yg8" id="uep-01-LIm"/>
                     </connections>
                 </viewController>
             </objects>

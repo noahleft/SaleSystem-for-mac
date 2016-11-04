@@ -210,6 +210,12 @@ class DATAMANAGER : NSObject {
         updateManager.addUpdate(update: update)
     }
     
+    func shortcutUpdate(update : SQL_UNITPRICE) {
+        dbManager.storeUnitPrice(item: update)
+        
+        priceList = []
+        priceList   = dbManager.loadUnitPriceList()
+    }
     
 }
 
