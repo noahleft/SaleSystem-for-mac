@@ -181,12 +181,22 @@ class DATAMANAGER : NSObject {
                 return p as! SQL_UNITPRICE
         }
         dbManager.storeUnitPriceList(priceList: reducedUnitPriceList)
+        
+        print("store form list")
         let reducedFormList = updateManager.updateQueue.filter{ (p) -> Bool in
             p is SQL_FORM
             }.map{ (p) -> SQL_FORM in
                 return p as! SQL_FORM
         }
         dbManager.storeFormList(formList: reducedFormList)
+        
+        print("store record list")
+        let reducedRecordList = updateManager.updateQueue.filter{ (p) -> Bool in
+            p is SQL_RECORD
+            }.map{ (p) -> SQL_RECORD in
+                return p as! SQL_RECORD
+        }
+        dbManager.storeRecordList(recordList: reducedRecordList)
         
         cleanup()
         triggerInitialEvent()
