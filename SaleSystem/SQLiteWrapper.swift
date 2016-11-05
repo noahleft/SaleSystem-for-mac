@@ -117,8 +117,9 @@ class SQLiteWrapper {
                 let users = Table("form")
                 let id = Expression<Int64>("ID")
                 let name = Expression<String?>("NAME")
+                let hide = Expression<Bool>("HIDE")
                 
-                for user in try db.prepare(users) {
+                for user in try db.prepare(users.filter(!hide)) {
 //                    print("id: \(user[id]), name: \(user[name])")
                     // id: 1, name: Optional("Alice")
                     let com = SQL_FORM(aId: Int(user[id]), aName: String(describing: user[name]!))

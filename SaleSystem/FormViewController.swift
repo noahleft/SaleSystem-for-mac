@@ -30,6 +30,9 @@ class FormViewController: NSViewController {
         noUnsaveChanges = true
         
         formList = dataManager.getFormList()
+        for (index,item) in formList.enumerated() {
+            item.DisplayIndex = index+1
+        }
         appendEmptyForm()
     }
     
@@ -37,9 +40,11 @@ class FormViewController: NSViewController {
         let emptyForm : FORM
         if let lastObj = formList.last {
             emptyForm = FORM(aId: lastObj.Id+1, aName: "")
+            emptyForm.DisplayIndex = lastObj.DisplayIndex+1
         }
         else {
             emptyForm = FORM(aId: 1, aName: "")
+            emptyForm.DisplayIndex = 1
         }
         formArrayController.addObject(emptyForm)
         print("# of formList: \(formList.count)")

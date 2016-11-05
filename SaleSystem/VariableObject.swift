@@ -184,6 +184,8 @@ class FORM : NSObject {
     }
     dynamic var TextColor : NSColor = NSColor.black
     
+    var DisplayIndex : Int = 0
+    
     init(sqlForm: SQL_FORM) {
         Id = sqlForm.Id
         Name = sqlForm.Name
