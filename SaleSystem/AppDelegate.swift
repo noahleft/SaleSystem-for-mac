@@ -63,6 +63,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         dataManager.store()
     }
 
-    
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
 }
 
