@@ -82,6 +82,7 @@
 /* Begin PBXFileReference section */
 		2E0656AF1D8B98800023DA60 /* sample.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.db; sourceTree = "<group>"; };
 		2E12C5891DB7BD4A00738E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PriceView.storyboard; sourceTree = "<group>"; };
+		2E3A97291DCF0966008F7B91 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		2E4526371D9C24AB000AA615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CompanyView.storyboard; sourceTree = "<group>"; };
 		2E45263E1DA262BF000AA615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FormView.storyboard; sourceTree = "<group>"; };
 		2E4526471DA28DE8000AA615 /* dataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataManager.swift; sourceTree = "<group>"; };
@@ -110,7 +111,6 @@
 		2E96FF911DC105FB00CD3DD3 /* SQLite.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SQLite.framework.dSYM; path = SaleSystem/Carthage/Build/Mac/SQLite.framework.dSYM; sourceTree = "<group>"; };
 		2EA18C5E1DAE3D4A006629BB /* SaleSystem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaleSystem.entitlements; sourceTree = "<group>"; };
 		2EA18C5F1DAE412E006629BB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		2EAED8991DC609C400F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		2EAED89A1DC609C400F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/CompanyView.strings"; sourceTree = "<group>"; };
 		2EAED89B1DC609C400F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ProductView.strings"; sourceTree = "<group>"; };
 		2EAED89C1DC609C500F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/PriceView.strings"; sourceTree = "<group>"; };
@@ -475,7 +475,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E616EA91D7BED4E00FB02E6 /* Base */,
-				2EAED8991DC609C400F9C86B /* zh-Hant */,
+				2E3A97291DCF0966008F7B91 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

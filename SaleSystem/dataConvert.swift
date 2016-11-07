@@ -25,6 +25,8 @@ func selectUnitPrice(selectedProId: Int, unitPriceList: [UNITPRICE]) -> Float {
 
 func dateFormatterForDisplay(date: Date) -> String {
     let dateFormatter : DateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "YYYY-MM-dd"
+    dateFormatter.locale = Locale.init(identifier: "zh_Hant_TW")
+    dateFormatter.dateFormat = "yyy-MM-dd"
+    dateFormatter.calendar = Calendar(identifier: Calendar.Identifier.republicOfChina)
     return dateFormatter.string(from: date)
 }

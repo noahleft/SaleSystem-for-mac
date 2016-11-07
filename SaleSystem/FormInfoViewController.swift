@@ -16,6 +16,7 @@ class FormInfoViewController: NSViewController {
     dynamic var companyList : [COMPANY] = []
     dynamic var productList : [PRODUCT] = []
     @IBOutlet weak var labelName: NSTextField!
+    @IBOutlet weak var datePicker: NSDatePicker!
     
     @IBOutlet var formInfoArray: NSArrayController!
     @IBOutlet var companyArray: NSArrayController!
@@ -26,6 +27,8 @@ class FormInfoViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datePicker.calendar = Calendar(identifier: Calendar.Identifier.republicOfChina)
         
         print("print form id : \(self.formId)")
         
