@@ -113,7 +113,7 @@ class FormInfoViewController: NSViewController {
         let record = formInfoList[formInfoArray.selectionIndex]
         let comp = companyList[record.DisplayCompIndex].Id
         let prod = productList[record.DisplayProdIndex].Id
-        if let updatePrice = Float(record.DisplayUnitPrice) {
+        if let updatePrice = Float(validateString(strline: record.DisplayUnitPrice)) {
             let update : SQL_UNITPRICE = SQL_UNITPRICE(aId: -2, aComId: comp, aProId: prod, aUnitPrice: updatePrice)
             dataManager.shortcutUpdate(update: update)
             

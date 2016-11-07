@@ -30,3 +30,19 @@ func dateFormatterForDisplay(date: Date) -> String {
     dateFormatter.calendar = Calendar(identifier: Calendar.Identifier.republicOfChina)
     return dateFormatter.string(from: date)
 }
+
+func validateString(strline : String) -> String {
+    var retStr = strline
+    retStr = retStr.replacingOccurrences(of: "１", with: "1")
+    retStr = retStr.replacingOccurrences(of: "２", with: "2")
+    retStr = retStr.replacingOccurrences(of: "３", with: "3")
+    retStr = retStr.replacingOccurrences(of: "４", with: "4")
+    retStr = retStr.replacingOccurrences(of: "５", with: "5")
+    retStr = retStr.replacingOccurrences(of: "６", with: "6")
+    retStr = retStr.replacingOccurrences(of: "７", with: "7")
+    retStr = retStr.replacingOccurrences(of: "８", with: "8")
+    retStr = retStr.replacingOccurrences(of: "９", with: "9")
+    retStr = retStr.replacingOccurrences(of: "０", with: "0")
+    retStr = retStr.replacingOccurrences(of: "．", with: ".")
+    return retStr
+}

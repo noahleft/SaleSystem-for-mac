@@ -356,11 +356,11 @@ class RECORD : NSObject {
         }
         else if context == &contextUnitPrice {
             TextColorPrice = NSColor.red
-            TableDisplayUnitPriceString = String(DisplayUnitPrice)
+            TableDisplayUnitPriceString = validateString(strline: DisplayUnitPrice)
         }
         else if context == &contextQuantity {
             TextColorQuan = NSColor.red
-            TableDisplayQuantityString = String(DisplayQuantity)
+            TableDisplayQuantityString = validateString(strline: DisplayQuantity)
         }
         
         if isComplete() {
@@ -371,8 +371,8 @@ class RECORD : NSObject {
             let aFormId = FormId
             let aCreatedDate = Date()
             let aDeliverDate = DisplayDeliverDate
-            let aUnitPrice = Double(DisplayUnitPrice)!
-            let aQuantity = Int(DisplayQuantity)!
+            let aUnitPrice = Double(validateString(strline: DisplayUnitPrice))!
+            let aQuantity = Int(validateString(strline: DisplayQuantity))!
             
             dataManager.addUpdate(update: SQL_RECORD(aId: aId, aCompId: aCompId, aProdId: aProdId, aFormId: aFormId, aCreatedDate: aCreatedDate, aDeliverDate: aDeliverDate, aUnitPrice: aUnitPrice, aQuantity: aQuantity))
         }
