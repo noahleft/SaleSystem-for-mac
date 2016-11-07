@@ -122,6 +122,11 @@ class FormViewController: NSViewController {
         dataManager.removeObserver(self, forKeyPath: "saveAction")
     }
     
+    @IBAction func saveEvent(_ sender: AnyObject) {
+        dataManager.store()
+    }
+    
+    
 }
 
 extension FormViewController : NSWindowDelegate {

@@ -252,6 +252,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="saveEvent:" target="Bjz-tR-kjX" id="onS-bJ-iUG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
