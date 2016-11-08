@@ -26,6 +26,8 @@
 		2E8538611DB3A0040056C494 /* SQLVariableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8538601DB3A0040056C494 /* SQLVariableObject.swift */; };
 		2E8538651DB489270056C494 /* CustomTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8538641DB489270056C494 /* CustomTabViewController.swift */; };
 		2E85386D1DB4D75D0056C494 /* updateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E85386C1DB4D75D0056C494 /* updateManager.swift */; };
+		2E85E29F1DD21EFA00127514 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E85E29E1DD21EFA00127514 /* DocumentViewController.swift */; };
+		2E85E2A01DD2237500127514 /* new.db in Resources */ = {isa = PBXBuildFile; fileRef = 2E85E29D1DD218DF00127514 /* new.db */; };
 		2E96FF8E1DC0FD3200CD3DD3 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E96FF8D1DC0FD3200CD3DD3 /* SQLite.framework */; };
 		2E96FF8F1DC0FD3200CD3DD3 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E96FF8D1DC0FD3200CD3DD3 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2E96FF921DC105FB00CD3DD3 /* SQLite.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2E96FF911DC105FB00CD3DD3 /* SQLite.framework.dSYM */; };
@@ -82,7 +84,6 @@
 /* Begin PBXFileReference section */
 		2E0656AF1D8B98800023DA60 /* sample.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.db; sourceTree = "<group>"; };
 		2E12C5891DB7BD4A00738E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PriceView.storyboard; sourceTree = "<group>"; };
-		2E3A97291DCF0966008F7B91 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		2E4526371D9C24AB000AA615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CompanyView.storyboard; sourceTree = "<group>"; };
 		2E45263E1DA262BF000AA615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FormView.storyboard; sourceTree = "<group>"; };
 		2E4526471DA28DE8000AA615 /* dataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataManager.swift; sourceTree = "<group>"; };
@@ -107,6 +108,9 @@
 		2E8538601DB3A0040056C494 /* SQLVariableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLVariableObject.swift; sourceTree = "<group>"; };
 		2E8538641DB489270056C494 /* CustomTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabViewController.swift; sourceTree = "<group>"; };
 		2E85386C1DB4D75D0056C494 /* updateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateManager.swift; sourceTree = "<group>"; };
+		2E85E29C1DD20F7200127514 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		2E85E29D1DD218DF00127514 /* new.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = new.db; sourceTree = "<group>"; };
+		2E85E29E1DD21EFA00127514 /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		2E96FF8D1DC0FD3200CD3DD3 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = SaleSystem/Carthage/Build/Mac/SQLite.framework; sourceTree = "<group>"; };
 		2E96FF911DC105FB00CD3DD3 /* SQLite.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SQLite.framework.dSYM; path = SaleSystem/Carthage/Build/Mac/SQLite.framework.dSYM; sourceTree = "<group>"; };
 		2EA18C5E1DAE3D4A006629BB /* SaleSystem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaleSystem.entitlements; sourceTree = "<group>"; };
@@ -184,9 +188,11 @@
 			children = (
 				2EA18C5E1DAE3D4A006629BB /* SaleSystem.entitlements */,
 				2E616EA21D7BED4E00FB02E6 /* AppDelegate.swift */,
+				2E85E29E1DD21EFA00127514 /* DocumentViewController.swift */,
 				2E616ED01D7BF3D600FB02E6 /* ViewController */,
 				2E616ECD1D7BEDD500FB02E6 /* Model */,
 				2E616EA61D7BED4E00FB02E6 /* Assets.xcassets */,
+				2E85E29D1DD218DF00127514 /* new.db */,
 				2E0656AF1D8B98800023DA60 /* sample.db */,
 				2ED459581DABFE7000AB1F37 /* Site.css */,
 				2E616EA81D7BED4E00FB02E6 /* Main.storyboard */,
@@ -361,6 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E85E2A01DD2237500127514 /* new.db in Resources */,
 				2ED459591DABFE7000AB1F37 /* Site.css in Resources */,
 				2E12C58A1DB7BD4A00738E13 /* PriceView.storyboard in Resources */,
 				2EB14E9B1D95571D00C06F3A /* sample.db in Resources */,
@@ -399,6 +406,7 @@
 				2E4526481DA28DE8000AA615 /* dataManager.swift in Sources */,
 				2E8538651DB489270056C494 /* CustomTabViewController.swift in Sources */,
 				2E8538611DB3A0040056C494 /* SQLVariableObject.swift in Sources */,
+				2E85E29F1DD21EFA00127514 /* DocumentViewController.swift in Sources */,
 				2EA18C601DAE412E006629BB /* Extension.swift in Sources */,
 				2E616ED21D7BF3F500FB02E6 /* ComProViewController.swift in Sources */,
 				2E4526501DA3F5C0000AA615 /* FormInfoViewController.swift in Sources */,
@@ -475,7 +483,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E616EA91D7BED4E00FB02E6 /* Base */,
-				2E3A97291DCF0966008F7B91 /* zh-Hant */,
+				2E85E29C1DD20F7200127514 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
