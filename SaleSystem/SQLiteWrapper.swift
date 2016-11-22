@@ -12,6 +12,7 @@ import SQLite
 class SQLiteWrapper {
     
     var path: String?
+    var sampleDB : Bool = true
     
     init() {
         if let filePath = UserDefaults.standard.string(forKey: "database") {
@@ -19,10 +20,34 @@ class SQLiteWrapper {
             let fileManager = FileManager.default
             if fileManager.fileExists(atPath: filePath) {
                 path = filePath
+                sampleDB = false
+            }
+            else {
+                path = Bundle.main.path(forResource: "sample", ofType: "db")
             }
         }
-        else {
-            path = Bundle.main.path(forResource: "sample", ofType: "db")
+        else { // no user defaults -> fisrt run
+            
+            let filePath = "auto.db"
+            
+            if let bundlePath = Bundle.main.path(forResource: "new", ofType: "db") {
+                
+                let documentDirectory = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+                let documentPath = documentDirectory[0].stringByAppendingPathComponent(path: filePath)
+                do {
+                    print("source: \(bundlePath)")
+                    print("destin: \(documentPath)")
+                    try FileManager.default.copyItem(atPath: bundlePath, toPath: documentPath)
+                }
+                catch {
+                    print("copy item fails")
+                }
+                UserDefaults.standard.set(documentPath, forKey: "database")
+                path = documentPath
+            }
+            else {
+                print("check bundle setting")
+            }
         }
         print(path)
     }
