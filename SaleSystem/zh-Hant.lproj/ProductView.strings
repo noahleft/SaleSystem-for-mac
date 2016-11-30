@@ -33,4 +33,4 @@
 "wsD-nY-761.title" = "產品名稱:";
 
 /* Class = "NSTableColumn"; headerCell.title = "ID"; ObjectID = "xxC-g2-k9P"; */
-"xxC-g2-k9P.headerCell.title" = "ID";
+"xxC-g2-k9P.headerCell.title" = "Index";

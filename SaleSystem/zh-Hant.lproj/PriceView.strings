@@ -2,6 +2,9 @@
 /* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "01z-9e-ZES"; */
 "01z-9e-ZES.title" = "Table View Cell";
 
+/* Class = "NSTextFieldCell"; title = "Select:"; ObjectID = "06O-TQ-N7m"; */
+"06O-TQ-N7m.title" = "選擇公司";
+
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "0Sk-mk-xJc"; */
 "0Sk-mk-xJc.title" = "Text Cell";
 
@@ -12,7 +15,7 @@
 "6P1-4u-0GP.title" = "Table View Cell";
 
 /* Class = "NSTableColumn"; headerCell.title = "ID"; ObjectID = "BA3-fl-Rg5"; */
-"BA3-fl-Rg5.headerCell.title" = "ID";
+"BA3-fl-Rg5.headerCell.title" = "Index";
 
 /* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "Gtr-ju-xYC"; */
 "Gtr-ju-xYC.headerCell.title" = "產品";

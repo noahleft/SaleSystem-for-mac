@@ -14,6 +14,7 @@ class PriceViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var popUpButton: NSPopUpButton!
     @IBOutlet weak var labelName: NSTextField!
+    @IBOutlet weak var LocalizedSelectLabelCell: NSTextFieldCell!
     
     
     var companyList: [COMPANY] = []
@@ -22,6 +23,7 @@ class PriceViewController: NSViewController {
     var reducedUnitPriceList: [UNITPRICE] = []
     var selectedCompId : Int = -1
     dynamic var noUnsaveChanges : Bool = true
+    private var selectedPopupButtonIndex : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +34,13 @@ class PriceViewController: NSViewController {
     
     func triggerInitialEvent() {
         companyList = dataManager.getCompanyList()
-        productList = dataManager.getProductList()
+        productList = dataManager.getProductList().sorted(by: sortOrderOfProduct)
+        for (index,item) in productList.enumerated() {
+            item.DisplayIndex = index+1
+        }
         
         popUpButton.removeAllItems()
-        popUpButton.addItem(withTitle: "Select")
+        popUpButton.addItem(withTitle: LocalizedSelectLabelCell.title)
         let comStrList:[String] = companyList.map { (p) -> String in
             return p.Name
         }
@@ -46,6 +51,9 @@ class PriceViewController: NSViewController {
         tableView.tableColumns[2].isHidden = true
         
         registerObserver()
+        
+        popUpButton.selectItem(at: selectedPopupButtonIndex)
+        clickPopupButton(popUpButton)
     }
     
     @IBAction func clickPopupButton(_ sender: NSPopUpButton) {
@@ -134,6 +142,7 @@ class PriceViewController: NSViewController {
     }
     
     func triggerSaveEvent() {
+        selectedPopupButtonIndex = popUpButton.indexOfSelectedItem
         print("trigger save action at PriceVC")
         removeObserver()
         triggerInitialEvent()

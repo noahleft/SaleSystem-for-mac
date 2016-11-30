@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ABW-s0-PbM">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ABW-s0-PbM">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Price View Controller-->
@@ -57,8 +58,8 @@
                                             <tableViewGridLines key="gridStyleMask" vertical="YES" dashed="YES"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="IdCellID" width="50" minWidth="40" maxWidth="100" id="BA3-fl-Rg5">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="ID">
+                                                <tableColumn identifier="IdCellID" width="52" minWidth="40" maxWidth="100" id="BA3-fl-Rg5">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Index">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -71,11 +72,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="ukq-2M-Vku">
-                                                            <rect key="frame" x="1" y="1" width="50" height="17"/>
+                                                            <rect key="frame" x="1" y="1" width="52" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b1J-cS-QdZ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="52" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="6P1-4u-0GP">
                                                                         <font key="font" metaFont="system"/>
@@ -83,7 +84,7 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="ukq-2M-Vku" name="value" keyPath="objectValue.Id" id="mdP-ds-kNh"/>
+                                                                        <binding destination="ukq-2M-Vku" name="value" keyPath="objectValue.DisplayIndex" id="o0U-u6-o1y"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -107,7 +108,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="HAn-YP-y7H">
-                                                            <rect key="frame" x="54" y="1" width="200" height="17"/>
+                                                            <rect key="frame" x="56" y="1" width="200" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Owd-GM-QjA">
@@ -143,7 +144,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="Ly1-0K-WSf">
-                                                            <rect key="frame" x="257" y="1" width="102" height="17"/>
+                                                            <rect key="frame" x="259" y="1" width="102" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DUS-bn-4G8">
@@ -196,6 +197,15 @@
                                     <action selector="saveEvent:" target="ABW-s0-PbM" id="bjZ-BX-YlQ"/>
                                 </connections>
                             </button>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GWg-yh-Ga5">
+                                <rect key="frame" x="263" y="454" width="43" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select" id="06O-TQ-N7m">
+                                    <font key="font" size="13" name=".PingFangTC-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="dWI-0s-sww" firstAttribute="top" secondItem="OPi-TB-lT6" secondAttribute="top" constant="40" id="0H7-ob-MNo"/>
@@ -211,6 +221,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="LocalizedSelectLabelCell" destination="06O-TQ-N7m" id="hdF-R3-DEt"/>
                         <outlet property="labelName" destination="EeZ-co-4JN" id="Ies-hb-dK6"/>
                         <outlet property="popUpButton" destination="04z-dG-Pro" id="yDR-f5-eri"/>
                         <outlet property="tableView" destination="e87-2t-TLx" id="VDN-a7-lUk"/>
