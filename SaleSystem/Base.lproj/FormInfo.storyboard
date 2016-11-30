@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="VY5-f7-cjs">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="VY5-f7-cjs">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="11542"/>
         <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Form Info-->
@@ -648,6 +649,7 @@
                         <outlet property="formInfoArray" destination="BUE-eG-2Ke" id="D1Q-ht-ahR"/>
                         <outlet property="labelName" destination="8AL-jI-ikD" id="YV5-2g-hHk"/>
                         <outlet property="productArray" destination="GMh-IZ-KyZ" id="NhV-5s-A8q"/>
+                        <outlet property="tableView" destination="p0M-l4-BeM" id="2Kk-uy-oCt"/>
                     </connections>
                 </viewController>
             </objects>

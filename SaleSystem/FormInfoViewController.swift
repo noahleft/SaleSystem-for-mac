@@ -17,6 +17,7 @@ class FormInfoViewController: NSViewController {
     dynamic var productList : [PRODUCT] = []
     @IBOutlet weak var labelName: NSTextField!
     @IBOutlet weak var datePicker: NSDatePicker!
+    @IBOutlet weak var tableView: NSTableView!
     
     @IBOutlet var formInfoArray: NSArrayController!
     @IBOutlet var companyArray: NSArrayController!
@@ -72,6 +73,10 @@ class FormInfoViewController: NSViewController {
         formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayDeliverDateString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
         formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayUnitPriceString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
         formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayQuantityString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        
+        if tableView.numberOfRows > 0 {
+            tableView.scrollRowToVisible(tableView.numberOfRows-1 )
+        }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
