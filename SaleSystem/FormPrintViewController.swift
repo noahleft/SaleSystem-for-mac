@@ -36,8 +36,19 @@ class FormPrintViewController: NSViewController {
             popUpButton.addItem(withTitle: item.Name)
         }
         
-        
         loadWeb()
+        
+        setupPrintInfo()
+    }
+    
+    func setupPrintInfo() {
+        let printInfoCenter = NSPrintInfo.shared()
+        printInfoCenter.verticalPagination = NSPrintingPaginationMode.autoPagination
+        printInfoCenter.leftMargin = 0
+        printInfoCenter.rightMargin = 0
+        printInfoCenter.isHorizontallyCentered = true
+        printInfoCenter.topMargin = 0
+        printInfoCenter.bottomMargin = 0
     }
     
     func loadWeb() {
