@@ -11,7 +11,8 @@ import Foundation
 func generateHTML(companyName: String,formName: String, recordList: [RECORD]) -> String {
     // record order ORDER BY DELIVER_DATE
     var HTMLstring : String = ""
-    HTMLstring = "Content-type: text/html\n\n"
+    HTMLstring = ""
+    //"Content-type: text/html\n\n"
     HTMLstring.append("<!DOCTYPE html>\n")
     HTMLstring.append("<html>\n")
     HTMLstring.append("<head>\n")
@@ -51,7 +52,7 @@ func generateHTML(companyName: String,formName: String, recordList: [RECORD]) ->
     HTMLstring.append("</html>")
     
 
-    print(HTMLstring)
+//    print(HTMLstring)
     
     return HTMLstring
 }
