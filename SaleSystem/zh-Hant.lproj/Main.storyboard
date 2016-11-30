@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -740,10 +741,10 @@
             <objects>
                 <tabViewController selectedTabViewItemIndex="0" id="qXl-EB-9Kq" customClass="CustomTabViewController" customModule="SaleSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="Company" identifier="" id="2wk-nG-arW"/>
-                        <tabViewItem label="Product" id="2Hm-ny-0AH"/>
-                        <tabViewItem label="Price" id="abg-OJ-Aw4"/>
-                        <tabViewItem label="Form" id="YvL-fT-aQW"/>
+                        <tabViewItem label="公司" identifier="" id="2wk-nG-arW"/>
+                        <tabViewItem label="產品" id="2Hm-ny-0AH"/>
+                        <tabViewItem label="單價" id="abg-OJ-Aw4"/>
+                        <tabViewItem label="表單" id="YvL-fT-aQW"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="VFb-Xh-NrC">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
