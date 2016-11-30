@@ -75,6 +75,7 @@ class PRODUCT : NSObject {
     dynamic var DisplayName : String
     var UnitPrice   : UNITPRICE?
     dynamic var DisplayUnitPrice : String = ""
+    var DisplayIndex : Int = 0
     
     var ValueChanged : Bool {
         return Name != DisplayName

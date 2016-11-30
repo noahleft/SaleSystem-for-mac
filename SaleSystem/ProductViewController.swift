@@ -22,22 +22,35 @@ class ProductViewController: NSViewController {
         dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
     }
     
+    func getEmptyProductID() -> Int {
+        let numbers = productList.map{ (x) -> Int in
+            return x.Id
+        }
+        var tmp = 0
+        for number in numbers {
+            tmp = max(tmp, number)
+        }
+        return tmp+1
+    }
+    
     func appendEmptyProduct() {
-        let emptyProduct : PRODUCT
+        let emptyProduct : PRODUCT = PRODUCT(aId: getEmptyProductID(), aName: "")
         if let lastObj = productList.last {
-            emptyProduct = PRODUCT(aId: lastObj.Id+1, aName: "")
+            emptyProduct.DisplayIndex = lastObj.DisplayIndex+1
         }
         else {
-            emptyProduct = PRODUCT(aId: 1, aName: "")
+            emptyProduct.DisplayIndex = 1
         }
         arrayController.addObject(emptyProduct)
         print("# of productList: \(productList.count)")
         productList[productList.count-1].addObserver(self, forKeyPath: "DisplayName", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
-        
     }
     
     func triggerInitialEvent() {
-        productList = dataManager.getProductList()
+        productList = dataManager.getProductList().sorted(by: sortOrderOfProduct)
+        for (index,item) in productList.enumerated() {
+            item.DisplayIndex = index+1
+        }
         appendEmptyProduct()
     }
     
