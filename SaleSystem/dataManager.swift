@@ -41,7 +41,7 @@ class DATAMANAGER : NSObject {
     func triggerInitialEvent()  {
         cleanup()
         companyList = dbManager.loadCompanyList()
-        productList = dbManager.loadProductList()
+        productList = dbManager.loadProductList().sorted(by: sortOrderOfSQLProduct)
         priceList   = dbManager.loadUnitPriceList()
         formList    = dbManager.loadFormList()
         recordList  = dbManager.loadRecordList()
