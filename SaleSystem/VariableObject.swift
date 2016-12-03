@@ -335,6 +335,24 @@ class RECORD : NSObject {
         }
     }
     
+    func checkComplete() -> Bool {
+        if isComplete() {
+            // sent record to data manager only if record is complete.
+            let aId = Id
+            let aCompId = dataManager.getCompany(index: DisplayCompIndex).Id
+            let aProdId = dataManager.getProduct(index: DisplayProdIndex).Id
+            let aFormId = FormId
+            let aCreatedDate = Date()
+            let aDeliverDate = DisplayDeliverDate
+            let aUnitPrice = Double(validateString(strline: DisplayUnitPrice))!
+            let aQuantity = Int(validateString(strline: DisplayQuantity))!
+            
+            dataManager.addUpdate(update: SQL_RECORD(aId: aId, aCompId: aCompId, aProdId: aProdId, aFormId: aFormId, aCreatedDate: aCreatedDate, aDeliverDate: aDeliverDate, aUnitPrice: aUnitPrice, aQuantity: aQuantity))
+            return true
+        }
+        return false
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == &contextCompIndex {
             loadUnitPrice()
@@ -364,19 +382,7 @@ class RECORD : NSObject {
             TableDisplayQuantityString = validateString(strline: DisplayQuantity)
         }
         
-        if isComplete() {
-            // sent record to data manager only if record is complete.
-            let aId = Id
-            let aCompId = dataManager.getCompany(index: DisplayCompIndex).Id
-            let aProdId = dataManager.getProduct(index: DisplayProdIndex).Id
-            let aFormId = FormId
-            let aCreatedDate = Date()
-            let aDeliverDate = DisplayDeliverDate
-            let aUnitPrice = Double(validateString(strline: DisplayUnitPrice))!
-            let aQuantity = Int(validateString(strline: DisplayQuantity))!
-            
-            dataManager.addUpdate(update: SQL_RECORD(aId: aId, aCompId: aCompId, aProdId: aProdId, aFormId: aFormId, aCreatedDate: aCreatedDate, aDeliverDate: aDeliverDate, aUnitPrice: aUnitPrice, aQuantity: aQuantity))
-        }
+        checkComplete()
     }
     
     deinit {
