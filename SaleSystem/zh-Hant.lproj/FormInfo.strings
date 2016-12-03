@@ -1,4 +1,7 @@
 
+/* Class = "NSButtonCell"; title = "New Data"; ObjectID = "maF-O7-aXn"; */
+"maF-O7-aXn.title" = " 新增";
+
 /* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "02j-1J-k2K"; */
 "02j-1J-k2K.title" = "Label";
 
@@ -133,3 +136,4 @@
 
 /* Class = "NSTextFieldCell"; title = "Deliver Date"; ObjectID = "xZO-cA-14B"; */
 "xZO-cA-14B.title" = "出貨日期";
+
