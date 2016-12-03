@@ -25,7 +25,6 @@ class FormInfoViewController: NSViewController {
     
     dynamic var selectedRow : Int = 0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +37,7 @@ class FormInfoViewController: NSViewController {
         }
         
         triggerInitialEvent()
-        dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextSaveAction)
     }
     
     func triggerInitialEvent() {
@@ -66,51 +65,33 @@ class FormInfoViewController: NSViewController {
             }
         }
         let emptyRecord : RECORD = RECORD(aId: newId, aCompId: 0, aProdId: 0, aFormId: formId, aCreatedDate: Date(), aDeliverDate: Date(), aUnitPrice: 0, aQuantity: 0)
+        formInfoArray.setSelectionIndex(-1)
         formInfoArray.addObject(emptyRecord)
         
-        formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayCompString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
-        formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayProdString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
-        formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayDeliverDateString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
-        formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayUnitPriceString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
-        formInfoList.last?.addObserver(self, forKeyPath: "TableDisplayQuantityString", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
-        
         if tableView.numberOfRows > 0 {
-            tableView.scrollRowToVisible(tableView.numberOfRows-1 )
+            tableView.scrollRowToVisible(tableView.numberOfRows-1)
+            formInfoArray.setSelectionIndex(tableView.numberOfRows-1)
         }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         if let objectItem = object {
-            if objectItem is RECORD {
-                if (objectItem as! RECORD).isComplete() {
-                    removeObserverFromLast()
-                    appendEmptyRecord()
+            if object is DATAMANAGER {
+                if context == &contextSaveAction {
+                    triggerSaveEvent()
                 }
-            }
-            else if object is DATAMANAGER {
-                triggerSaveEvent()
             }
         }
         
     }
     
-    func removeObserverFromLast() {
-        formInfoList.last?.removeObserver(self, forKeyPath: "TableDisplayCompString")
-        formInfoList.last?.removeObserver(self, forKeyPath: "TableDisplayProdString")
-        formInfoList.last?.removeObserver(self, forKeyPath: "TableDisplayDeliverDateString")
-        formInfoList.last?.removeObserver(self, forKeyPath: "TableDisplayUnitPriceString")
-        formInfoList.last?.removeObserver(self, forKeyPath: "TableDisplayQuantityString")
-    }
-    
     deinit {
-        removeObserverFromLast()
         dataManager.removeObserver(self, forKeyPath: "saveAction")
 
     }
     
     func triggerSaveEvent() {
-        removeObserverFromLast()
         triggerInitialEvent()
     }
     
@@ -125,6 +106,12 @@ class FormInfoViewController: NSViewController {
             for item in formInfoList {
                 item.loadUnitPrice()
             }
+        }
+    }
+    
+    @IBAction func pressUpdateRowButton(_ sender: Any) {
+        if (formInfoList.last?.isComplete())! {
+            appendEmptyRecord()
         }
     }
     
@@ -144,3 +131,5 @@ extension FormInfoViewController : NSWindowDelegate {
     }
     
 }
+
+private var contextSaveAction = 0
