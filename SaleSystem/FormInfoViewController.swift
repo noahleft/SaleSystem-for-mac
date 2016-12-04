@@ -24,6 +24,7 @@ class FormInfoViewController: NSViewController {
     @IBOutlet var productArray: NSArrayController!
     
     dynamic var selectedRow : Int = 0
+    dynamic var noUnsaveChanges : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class FormInfoViewController: NSViewController {
         
         triggerInitialEvent()
         dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextSaveAction)
+        dataManager.addObserver(self, forKeyPath: "noUnsaveChanges", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextUpdateAction)
     }
     
     func triggerInitialEvent() {
@@ -81,6 +83,9 @@ class FormInfoViewController: NSViewController {
                 if context == &contextSaveAction {
                     triggerSaveEvent()
                 }
+                else if context == &contextUpdateAction {
+                    noUnsaveChanges = dataManager.noUnsaveChanges
+                }
             }
         }
         
@@ -88,7 +93,7 @@ class FormInfoViewController: NSViewController {
     
     deinit {
         dataManager.removeObserver(self, forKeyPath: "saveAction")
-
+        dataManager.removeObserver(self, forKeyPath: "noUnsaveChanges")
     }
     
     func triggerSaveEvent() {
@@ -133,3 +138,4 @@ extension FormInfoViewController : NSWindowDelegate {
 }
 
 private var contextSaveAction = 0
+private var contextUpdateAction = 0

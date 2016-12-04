@@ -55,6 +55,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
+                                    <binding destination="VY5-f7-cjs" name="enabled" keyPath="self.noUnsaveChanges" id="Uqg-a9-B9h"/>
                                     <segue destination="vuL-tc-51X" kind="modal" identifier="showFormPrint" id="vNM-Ob-0qu"/>
                                 </connections>
                             </button>

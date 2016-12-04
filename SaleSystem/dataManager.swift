@@ -20,6 +20,7 @@ class DATAMANAGER : NSObject {
     var companyDict : [Int:Int] = [:]
     var productDict : [Int:Int] = [:]
     var saveAction  : Int = 0
+    var noUnsaveChanges : Bool = true
     
     override init() {
         super.init()
@@ -216,10 +217,16 @@ class DATAMANAGER : NSObject {
         willChangeValue(forKey: "saveAction")
         saveAction += 1
         didChangeValue(forKey: "saveAction")
+        willChangeValue(forKey: "noUnsaveChanges")
+        noUnsaveChanges = true
+        didChangeValue(forKey: "noUnsaveChanges")
     }
 
     func addUpdate(update : Any) {
         updateManager.addUpdate(update: update)
+        willChangeValue(forKey: "noUnsaveChanges")
+        noUnsaveChanges = false
+        didChangeValue(forKey: "noUnsaveChanges")
     }
     
     func shortcutUpdate(update : SQL_UNITPRICE) {
