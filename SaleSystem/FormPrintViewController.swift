@@ -23,7 +23,8 @@ class FormPrintViewController: NSViewController {
         super.viewDidLoad()
         
         if let formItem = dataManager.getForm(formId: formId) {
-            labelName.stringValue = "列印 " + formItem.Name
+            let printString = NSLocalizedString("FormPrint_Print", comment: "")
+            labelName.stringValue = printString + " " + formItem.Name
         }
         else {
             labelName.stringValue = "null"

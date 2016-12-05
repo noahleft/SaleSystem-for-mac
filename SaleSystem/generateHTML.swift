@@ -9,6 +9,14 @@
 import Foundation
 
 func generateHTML(companyName: String,formName: String, recordList: [RECORD]) -> String {
+    let html_title = NSLocalizedString("HTML_Title", comment: "")
+    let html_subtitle = NSLocalizedString("HTML_Subtitle", comment: "")
+    let html_table_dateTime = NSLocalizedString("HTML_Table_dateTime", comment: "")
+    let html_table_productName = NSLocalizedString("HTML_Table_productName", comment: "")
+    let html_table_quantity = NSLocalizedString("HTML_Table_quantity", comment: "")
+    let html_table_price = NSLocalizedString("HTML_Table_price", comment: "")
+    let html_table_sum = NSLocalizedString("HTML_Table_sum", comment: "")
+    let html_total = NSLocalizedString("HTML_Total", comment: "")
     // record order ORDER BY DELIVER_DATE
     var HTMLstring : String = ""
     HTMLstring = ""
@@ -16,17 +24,17 @@ func generateHTML(companyName: String,formName: String, recordList: [RECORD]) ->
     HTMLstring.append("<!DOCTYPE html>\n")
     HTMLstring.append("<html>\n")
     HTMLstring.append("<head>\n")
-    HTMLstring.append("<title>紀錄</title>\n")
+    HTMLstring.append("<title>"+html_title+"</title>\n")
     HTMLstring.append("<meta charset=\"UTF-8\">\n")
     HTMLstring.append("<link href=\"Site.css\" rel=\"stylesheet\">\n")
     HTMLstring.append("</head>\n")
     HTMLstring.append("<body>\n")
     HTMLstring.append("<div id=\"main\">")
-    HTMLstring.append("<h1>應收帳款 "+companyName+" "+formName+"</h1>\n")
+    HTMLstring.append("<h1>"+html_subtitle+" "+companyName+" "+formName+"</h1>\n")
 //
     HTMLstring.append("<table>\n")
     HTMLstring.append("<tr>\n")
-    HTMLstring.append("<th class=\"dateTime\">日期</th><th class=\"productName\">品項</th><th class=\"quantity\">數量</th><th class=\"price\">單價</th><th class=\"price\">小計</th>\n")
+    HTMLstring.append("<th class=\"dateTime\">"+html_table_dateTime+"</th><th class=\"productName\">"+html_table_productName+"</th><th class=\"quantity\">"+html_table_quantity+"</th><th class=\"price\">"+html_table_price+"</th><th class=\"price\">"+html_table_sum+"</th>\n")
     HTMLstring.append("</tr>\n")
     
     var sum : Double = 0
@@ -45,7 +53,7 @@ func generateHTML(companyName: String,formName: String, recordList: [RECORD]) ->
     }
     HTMLstring.append("</table>\n")
 //        
-    HTMLstring.append("總計:\(Int(sum))\n")
+    HTMLstring.append(html_total+":\(Int(sum))\n")
     HTMLstring.append("</div>")
 //
     HTMLstring.append("</body>")

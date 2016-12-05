@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  SaleSystem
+
+  Created by 林世豐 on 05/12/2016.
+
+*/
+
+"HTML_Title" = "紀錄";
+"HTML_Subtitle" = "應收帳款";
+"HTML_Table_dateTime" = "日期";
+"HTML_Table_productName" = "品項";
+"HTML_Table_quantity" = "數量";
+"HTML_Table_price" = "單價";
+"HTML_Table_sum" = "小計";
+"HTML_Total" = "總計";
+
+"FormPrint_Print" = "列印 ";
+

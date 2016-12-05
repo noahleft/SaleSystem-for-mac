@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  SaleSystem
+
+  Created by 林世豐 on 05/12/2016.
+
+*/
+
+"HTML_Title" = "Invoice";
+"HTML_Subtitle" = "Records";
+"HTML_Table_dateTime" = "dateTime";
+"HTML_Table_productName" = "product";
+"HTML_Table_quantity" = "quantity";
+"HTML_Table_price" = "unit price";
+"HTML_Table_sum" = "sum";
+"HTML_Total" = "Total";
+
+"FormPrint_Print" = "Print ";
