@@ -667,7 +667,6 @@
                         <outlet property="formInfoArray" destination="BUE-eG-2Ke" id="D1Q-ht-ahR"/>
                         <outlet property="labelName" destination="8AL-jI-ikD" id="YV5-2g-hHk"/>
                         <outlet property="productArray" destination="GMh-IZ-KyZ" id="NhV-5s-A8q"/>
-                        <outlet property="quantityTextField" destination="PZX-fg-cJi" id="bf6-Pe-rhM"/>
                         <outlet property="tableView" destination="p0M-l4-BeM" id="2Kk-uy-oCt"/>
                     </connections>
                 </viewController>
