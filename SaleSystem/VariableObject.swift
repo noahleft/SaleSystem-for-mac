@@ -232,8 +232,10 @@ class RECORD : NSObject {
         return CompId <= 0 || ProdId <= 0
     }
     
-    var enableUnitPriceUpdate : Bool {
-        return DisplayUnitPrice != DisplayUnitPriceAtDB && TableDisplayCompString != "" && TableDisplayProdString != ""
+    dynamic var enableUnitPriceUpdate : Bool = false
+    
+    func updateEnableUnitPrice() {
+        enableUnitPriceUpdate = DisplayUnitPrice != DisplayUnitPriceAtDB && TableDisplayCompString != "" && TableDisplayProdString != ""
     }
     
     func isComplete() -> Bool {
@@ -376,6 +378,7 @@ class RECORD : NSObject {
         else if context == &contextUnitPrice {
             TextColorPrice = NSColor.red
             TableDisplayUnitPriceString = validateString(strline: DisplayUnitPrice)
+            updateEnableUnitPrice()
         }
         else if context == &contextQuantity {
             TextColorQuan = NSColor.red
