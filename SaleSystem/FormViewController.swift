@@ -16,6 +16,7 @@ class FormViewController: NSViewController {
     
     dynamic var formList:    [FORM]    = []
     dynamic var noUnsaveChanges : Bool = true
+    dynamic var enableOpenForm : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,8 @@ class FormViewController: NSViewController {
         
         registerObserver()
         dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
+        
+        tableView.delegate = self
     }
     
     func triggerInitialEvent() {
@@ -140,3 +143,15 @@ extension FormViewController : NSWindowDelegate {
     
 }
 
+extension FormViewController : NSTableViewDelegate {
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        if tableView.selectedRow == tableView.numberOfRows-1 {
+            enableOpenForm = false
+        }
+        else {
+            enableOpenForm = true
+        }
+    }
+    
+}
