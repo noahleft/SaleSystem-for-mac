@@ -10,6 +10,8 @@ import Foundation
 
 class DATAMANAGER : NSObject {
     
+//    let cloudManager : CloudManager = CloudManager()
+    let cloudDataManager : CloudDataManager = CloudDataManager()
     let dbManager: SQLiteWrapper = SQLiteWrapper()
     let updateManager: UpdateManager = UpdateManager()
     var companyList : [SQL_COMPANY] = []
@@ -24,6 +26,9 @@ class DATAMANAGER : NSObject {
     
     override init() {
         super.init()
+        
+        print("test iCloud status : \(cloudDataManager.isCloudEnabled())")
+        print("\(cloudDataManager.getDocumentDiretoryURL())")
         
         triggerInitialEvent()
     }

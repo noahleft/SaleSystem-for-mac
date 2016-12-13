@@ -37,6 +37,7 @@
 		2EA18C601DAE412E006629BB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA18C5F1DAE412E006629BB /* Extension.swift */; };
 		2EB14E9B1D95571D00C06F3A /* sample.db in Resources */ = {isa = PBXBuildFile; fileRef = 2E0656AF1D8B98800023DA60 /* sample.db */; };
 		2EB14EB31D9963E000C06F3A /* dataConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB14EB21D9963E000C06F3A /* dataConvert.swift */; };
+		2EB935151E0015BF009E9D23 /* CloudDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB935141E0015BF009E9D23 /* CloudDataManager.swift */; };
 		2ED4594E1DABEEFE00AB1F37 /* FormPrintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED4594D1DABEEFE00AB1F37 /* FormPrintViewController.swift */; };
 		2ED459571DABF86600AB1F37 /* generateHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED459561DABF86600AB1F37 /* generateHTML.swift */; };
 		2ED459591DABFE7000AB1F37 /* Site.css in Resources */ = {isa = PBXBuildFile; fileRef = 2ED459581DABFE7000AB1F37 /* Site.css */; };
@@ -129,6 +130,7 @@
 		2EAED89B1DC609C400F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ProductView.strings"; sourceTree = "<group>"; };
 		2EAED89D1DC609C500F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FormView.strings"; sourceTree = "<group>"; };
 		2EB14EB21D9963E000C06F3A /* dataConvert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataConvert.swift; sourceTree = "<group>"; };
+		2EB935141E0015BF009E9D23 /* CloudDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudDataManager.swift; sourceTree = "<group>"; };
 		2ED4594D1DABEEFE00AB1F37 /* FormPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormPrintViewController.swift; sourceTree = "<group>"; };
 		2ED459561DABF86600AB1F37 /* generateHTML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generateHTML.swift; sourceTree = "<group>"; };
 		2ED459581DABFE7000AB1F37 /* Site.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Site.css; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				2E85386C1DB4D75D0056C494 /* updateManager.swift */,
 				2ED459561DABF86600AB1F37 /* generateHTML.swift */,
 				2EA18C5F1DAE412E006629BB /* Extension.swift */,
+				2EB935141E0015BF009E9D23 /* CloudDataManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -337,13 +340,13 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Sandbox = {
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -431,6 +434,7 @@
 				2EA18C601DAE412E006629BB /* Extension.swift in Sources */,
 				2E4526501DA3F5C0000AA615 /* FormInfoViewController.swift in Sources */,
 				2E616EE11D7BF9B100FB02E6 /* SQLiteWrapper.swift in Sources */,
+				2EB935151E0015BF009E9D23 /* CloudDataManager.swift in Sources */,
 				2EB14EB31D9963E000C06F3A /* dataConvert.swift in Sources */,
 				2ED4594E1DABEEFE00AB1F37 /* FormPrintViewController.swift in Sources */,
 				2E85386D1DB4D75D0056C494 /* updateManager.swift in Sources */,
