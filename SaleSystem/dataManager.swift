@@ -10,8 +10,6 @@ import Foundation
 
 class DATAMANAGER : NSObject {
     
-//    let cloudManager : CloudManager = CloudManager()
-    let cloudDataManager : CloudDataManager = CloudDataManager()
     let dbManager: SQLiteWrapper = SQLiteWrapper()
     let updateManager: UpdateManager = UpdateManager()
     var companyList : [SQL_COMPANY] = []

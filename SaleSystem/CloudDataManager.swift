@@ -105,3 +105,8 @@ class CloudDataManager {
     
     
 }
+
+
+
+let cloudDataManager : CloudDataManager = CloudDataManager()
+
