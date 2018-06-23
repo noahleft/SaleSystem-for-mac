@@ -16,10 +16,13 @@ class FormPrintViewController: NSViewController {
     @IBOutlet weak var webView: WebView!
     @IBOutlet weak var popUpButton: NSPopUpButton!
     @IBOutlet weak var labelName: NSTextField!
+    @IBOutlet weak var taxButton: NSButton!
+    @IBOutlet weak var updateTaxButton: NSButton!
     
     var companyList : [SQL_COMPANY] = []
     
     override func viewDidLoad() {
+        updateTaxButton.isHidden = true
         super.viewDidLoad()
         
         if let formItem = dataManager.getForm(formId: formId) {
@@ -64,14 +67,24 @@ class FormPrintViewController: NSViewController {
         let pathURL : URL = URL(fileURLWithPath: path)
         
         if let formItem = dataManager.getForm(formId: formId) {
-            let htmlString:String = generateHTML(companyName: companyItem.Name, formName: formItem.Name, recordList: dataManager.getRecordList(formId: formItem.Id, compId: companyItem.Id))
+            let htmlString:String = generateHTML(companyName: companyItem.Name, formName: formItem.Name, recordList: dataManager.getRecordList(formId: formItem.Id, compId: companyItem.Id), taxIncluded: taxButton.state==NSOnState
+            )
             webView.mainFrame.loadHTMLString(htmlString, baseURL: pathURL)
         }
     }
     
     @IBAction func clickPopUpButton(_ sender: AnyObject) {
         loadWeb()
+        updateTaxButton.isHidden = true
     }
     
+    @IBAction func clickTaxButton(_ sender: Any) {
+        loadWeb()
+        updateTaxButton.isHidden = false
+    }
+    
+    @IBAction func clickUpdateTaxStateButton(_ sender: Any) {
+        updateTaxButton.isEnabled = false
+    }
     
 }
