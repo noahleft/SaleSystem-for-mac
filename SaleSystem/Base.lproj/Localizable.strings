@@ -14,5 +14,8 @@
 "HTML_Table_price" = "unit price";
 "HTML_Table_sum" = "sum";
 "HTML_Total" = "Total";
+"HTML_Note" = "note";
+"HTML_Tax"  = "Tax";
+"HTML_SalesAmount" = "Sales Amount";
 
 "FormPrint_Print" = "Print ";

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="VY5-f7-cjs">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="VY5-f7-cjs">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="14113"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,7 +73,7 @@
                                             <tableViewGridLines key="gridStyleMask" vertical="YES" dashed="YES"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="50" minWidth="40" maxWidth="50" id="T7i-8X-ccx">
+                                                <tableColumn identifier="" width="50" minWidth="40" maxWidth="50" id="T7i-8X-ccx">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="ID">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -109,7 +109,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="102" minWidth="50" maxWidth="200" id="Ph3-i4-I3l">
+                                                <tableColumn identifier="" width="102" minWidth="50" maxWidth="200" id="Ph3-i4-I3l">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Comp">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -146,7 +146,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="202" minWidth="100" maxWidth="400" id="u4C-gL-EdV">
+                                                <tableColumn identifier="" width="202" minWidth="100" maxWidth="400" id="u4C-gL-EdV">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Prod">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -183,7 +183,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="102" minWidth="50" maxWidth="200" id="rng-5T-qri">
+                                                <tableColumn identifier="" width="102" minWidth="50" maxWidth="200" id="rng-5T-qri">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Deliver Date">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -220,7 +220,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="102" minWidth="50" maxWidth="200" id="bSr-Iy-ZGg">
+                                                <tableColumn identifier="" width="102" minWidth="50" maxWidth="200" id="bSr-Iy-ZGg">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Unit Price">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -257,7 +257,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="112" minWidth="50" maxWidth="200" id="X13-Ea-He3">
+                                                <tableColumn identifier="" width="112" minWidth="50" maxWidth="200" id="X13-Ea-He3">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Quantity">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -716,26 +716,52 @@
                                 </textFieldCell>
                             </textField>
                             <webView translatesAutoresizingMaskIntoConstraints="NO" id="dAL-G5-WO8">
-                                <rect key="frame" x="0.0" y="0.0" width="800" height="940"/>
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="910"/>
                                 <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0">
                                     <nil key="identifier"/>
                                 </webPreferences>
                             </webView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="swh-6e-8HD">
+                                <rect key="frame" x="608" y="924" width="98" height="18"/>
+                                <buttonCell key="cell" type="check" title="Print out Tax" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xmR-Dv-aFR">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickTaxButton:" target="vuL-tc-51X" id="qt3-GW-HTm"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n4V-Gi-E4x">
+                                <rect key="frame" x="701" y="915" width="85" height="32"/>
+                                <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wrr-ep-QQA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickUpdateTaxStateButton:" target="vuL-tc-51X" id="wQb-73-AeV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="dAL-G5-WO8" firstAttribute="top" secondItem="qg5-lh-Ded" secondAttribute="top" constant="60" id="9A4-QX-SGX"/>
+                            <constraint firstItem="dAL-G5-WO8" firstAttribute="top" secondItem="qg5-lh-Ded" secondAttribute="top" constant="90" id="9A4-QX-SGX"/>
                             <constraint firstItem="LU0-Yw-Qbv" firstAttribute="top" secondItem="qg5-lh-Ded" secondAttribute="top" constant="10" id="JBx-6a-YVv"/>
+                            <constraint firstItem="swh-6e-8HD" firstAttribute="leading" secondItem="WYz-jE-2Hk" secondAttribute="leading" id="OhS-Mg-IfG"/>
+                            <constraint firstItem="n4V-Gi-E4x" firstAttribute="centerY" secondItem="swh-6e-8HD" secondAttribute="centerY" id="Rko-w3-s8w"/>
                             <constraint firstAttribute="trailing" secondItem="WYz-jE-2Hk" secondAttribute="trailing" constant="20" id="S8j-8D-L86"/>
+                            <constraint firstItem="swh-6e-8HD" firstAttribute="top" secondItem="WYz-jE-2Hk" secondAttribute="bottom" constant="10" id="SpE-EY-ayr"/>
                             <constraint firstAttribute="bottom" secondItem="dAL-G5-WO8" secondAttribute="bottom" id="UOb-6D-9tv"/>
                             <constraint firstItem="dAL-G5-WO8" firstAttribute="leading" secondItem="qg5-lh-Ded" secondAttribute="leading" id="YRF-1c-sgv"/>
                             <constraint firstItem="WYz-jE-2Hk" firstAttribute="top" secondItem="qg5-lh-Ded" secondAttribute="top" constant="20" id="awT-VE-vYe"/>
                             <constraint firstItem="LU0-Yw-Qbv" firstAttribute="leading" secondItem="qg5-lh-Ded" secondAttribute="leading" constant="20" id="gxs-fJ-viB"/>
+                            <constraint firstAttribute="trailing" secondItem="n4V-Gi-E4x" secondAttribute="trailing" constant="20" id="t8d-pl-tsf"/>
                             <constraint firstAttribute="trailing" secondItem="dAL-G5-WO8" secondAttribute="trailing" id="tpP-PY-nF1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="labelName" destination="LU0-Yw-Qbv" id="sYx-Y8-H8M"/>
                         <outlet property="popUpButton" destination="WYz-jE-2Hk" id="T27-sM-Mcv"/>
+                        <outlet property="taxButton" destination="swh-6e-8HD" id="iaQ-pP-ibV"/>
+                        <outlet property="updateTaxButton" destination="n4V-Gi-E4x" id="pxd-hX-98U"/>
                         <outlet property="webView" destination="dAL-G5-WO8" id="r2N-HE-KcO"/>
                     </connections>
                 </viewController>

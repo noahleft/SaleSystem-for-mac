@@ -1,4 +1,10 @@
 
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "Wrr-ep-QQA"; */
+"Wrr-ep-QQA.title" = "更新";
+
+/* Class = "NSButtonCell"; title = "Include Tax"; ObjectID = "xmR-Dv-aFR"; */
+"xmR-Dv-aFR.title" = "印出稅金";
+
 /* Class = "NSButtonCell"; title = "New Data"; ObjectID = "maF-O7-aXn"; */
 "maF-O7-aXn.title" = " 新增";
 
@@ -136,4 +142,5 @@
 
 /* Class = "NSTextFieldCell"; title = "Deliver Date"; ObjectID = "xZO-cA-14B"; */
 "xZO-cA-14B.title" = "出貨日期";
+
 

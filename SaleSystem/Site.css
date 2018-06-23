@@ -14,6 +14,11 @@ body {
     border-radius: 0 0 5px 5px;
 }
 
+#foot {
+    text-align : right;
+    width: 100%;
+}
+
 h1 {
     font: Georgia, serif;
     border-bottom: 3px solid #cc9900;
@@ -22,7 +27,7 @@ h1 {
 }
 
 table {
-    width:80%;
+    width:100%;
 }
 
 table, th , td {
@@ -67,6 +72,14 @@ td.quantity th.quantity{
 }
 
 td.price th.price{
+  border: 1px solid;
+  border-collapse: collapse;
+  width: 100px;
+  height: 5px;
+  padding: 0px;
+}
+
+td.note th.note{
   border: 1px solid;
   border-collapse: collapse;
   width: 100px;
