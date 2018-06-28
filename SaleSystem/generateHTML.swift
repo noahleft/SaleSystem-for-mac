@@ -51,7 +51,7 @@ func generateHTML(companyName: String,formName: String, recordList: [RECORD],tax
         rowString.append("<td class=\"price\">"+"\(item.UnitPrice)"+"</td>")
         let tmpSum : Double = Double(item.Quantity)*item.UnitPrice
         rowString.append("<td class=\"price\">"+"\(tmpSum)"+"</td>")
-        rowString.append("<td class=\"note\">"+"</td>")
+        rowString.append("<td class=\"note\">"+"\(item.Note)"+"</td>")
         sum = sum + tmpSum
         
         HTMLstring.append(rowString)
@@ -79,7 +79,7 @@ func generateHTML(companyName: String,formName: String, recordList: [RECORD],tax
     HTMLstring.append("</html>")
     
 
-    print(HTMLstring)
+//    print(HTMLstring)
     
     return HTMLstring
 }

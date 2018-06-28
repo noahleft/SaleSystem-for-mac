@@ -1,4 +1,16 @@
 
+/* Class = "NSTextFieldCell"; title = "To"; ObjectID = "udP-Lo-3SI"; */
+"udP-Lo-3SI.title" = "改成";
+
+/* Class = "NSTextFieldCell"; title = "From"; ObjectID = "pnE-f0-4Wq"; */
+"pnE-f0-4Wq.title" = "從";
+
+/* Class = "NSTextFieldCell"; title = "Note"; ObjectID = "Njs-Oz-mwr"; */
+"Njs-Oz-mwr.title" = "備註";
+
+/* Class = "NSTableColumn"; headerCell.title = "Note"; ObjectID = "SSC-BA-p8g"; */
+"SSC-BA-p8g.headerCell.title" = "備註";
+
 /* Class = "NSButtonCell"; title = "Save"; ObjectID = "Wrr-ep-QQA"; */
 "Wrr-ep-QQA.title" = "更新";
 
@@ -57,7 +69,7 @@
 "Ph3-i4-I3l.headerCell.title" = "公司";
 
 /* Class = "NSButtonCell"; title = "Set"; ObjectID = "PwC-vl-mDC"; */
-"PwC-vl-mDC.title" = "Set";
+"PwC-vl-mDC.title" = "修改";
 
 /* Class = "NSTextFieldCell"; title = "Actual Unit Price"; ObjectID = "S6T-L2-6Wu"; */
 "S6T-L2-6Wu.title" = "出貨單價";
@@ -142,5 +154,6 @@
 
 /* Class = "NSTextFieldCell"; title = "Deliver Date"; ObjectID = "xZO-cA-14B"; */
 "xZO-cA-14B.title" = "出貨日期";
+
 
 

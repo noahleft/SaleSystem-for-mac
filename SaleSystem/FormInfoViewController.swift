@@ -66,7 +66,7 @@ class FormInfoViewController: NSViewController {
                 newId = lastId + 1
             }
         }
-        let emptyRecord : RECORD = RECORD(aId: newId, aCompId: 0, aProdId: 0, aFormId: formId, aCreatedDate: Date(), aDeliverDate: Date(), aUnitPrice: 0, aQuantity: 0)
+        let emptyRecord : RECORD = RECORD(aId: newId, aCompId: 0, aProdId: 0, aFormId: formId, aCreatedDate: Date(), aDeliverDate: Date(), aUnitPrice: 0, aQuantity: 0, aNote: "")
         formInfoArray.setSelectionIndex(-1)
         formInfoArray.addObject(emptyRecord)
         

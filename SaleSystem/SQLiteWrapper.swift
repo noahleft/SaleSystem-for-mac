@@ -9,6 +9,13 @@
 import Foundation
 import SQLite
 
+extension Connection {
+    public var userVersion: Int32 {
+        get { return Int32(try! scalar("PRAGMA user_version") as! Int64)}
+        set { try! run("PRAGMA user_version = \(newValue)") }
+    }
+}
+
 class SQLiteWrapper {
     
     var path: String?
@@ -50,6 +57,36 @@ class SQLiteWrapper {
             }
         }
         print(path)
+        
+        databaseMigration()
+    }
+    
+    func databaseMigration() {
+        do {
+            if let rPath = path {
+                let db = try Connection(rPath)
+                print("db version:\(db.userVersion)")
+                
+                //migration from 0 to 1
+                //add table company info
+                //add table form note
+                if db.userVersion == 0 {
+                    let users = Table("company")
+                    let suffix = Expression<Bool>("PRINTTAX")
+                    try db.run(users.addColumn(suffix, defaultValue: false))
+                    
+                    let users2 = Table("record")
+                    let suffix2 = Expression<String>("NOTE")
+                    try db.run(users2.addColumn(suffix2, defaultValue: ""))
+                    
+                    db.userVersion = 1
+                }
+                
+            }
+        }
+        catch {
+            print("db test fail")
+        }
     }
     
     func loadCompanyList() -> [SQL_COMPANY] {
@@ -62,11 +99,12 @@ class SQLiteWrapper {
                 let users = Table("company")
                 let id = Expression<Int64>("ID")
                 let name = Expression<String?>("NAME")
+                let printTax = Expression<Bool>("PRINTTAX")
                                 
                 for user in try db.prepare(users) {
 //                    print("id: \(user[id]), name: \(user[name])")
                     // id: 1, name: Optional("Alice")
-                    let com = SQL_COMPANY(aId: Int(user[id]), aName: String(describing: user[name]!))
+                    let com = SQL_COMPANY(aId: Int(user[id]), aName: String(describing: user[name]!), aPrintTax: Bool(user[printTax]))
                     retArray.append(com)
                 }
                 // SELECT * FROM "users"
@@ -175,6 +213,7 @@ class SQLiteWrapper {
                 let deliverDate = Expression<String>("DELIVER_DATE")
                 let unitPrice = Expression<Double>("UNIT_PRICE")
                 let quantity = Expression<Int64>("QUANTITY")
+                let note = Expression<String>("NOTE")
                 
                 let SQL_dateFormatter : DateFormatter = DateFormatter()
                 SQL_dateFormatter.dateFormat = "YYYY-MM-dd"
@@ -187,8 +226,15 @@ class SQLiteWrapper {
                     let Date_deliverDate : Date = SQL_dateFormatter.date(from: user[deliverDate])!
                     
 //                    print("id: \(user[id]), comp: \(user[comp]), prod: \(user[prod]), form: \(user[form]), createdDate: \(Date_createdDate), deliverDate: \(Date_deliverDate), unit_price: \(user[unitPrice]), quantity: \(user[quantity])")
-                    let com = SQL_RECORD(aId: Int(user[id]), aCompId: Int(user[comp]), aProdId: Int(user[prod]), aFormId: Int(user[form]),
-                                     aCreatedDate: Date_createdDate, aDeliverDate: Date_deliverDate, aUnitPrice: Double(user[unitPrice]), aQuantity: Int(user[quantity]))
+                    let com = SQL_RECORD(aId: Int(user[id]),
+                                         aCompId: Int(user[comp]),
+                                         aProdId: Int(user[prod]),
+                                         aFormId: Int(user[form]),
+                                         aCreatedDate: Date_createdDate,
+                                         aDeliverDate: Date_deliverDate,
+                                         aUnitPrice: Double(user[unitPrice]),
+                                         aQuantity: Int(user[quantity]),
+                                         aNote: String(user[note]))
                     retArray.append(com)
                 }
                 // SELECT * FROM "users"
@@ -207,11 +253,12 @@ class SQLiteWrapper {
                 let users = Table("company")
                 let id = Expression<Int64>("ID")
                 let name = Expression<String>("NAME")
+                let printtax = Expression<Bool>("PRINTTAX")
 
                 for item in companyList {
                     print("try to update companyName:  \(item.Id)   \(item.Name)")
                     let currnet = users.filter(id == Int64(item.Id))
-                    if try db.run(currnet.update(name <- "\(item.Name)")) > 0 {
+                    if try db.run(currnet.update(name <- "\(item.Name)", printtax <- item.PrintTax)) > 0 {
                         // UPDATE "users" SET "name" = 'alice' WHERE ("id" = 1)
                         print("\(item.Name)")
                     } else {
@@ -376,6 +423,7 @@ class SQLiteWrapper {
                 let deliverDate = Expression<String>("DELIVER_DATE")
                 let unitPrice = Expression<Double>("UNIT_PRICE")
                 let quantity = Expression<Int64>("QUANTITY")
+                let note = Expression<String>("NOTE")
                 
                 let SQL_dateFormatter : DateFormatter = DateFormatter()
                 SQL_dateFormatter.dateFormat = "YYYY-MM-dd"
@@ -392,10 +440,11 @@ class SQLiteWrapper {
                     let dd = SQL_dateFormatter.string(from: item.DeliverDate)
                     let up = Double(item.UnitPrice)
                     let qu = Int64(item.Quantity)
+                    let no = item.Note
                     
                     print("\(cd),\(dd)")
                     
-                    if try db.run(currnet.update(comp <- ci ,prod <- pi , form <- fi, createdDate <- cd , deliverDate <- dd ,unitPrice <- up , quantity <- qu)) > 0 {
+                    if try db.run(currnet.update(comp <- ci ,prod <- pi , form <- fi, createdDate <- cd , deliverDate <- dd ,unitPrice <- up , quantity <- qu, note <- no)) > 0 {
                         // UPDATE "users" SET "name" = 'alice' WHERE ("id" = 1)
                         print("\(item.UnitPrice)")
                     } else {

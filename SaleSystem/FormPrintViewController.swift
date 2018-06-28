@@ -40,6 +40,7 @@ class FormPrintViewController: NSViewController {
             popUpButton.addItem(withTitle: item.Name)
         }
         
+        checkTaxButtonState()
         loadWeb()
         
         setupPrintInfo()
@@ -61,8 +62,6 @@ class FormPrintViewController: NSViewController {
         let companyItem = companyList[selectedIndex]
         print("\(selectedIndex) -> \(companyItem.Name)")
         
-        
-        
         let path : String = Bundle.main.resourcePath!
         let pathURL : URL = URL(fileURLWithPath: path)
         
@@ -73,18 +72,42 @@ class FormPrintViewController: NSViewController {
         }
     }
     
+    func checkTaxButtonState() {
+        let selectedIndex = popUpButton.indexOfSelectedItem
+        let companyItem = companyList[selectedIndex]
+        if companyItem.PrintTax == true {
+            taxButton.state = NSOnState
+        }
+        else {
+            taxButton.state = NSOffState
+        }
+    }
+    
     @IBAction func clickPopUpButton(_ sender: AnyObject) {
+        checkTaxButtonState()
         loadWeb()
         updateTaxButton.isHidden = true
+        updateTaxButton.isEnabled = true
     }
     
     @IBAction func clickTaxButton(_ sender: Any) {
         loadWeb()
         updateTaxButton.isHidden = false
+        updateTaxButton.isEnabled = true
     }
     
     @IBAction func clickUpdateTaxStateButton(_ sender: Any) {
         updateTaxButton.isEnabled = false
+        
+        // store tax print out state to db
+        let selectedIndex = popUpButton.indexOfSelectedItem
+        let companyItem = companyList[selectedIndex]
+        let printTax : Bool = taxButton.state == NSOnState
+        companyList[selectedIndex].PrintTax = printTax
+        let update : SQL_COMPANY = SQL_COMPANY(aId: companyItem.Id, aName: companyItem.Name, aPrintTax: printTax)
+        dataManager.addUpdate(update: update)
+        dataManager.store()
+        checkTaxButtonState()
     }
     
 }

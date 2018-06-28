@@ -91,6 +91,7 @@
 		2E0591F21DF5A29300620F1E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2E0656AF1D8B98800023DA60 /* sample.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.db; sourceTree = "<group>"; };
 		2E12C5891DB7BD4A00738E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PriceView.storyboard; sourceTree = "<group>"; };
+		2E2C4F1220DE5938008D6F72 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FormInfo.strings"; sourceTree = "<group>"; };
 		2E4526371D9C24AB000AA615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CompanyView.storyboard; sourceTree = "<group>"; };
 		2E45263E1DA262BF000AA615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FormView.storyboard; sourceTree = "<group>"; };
 		2E4526471DA28DE8000AA615 /* dataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataManager.swift; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		2E6E3AD51DEDE150001B93FC /* VariableObjectFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariableObjectFunctions.swift; sourceTree = "<group>"; };
 		2E6E3AD71DEE89B8001B93FC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hant"; path = "zh-Hant.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		2E6E3AD91DEE9D94001B93FC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/PriceView.strings"; sourceTree = "<group>"; };
-		2E6E3ADB1DF2A843001B93FC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FormInfo.strings"; sourceTree = "<group>"; };
 		2E8538601DB3A0040056C494 /* SQLVariableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLVariableObject.swift; sourceTree = "<group>"; };
 		2E8538641DB489270056C494 /* CustomTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabViewController.swift; sourceTree = "<group>"; };
 		2E85386C1DB4D75D0056C494 /* updateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = updateManager.swift; sourceTree = "<group>"; };
@@ -346,7 +346,7 @@
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -526,7 +526,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E68595A1DBB5B7600CB4EDA /* Base */,
-				2E6E3ADB1DF2A843001B93FC /* zh-Hant */,
+				2E2C4F1220DE5938008D6F72 /* zh-Hant */,
 			);
 			name = FormInfo.storyboard;
 			sourceTree = "<group>";

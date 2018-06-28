@@ -16,10 +16,12 @@ import Cocoa
 class SQL_COMPANY {
     var Id : Int
     var Name : String
+    var PrintTax : Bool
     
-    init(aId: Int,aName: String) {
+    init(aId: Int,aName: String, aPrintTax: Bool) {
         Id = aId
         Name = aName
+        PrintTax = aPrintTax
     }
 }
 
@@ -67,8 +69,9 @@ class SQL_RECORD {
     var DeliverDate : Date
     var UnitPrice : Double
     var Quantity : Int
+    var Note: String
     
-    init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Double,aQuantity: Int) {
+    init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Double,aQuantity: Int, aNote: String) {
         Id = aId
         CompId = aCompId
         ProdId = aProdId
@@ -77,6 +80,7 @@ class SQL_RECORD {
         DeliverDate = aDeliverDate
         UnitPrice = aUnitPrice
         Quantity = aQuantity
+        Note = aNote
     }
     
     

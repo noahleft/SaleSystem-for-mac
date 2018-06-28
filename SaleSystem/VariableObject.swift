@@ -55,7 +55,7 @@ class COMPANY : NSObject {
         }
         
         if DisplayName != "" {
-            dataManager.addUpdate(update: SQL_COMPANY(aId: Id, aName: DisplayName))
+            dataManager.addUpdate(update: SQL_COMPANY(aId: Id, aName: DisplayName, aPrintTax: false))
             print("add update  Name:\(Name)   DisplayName:\(DisplayName)")
         }
         else {
@@ -209,11 +209,13 @@ class RECORD : NSObject {
     var DeliverDate : Date
     var UnitPrice : Double
     var Quantity : Int
+    var Note: String
     dynamic var DisplayCompIndex : Int
     dynamic var DisplayProdIndex : Int
     dynamic var DisplayDeliverDate : Date
     dynamic var DisplayUnitPrice : String
     dynamic var DisplayQuantity : String
+    dynamic var DisplayNote : String
     
     dynamic var DisplayUnitPriceAtDB : String = ""
     dynamic var TableDisplayCompString : String = ""
@@ -221,12 +223,14 @@ class RECORD : NSObject {
     dynamic var TableDisplayDeliverDateString : String = ""
     dynamic var TableDisplayUnitPriceString : String = ""
     dynamic var TableDisplayQuantityString : String = ""
+    dynamic var TableDisplayNoteString : String = ""
     
     dynamic var TextColorComp  : NSColor = NSColor.black
     dynamic var TextColorProd  : NSColor = NSColor.black
     dynamic var TextColorDate  : NSColor = NSColor.black
     dynamic var TextColorPrice : NSColor = NSColor.black
     dynamic var TextColorQuan  : NSColor = NSColor.black
+    dynamic var TextColorNote  : NSColor = NSColor.black
     
     var isUnsyncData : Bool {
         return CompId <= 0 || ProdId <= 0
@@ -259,12 +263,14 @@ class RECORD : NSObject {
         DeliverDate = sqlRecord.DeliverDate
         UnitPrice = sqlRecord.UnitPrice
         Quantity = sqlRecord.Quantity
+        Note = sqlRecord.Note
         
         DisplayCompIndex = dataManager.getCompanyIdx(id: sqlRecord.CompId)
         DisplayProdIndex = dataManager.getProductIdx(id: sqlRecord.ProdId)
         DisplayDeliverDate = sqlRecord.DeliverDate
         DisplayUnitPrice = String(sqlRecord.UnitPrice)
         DisplayQuantity = String(sqlRecord.Quantity)
+        DisplayNote = String(sqlRecord.Note)
         
         super.init()
         registerObservers()
@@ -272,7 +278,7 @@ class RECORD : NSObject {
         setupTableDisplay()
     }
     
-    init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Double,aQuantity: Int) {
+    init(aId: Int,aCompId: Int,aProdId: Int,aFormId: Int,aCreatedDate: Date,aDeliverDate: Date,aUnitPrice: Double,aQuantity: Int,aNote: String) {
         Id = aId
         CompId = aCompId
         ProdId = aProdId
@@ -281,12 +287,14 @@ class RECORD : NSObject {
         DeliverDate = aDeliverDate
         UnitPrice = aUnitPrice
         Quantity = aQuantity
+        Note = aNote
         
         DisplayCompIndex = dataManager.getCompanyIdx(id: aCompId)
         DisplayProdIndex = dataManager.getProductIdx(id: aProdId)
         DisplayDeliverDate = aDeliverDate
         DisplayUnitPrice = String(aUnitPrice)
         DisplayQuantity = String(aQuantity)
+        DisplayNote = String(aNote)
         
         super.init()
         registerObservers()
@@ -299,6 +307,7 @@ class RECORD : NSObject {
         TableDisplayDeliverDateString = dateFormatterForDisplay(date: DisplayDeliverDate)
         TableDisplayUnitPriceString = String(DisplayUnitPrice)
         TableDisplayQuantityString = String(DisplayQuantity)
+        TableDisplayNoteString = String(DisplayNote)
         
         loadUnitPrice()
     }
@@ -309,6 +318,7 @@ class RECORD : NSObject {
         addObserver(self, forKeyPath: "DisplayDeliverDate", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextDeliverDate)
         addObserver(self, forKeyPath: "DisplayUnitPrice", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextUnitPrice)
         addObserver(self, forKeyPath: "DisplayQuantity", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextQuantity)
+        addObserver(self, forKeyPath: "DisplayNote", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: &contextNote)
     }
     
     func removeObservers() {
@@ -317,6 +327,7 @@ class RECORD : NSObject {
         removeObserver(self, forKeyPath: "DisplayDeliverDate")
         removeObserver(self, forKeyPath: "DisplayUnitPrice")
         removeObserver(self, forKeyPath: "DisplayQuantity")
+        removeObserver(self, forKeyPath: "DisplayNote")
     }
     
     func loadUnitPrice() {
@@ -348,8 +359,9 @@ class RECORD : NSObject {
             let aDeliverDate = DisplayDeliverDate
             let aUnitPrice = Double(validateString(strline: DisplayUnitPrice))!
             let aQuantity = Int(validateString(strline: DisplayQuantity))!
+            let aNote = validateString(strline: DisplayNote)
             
-            dataManager.addUpdate(update: SQL_RECORD(aId: aId, aCompId: aCompId, aProdId: aProdId, aFormId: aFormId, aCreatedDate: aCreatedDate, aDeliverDate: aDeliverDate, aUnitPrice: aUnitPrice, aQuantity: aQuantity))
+            dataManager.addUpdate(update: SQL_RECORD(aId: aId, aCompId: aCompId, aProdId: aProdId, aFormId: aFormId, aCreatedDate: aCreatedDate, aDeliverDate: aDeliverDate, aUnitPrice: aUnitPrice, aQuantity: aQuantity, aNote: aNote))
             return true
         }
         return false
@@ -384,6 +396,10 @@ class RECORD : NSObject {
             TextColorQuan = NSColor.red
             TableDisplayQuantityString = validateString(strline: DisplayQuantity)
         }
+        else if context == &contextNote {
+            TextColorNote = NSColor.red
+            TableDisplayNoteString = validateString(strline: DisplayNote)
+        }
         
         checkComplete()
     }
@@ -399,6 +415,6 @@ private var contextProdIndex = 0
 private var contextDeliverDate = 0
 private var contextUnitPrice = 0
 private var contextQuantity = 0
-
+private var contextNote = 0
 
 
