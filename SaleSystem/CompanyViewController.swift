@@ -14,6 +14,9 @@ class CompanyViewController: NSViewController {
     @IBOutlet var arrayController: NSArrayController!
     dynamic var companyList: [COMPANY] = []
     
+    @IBOutlet weak var companyIdTextLabel: NSTextField!
+    @IBOutlet weak var companyNameTextBox: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,7 +70,18 @@ class CompanyViewController: NSViewController {
         dataManager.removeObserver(self, forKeyPath: "saveAction")
     }
     
+    func fetchDisplayData() {
+        let id = companyIdTextLabel.integerValue
+        let companyName = companyNameTextBox.stringValue
+        
+        print("\(id) \(companyName)")
+        if companyList[id-1].Id == id {
+            companyList[id-1].DisplayName = companyName
+        }
+    }
+    
     @IBAction func saveEvent(_ sender: AnyObject) {
+        fetchDisplayData()
         dataManager.store()
     }
     

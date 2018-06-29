@@ -14,6 +14,8 @@ class ProductViewController: NSViewController {
     @IBOutlet var arrayController: NSArrayController!
     dynamic var productList: [PRODUCT] = []
     
+    @IBOutlet weak var productIdTextLabel: NSTextField!
+    @IBOutlet weak var productNameTextBox: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,7 +83,18 @@ class ProductViewController: NSViewController {
         dataManager.removeObserver(self, forKeyPath: "saveAction")
     }
     
+    func fetchDisplayData() {
+        let id = productIdTextLabel.integerValue
+        let productName = productNameTextBox.stringValue
+        
+        print("\(id) \(productName)")
+        if productList[id-1].Id == id {
+            productList[id-1].DisplayName = productName
+        }
+    }
+    
     @IBAction func saveEvent(_ sender: AnyObject) {
+        fetchDisplayData()
         dataManager.store()
     }
     
