@@ -15,6 +15,7 @@ class PriceViewController: NSViewController {
     @IBOutlet weak var popUpButton: NSPopUpButton!
     @IBOutlet weak var labelName: NSTextField!
     @IBOutlet weak var LocalizedSelectLabelCell: NSTextFieldCell!
+    @IBOutlet weak var saveButton: NSButton!
     
     
     var companyList: [COMPANY] = []
@@ -49,6 +50,7 @@ class PriceViewController: NSViewController {
         unitpriceList = dataManager.getUnitPriceList()
         
         tableView.tableColumns[2].isHidden = true
+        saveButton.isEnabled = false
         
         registerObserver()
         
@@ -66,7 +68,7 @@ class PriceViewController: NSViewController {
             
             reducedUnitPriceList = []
             tableView.tableColumns[2].isHidden = true
-            
+            saveButton.isEnabled = false
         }
         else {
             print("select company:\(companyList[selectedIndex-1].Name)")
@@ -80,6 +82,7 @@ class PriceViewController: NSViewController {
             }
             
             tableView.tableColumns[2].isHidden = false
+            saveButton.isEnabled = true
         }
         
         print("catch reduced unit price list changes")

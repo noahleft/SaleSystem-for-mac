@@ -184,6 +184,8 @@ class FORM : NSObject {
         return Name != DisplayName
     }
     dynamic var TextColor : NSColor = NSColor.black
+    var Quantity : Int
+    var Sum : Int
     
     var DisplayIndex : Int = 0
     
@@ -191,12 +193,16 @@ class FORM : NSObject {
         Id = sqlForm.Id
         Name = sqlForm.Name
         DisplayName = sqlForm.Name
+        Quantity = sqlForm.Quantity
+        Sum = sqlForm.Sum
     }
     
     init(aId: Int,aName: String) {
         Id = aId
         Name = aName
         DisplayName = aName
+        Quantity = 0
+        Sum = 0
     }
 }
 

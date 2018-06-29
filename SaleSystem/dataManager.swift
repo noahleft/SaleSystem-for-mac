@@ -239,6 +239,10 @@ class DATAMANAGER : NSObject {
         priceList   = dbManager.loadUnitPriceList()
     }
     
+    func checkFormData(formID : Int) {
+        dbManager.calculateFormData(formID: Int64(formID))
+    }
+    
 }
 
 var dataManager: DATAMANAGER = DATAMANAGER()

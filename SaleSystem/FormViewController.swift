@@ -18,15 +18,34 @@ class FormViewController: NSViewController {
     dynamic var noUnsaveChanges : Bool = true
     dynamic var enableOpenForm : Bool = false
     
+    @IBOutlet weak var formIdTextLabel: NSTextField!
+    @IBOutlet weak var formNameTextBox: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         triggerInitialEvent()
+        checkFormData()
         
         registerObserver()
         dataManager.addObserver(self, forKeyPath: "saveAction", options: NSKeyValueObservingOptions(rawValue: UInt(0)), context: nil)
         
         tableView.delegate = self
+    }
+    
+    func checkFormData() {
+        var reload : Bool = false
+        for form in formList {
+            if form.Quantity == -1 {
+                dataManager.checkFormData(formID: form.Id)
+                reload = true
+            }
+        }
+        
+        if reload {
+            dataManager.store()
+            triggerInitialEvent()
+        }
     }
     
     func triggerInitialEvent() {
@@ -86,7 +105,7 @@ class FormViewController: NSViewController {
                 }
                 
                 if form.DisplayName != "" {
-                    dataManager.addUpdate(update: SQL_FORM(aId: form.Id, aName: form.DisplayName))
+                    dataManager.addUpdate(update: SQL_FORM(aId: form.Id, aName: form.DisplayName, aQuantity: form.Quantity, aSum: form.Sum))
                     print("add update FORM: name \(form.DisplayName) @ id:\(form.Id)")
                 }
                 else {
@@ -125,8 +144,20 @@ class FormViewController: NSViewController {
         dataManager.removeObserver(self, forKeyPath: "saveAction")
     }
     
+    func fetchDisplayData() {
+        let id = formIdTextLabel.integerValue
+        let formName = formNameTextBox.stringValue
+        
+        print("\(id) \(formName)")
+        if formList[id-1].DisplayIndex == id {
+            formList[id-1].DisplayName = formName
+        }
+    }
+    
     @IBAction func saveEvent(_ sender: AnyObject) {
+        fetchDisplayData()
         dataManager.store()
+        checkFormData()
     }
     
     

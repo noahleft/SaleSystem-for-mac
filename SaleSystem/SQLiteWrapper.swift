@@ -67,7 +67,7 @@ class SQLiteWrapper {
                 let db = try Connection(rPath)
                 print("db version:\(db.userVersion)")
                 
-                //migration from 0 to 1
+                //migration from 0 to 1  (v1.4)
                 //add table company info
                 //add table form note
                 if db.userVersion == 0 {
@@ -81,7 +81,17 @@ class SQLiteWrapper {
                     
                     db.userVersion = 1
                 }
-                
+                //migration from 1 to 2  (v1.5)
+                //add quantity and sum for each form
+                if db.userVersion == 1 {
+                    let users = Table("form")
+                    let suffix = Expression<Int64>("QUANTITY")
+                    let suffix2 = Expression<Int64>("SUM")
+                    try db.run(users.addColumn(suffix, defaultValue: -1))
+                    try db.run(users.addColumn(suffix2, defaultValue: 0))
+                    
+                    db.userVersion = 2
+                }
             }
         }
         catch {
@@ -181,11 +191,16 @@ class SQLiteWrapper {
                 let id = Expression<Int64>("ID")
                 let name = Expression<String?>("NAME")
                 let hide = Expression<Bool>("HIDE")
+                let quantity = Expression<Int64>("QUANTITY")
+                let sum = Expression<Int64>("SUM")
                 
                 for user in try db.prepare(users.filter(!hide)) {
 //                    print("id: \(user[id]), name: \(user[name])")
                     // id: 1, name: Optional("Alice")
-                    let com = SQL_FORM(aId: Int(user[id]), aName: String(describing: user[name]!))
+                    let com = SQL_FORM(aId: Int(user[id]),
+                                       aName: String(describing: user[name]!),
+                                       aQuantity: Int(user[quantity]),
+                                       aSum: Int(user[sum]))
                     retArray.append(com)
                 }
                 // SELECT * FROM "users"
@@ -410,6 +425,7 @@ class SQLiteWrapper {
     }
     
     func storeRecordList(recordList : [SQL_RECORD]) {
+        var dirtyFormID : [Int64] = []
         do {
             if let rPath = path {
                 let db = try Connection(rPath)
@@ -456,13 +472,59 @@ class SQLiteWrapper {
                             print("insertion fail")
                         }
                     }
+                    
+                    if dirtyFormID.contains(Int64(item.FormId)) == false {
+                        dirtyFormID.append(Int64(item.FormId))
+                    }
                 }
             }
         }
         catch {
             print("db store fail")
         }
+        
+        for id in dirtyFormID {
+            self.calculateFormData(formID: id)
+        }
     }
+    
+    func calculateFormData(formID : Int64) {
+        do {
+            if let rPath = path {
+                let db = try Connection(rPath)
+                
+                let users = Table("record")
+                let form = Expression<Int64>("FORM_ID")
+                let unitPrice = Expression<Double>("UNIT_PRICE")
+                let quantity = Expression<Int64>("QUANTITY")
+                
+                var totalQuantity : Int64 = 0
+                var totalSum : Double = 0.0
+                
+                for user in try db.prepare(users.filter(form == formID)) {
+                    totalQuantity += user[quantity]
+                    totalSum += Double(user[quantity])*user[unitPrice]
+                }
+                // SELECT * FROM "users"
+                
+                let users2 = Table("form")
+                let id2 = Expression<Int64>("ID")
+                let quantity2 = Expression<Int64>("QUANTITY")
+                let sum2 = Expression<Int64>("SUM")
+                
+                let tq = Int64(totalQuantity)
+                let ts = Int64(totalSum)
+                
+                print("try to update form data:  \(formID)   \(totalQuantity) \(totalSum)")
+                let currnet = users2.filter(id2 == formID)
+                try db.run(currnet.update(quantity2 <- tq, sum2 <- ts))
+            }
+        }
+        catch {
+            print("db store fail")
+        }
+    }
+    
 }
 
 

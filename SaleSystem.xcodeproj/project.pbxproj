@@ -87,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E00E0AF20E566C90086EFD3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FormView.strings"; sourceTree = "<group>"; };
 		2E0591EF1DF5A19000620F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E0591F21DF5A29300620F1E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2E0656AF1D8B98800023DA60 /* sample.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.db; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		2EA18C5F1DAE412E006629BB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		2EAED89A1DC609C400F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/CompanyView.strings"; sourceTree = "<group>"; };
 		2EAED89B1DC609C400F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ProductView.strings"; sourceTree = "<group>"; };
-		2EAED89D1DC609C500F9C86B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/FormView.strings"; sourceTree = "<group>"; };
 		2EB14EB21D9963E000C06F3A /* dataConvert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataConvert.swift; sourceTree = "<group>"; };
 		2EB935141E0015BF009E9D23 /* CloudDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudDataManager.swift; sourceTree = "<group>"; };
 		2ED4594D1DABEEFE00AB1F37 /* FormPrintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormPrintViewController.swift; sourceTree = "<group>"; };
@@ -508,7 +508,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E45263E1DA262BF000AA615 /* Base */,
-				2EAED89D1DC609C500F9C86B /* zh-Hant */,
+				2E00E0AF20E566C90086EFD3 /* zh-Hant */,
 			);
 			name = FormView.storyboard;
 			sourceTree = "<group>";

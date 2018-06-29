@@ -53,10 +53,14 @@ class SQL_UNITPRICE {
 class SQL_FORM {
     var Id : Int
     var Name : String
+    var Quantity : Int
+    var Sum : Int
     
-    init(aId: Int,aName: String) {
+    init(aId: Int,aName: String, aQuantity: Int, aSum: Int) {
         Id = aId
         Name = aName
+        Quantity = aQuantity
+        Sum = aSum
     }
 }
 

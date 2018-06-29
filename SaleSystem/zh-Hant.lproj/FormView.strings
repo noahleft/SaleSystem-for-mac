@@ -1,4 +1,10 @@
 
+/* Class = "NSTableColumn"; headerCell.title = "Quantity"; ObjectID = "80I-rN-5Oo"; */
+"80I-rN-5Oo.headerCell.title" = "總數量";
+
+/* Class = "NSTableColumn"; headerCell.title = "Sum"; ObjectID = "hc5-zB-Syr"; */
+"hc5-zB-Syr.headerCell.title" = "總金額";
+
 /* Class = "NSTableColumn"; headerCell.title = "ID"; ObjectID = "0pe-To-as9"; */
 "0pe-To-as9.headerCell.title" = "ID";
 
