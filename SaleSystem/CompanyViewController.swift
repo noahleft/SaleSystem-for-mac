@@ -17,6 +17,10 @@ class CompanyViewController: NSViewController {
     @IBOutlet weak var companyIdTextLabel: NSTextField!
     @IBOutlet weak var companyNameTextBox: NSTextField!
     
+    @IBOutlet weak var latestQuantityTableColumn: NSTableColumn!
+    @IBOutlet weak var lastQuantityTableColumn: NSTableColumn!
+    @IBOutlet weak var lastLastQuantityTableColumn: NSTableColumn!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +44,19 @@ class CompanyViewController: NSViewController {
     
     func triggerInitialEvent() {
         companyList = dataManager.getCompanyList()
+        
+        // get last 3 month
+        var formList = dataManager.getFormList()
+        if let latestForm = formList.popLast() {
+            latestQuantityTableColumn.title = latestForm.Name
+            if let lastForm = formList.popLast() {
+                lastQuantityTableColumn.title = lastForm.Name
+                if let lastLastForm = formList.popLast() {
+                    lastLastQuantityTableColumn.title = lastLastForm.Name
+                }
+            }
+        }
+        
         appendEmptyCompany()
     }
     

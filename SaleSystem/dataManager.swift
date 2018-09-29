@@ -60,8 +60,16 @@ class DATAMANAGER : NSObject {
     
     
     func getCompanyList() -> [COMPANY] {
+        // get last 3 month
+        var formList = dataManager.getFormList()
+        let latestForm = formList.popLast()
+        let lastForm = formList.popLast()
+        let lastLastForm = formList.popLast()
+        
         return companyList.map{ (p) -> COMPANY in
-            return COMPANY(sqlCom: p)
+            return COMPANY(sqlCom: p, latestQuantity: getTotalQuantity(formId: latestForm?.Id, compId: p.Id)
+                , lastQuantity: getTotalQuantity(formId: lastForm?.Id, compId: p.Id)
+                , lastLastQuantity: getTotalQuantity(formId: lastLastForm?.Id, compId: p.Id))
         }
     }
     
@@ -166,6 +174,15 @@ class DATAMANAGER : NSObject {
         }
     }
     
+    func getTotalQuantity(formId : Int?, compId : Int) -> Int {
+        if let fid = formId {
+            return getRecordList(formId: fid, compId: compId).map({$0.Quantity}).reduce(0, +)
+        }
+        else {
+            return 0
+        }
+    }
+
     func getRecordListIdForNewData() -> Int {
         if let lastObj = recordList.last {
             return lastObj.Id+1

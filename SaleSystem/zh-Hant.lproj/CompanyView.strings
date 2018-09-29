@@ -34,3 +34,12 @@
 
 /* Class = "NSTextFieldCell"; title = "Company Name:"; ObjectID = "wsD-nY-761"; */
 "wsD-nY-761.title" = "公司名稱:";
+
+/* Class = "NSTableColumn"; headerCell.title = "LatestQuantity"; ObjectID = "36l-sF-xK3"; */
+"36l-sF-xK3.headerCell.title" = "上上月";
+
+/* Class = "NSTableColumn"; headerCell.title = "LastQuantity"; ObjectID = "b0b-ts-suB"; */
+"b0b-ts-suB.headerCell.title" = "上月";
+
+/* Class = "NSTableColumn"; headerCell.title = "LatestQuantity"; ObjectID = "pXP-jS-JZf"; */
+"pXP-jS-JZf.headerCell.title" = "當月";

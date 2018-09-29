@@ -18,16 +18,22 @@ class COMPANY : NSObject {
     var Id : Int
     var Name : String
     dynamic var DisplayName : String
+    var LatestQuantity : Int
+    var LastQuantity : Int
+    var LastLastQuantity : Int
     
     var ValueChanged : Bool {
         return Name != DisplayName
     }
     dynamic var TextColor : NSColor = NSColor.black
     
-    init(sqlCom: SQL_COMPANY) {
+    init(sqlCom: SQL_COMPANY, latestQuantity: Int, lastQuantity : Int, lastLastQuantity : Int) {
         Id = sqlCom.Id
         Name = sqlCom.Name
         DisplayName = sqlCom.Name
+        LatestQuantity = latestQuantity
+        LastQuantity = lastQuantity
+        LastLastQuantity = lastLastQuantity
         super.init()
         
         registerObserver()
@@ -37,6 +43,9 @@ class COMPANY : NSObject {
         Id = aId
         Name = aName
         DisplayName = aName
+        LatestQuantity = 0
+        LastQuantity = 0
+        LastLastQuantity = 0
         super.init()
         
         registerObserver()
